@@ -27,7 +27,7 @@ export default class extends Phaser.State {
 
     // this.game.add.existing(this.mushroom)
 
-    this.character = new Character(this.world.centerX, this.game.height - 80);
+    this.character = new Character(0, 0);
     this.game.add.existing(this.character);
   }
 
