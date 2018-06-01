@@ -7,7 +7,9 @@ export default class extends Phaser.State {
 
   create() { console.log("creating play"); }
 
-  update() { console.log("updating play"); }
+  update() {
+
+  }
 
   onPlayerDies() {
     console.log("Obesimon went to a better place...");

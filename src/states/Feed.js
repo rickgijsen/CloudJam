@@ -9,6 +9,8 @@ export default class extends Phaser.State {
     this.countDownTimeMs = 10 * 1000;
     this.timer = this.game.time.create(false);
 
+    // Add the feed sprites here
+
     // Create the feedme countdown timer
     this.timer.add(this.countDownTimeMs, this.onTimerComplete, this);
     console.log("Starting FeedMe stage: countdown = " + this.countDownTimeMs);
