@@ -1,7 +1,7 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
-import Mushroom from '../sprites/Mushroom'
 import Character from '../sprites/Character'
+import MovingItemList from '../sprites/MovingItemList'
 
 export default class extends Phaser.State {
   init() { }
@@ -29,11 +29,14 @@ export default class extends Phaser.State {
 
     this.character = new Character(0, 0);
     this.game.add.existing(this.character);
+
+    this.MovingItemList = new MovingItemList(0,0);
+    this.game.add.existing(this.MovingItemList);
   }
 
   render() {
     if (__DEV__) {
-      // this.game.debug.spriteInfo(this.mushroom, 32, 32)
+        game.debug.text('enemies: ' + this.MovingItemList.length, 16, 48);
     }
   }
 }
