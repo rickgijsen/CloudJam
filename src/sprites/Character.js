@@ -13,11 +13,16 @@ export default class Character extends Phaser.Group {
     this.holdDownMiddle = false;
     this.holdDownRight = false;
 
-    this.vSpeed = 10;
-    this.hSpeed = 4;
+
+    this.vForce = 0;
+    this.vForceMax = 10;
+    this.hForce = 0;
 
     this.buildImage();
     this.buildController()
+
+    this.movingObject = this.squirrelSprite;
+    this.startPosY = this.movingObject.y;
   }
 
   update () {
@@ -70,25 +75,44 @@ export default class Character extends Phaser.Group {
 
   moveUp() {
     console.log('fart')
-    this.squirrelSprite.y -= this.vSpeed
+    this.accelerate()
   }
   moveLeft() {
     console.log('left')
-    this.squirrelSprite.x -= this.hSpeed
+    this.hForce = -3;
   }
   moveRight() {
     console.log('right')
-    this.squirrelSprite.x += this.hSpeed
+    this.hForce = 3;
   }
   update() {
+    console.log(this.vForce)
+    this.movingObject.y -= this.vForce;
+    this.movingObject.x +=  this.hForce;
+
     if(this.holdDownLeft) {
       this.moveLeft()
     }
     if(this.holdDownMiddle) {
       this.moveUp()
     }
+    else {
+      this.decelerate()
+    }
     if(this.holdDownRight) {
       this.moveRight()
+    }
+  }
+  accelerate() {
+    if(this.vForce < this.vForceMax) {
+      this.vForce += 1;
+    }
+  }
+  decelerate() {
+    if(this.vForce > 0) {
+      this.vForce -= .3;
+    } else {
+      this.vForce = 0;
     }
   }
 }
