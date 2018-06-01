@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import FBInstant from '../api/FBInstant'
 import { centerGameObjects } from '../utils'
 
 export default class extends Phaser.State {
@@ -17,6 +18,10 @@ export default class extends Phaser.State {
   }
 
   create () {
-    this.state.start('Game')
+    FBInstant.startGameAsync(this.startGame, this);
+  }
+
+  startGame() {
+    this.state.start('Game');
   }
 }
