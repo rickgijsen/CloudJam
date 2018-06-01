@@ -10,20 +10,22 @@ export default class extends Phaser.State {
   }
 
   preload() {
-    if (config.webfonts.length) {
-      WebFont.load({
-        google: {
-          families: config.webfonts
-        },
-        active: this.fontsLoaded
-      })
-    }
+    WebFont.load({
+      google: {
+        families: ['Bangers'],
+      },
+      active: this.fontsLoaded,
+    });
 
     let text = this.add.text(this.world.centerX, this.world.centerY, 'loading fonts', { font: '16px Arial', fill: '#dddddd', align: 'center' })
     text.anchor.setTo(0.5, 0.5)
 
     this.load.image('loaderBg', './assets/images/loader-bg.png')
     this.load.image('loaderBar', './assets/images/loader-bar.png')
+  }
+
+  fontsLoaded() {
+    this.fontsReady = true;
   }
 
   render() {
@@ -33,9 +35,5 @@ export default class extends Phaser.State {
     if (!config.webfonts.length) {
       this.state.start('Splash')
     }
-  }
-
-  fontsLoaded() {
-    this.fontsReady = true
   }
 }
