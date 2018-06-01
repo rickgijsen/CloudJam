@@ -1,6 +1,7 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
 import Mushroom from '../sprites/Mushroom'
+import Character from '../sprites/Character'
 
 export default class extends Phaser.State {
   init() { }
@@ -22,14 +23,17 @@ export default class extends Phaser.State {
       x: this.world.centerX,
       y: this.world.centerY,
       asset: 'mushroom'
-    })
+    });
 
     this.game.add.existing(this.mushroom)
+
+    this.character = new Character(50, 50);
+    this.game.add.existing(this.character);
   }
 
   render() {
     if (__DEV__) {
-      this.game.debug.spriteInfo(this.mushroom, 32, 32)
+      // this.game.debug.spriteInfo(this.mushroom, 32, 32)
     }
   }
 }

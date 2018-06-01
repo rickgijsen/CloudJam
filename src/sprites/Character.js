@@ -1,12 +1,19 @@
 import Phaser from 'phaser';
 
-export default class extends Phaser.Sprite {
-  constructor ({ game, x, y, asset }) {
-    super(game, x, y, asset)
-    this.anchor.setTo(0.5)
+export default class extends Phaser.Group {
+  constructor ({x, y}) {
+    super(game)
+    this.x = x;
+    this.y = y;
+
+    this.buildImage();
   }
 
   update () {
-    this.angle += 1
+  }
+
+  buildImage() {
+    this.squirrelSprite = new Phaser.Sprite(this.game, this.x, this.y, 'squirrel');
+    this.add(this.squirrelSprite);
   }
 }
