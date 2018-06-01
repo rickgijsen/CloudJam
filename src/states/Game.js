@@ -2,6 +2,13 @@
 import Phaser from 'phaser'
 import Mushroom from '../sprites/Mushroom'
 
+//
+// GameState - does nothing
+//
+
+// Every State has its own logic
+// This class controls the logic
+
 export default class extends Phaser.State {
   init() { }
   preload() { }
@@ -25,6 +32,13 @@ export default class extends Phaser.State {
     })
 
     this.game.add.existing(this.mushroom)
+
+    console.log("GameState has started");
+    this.game.state.start('Feed');
+  }
+
+  update() {
+    // This is the game update loop
   }
 
   render() {
