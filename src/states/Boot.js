@@ -10,14 +10,12 @@ export default class extends Phaser.State {
   }
 
   preload() {
-    if (config.webfonts.length) {
-      WebFont.load({
-        google: {
-          families: config.webfonts
-        },
-        active: this.fontsLoaded
-      })
-    }
+    WebFont.load({
+      google: {
+        families: ['Bangers'],
+      },
+      active: this.fontsLoaded,
+    });
 
     let text = this.add.text(this.world.centerX, this.world.centerY, 'loading fonts', { font: '16px Arial', fill: '#dddddd', align: 'center' })
     text.anchor.setTo(0.5, 0.5)
@@ -27,6 +25,10 @@ export default class extends Phaser.State {
     this.load.image('squirrel', './assets/images/squirrel.png')
   }
 
+  fontsLoaded() {
+    this.fontsReady = true;
+  }
+
   render() {
     if (config.webfonts.length && this.fontsReady) {
       this.state.start('Splash')
@@ -34,9 +36,5 @@ export default class extends Phaser.State {
     if (!config.webfonts.length) {
       this.state.start('Splash')
     }
-  }
-
-  fontsLoaded() {
-    this.fontsReady = true
   }
 }
