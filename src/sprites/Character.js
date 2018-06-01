@@ -3,7 +3,7 @@ import Sprite from '../services/sprite'
 import Overlay from '../services/overlay'
 
 export default class Character extends Phaser.Group {
-  constructor (x, y) {
+  constructor (x, y,  movingItems) {
     super(game)
 
     this.x = x;
@@ -17,16 +17,15 @@ export default class Character extends Phaser.Group {
     this.vForce = 0;
     this.vForceMax = 10;
     this.hForce = 0;
+    this.decelerationSpeed = .5;
 
     this.buildImage();
     this.buildController()
 
-    this.movingObject = this.squirrelSprite;
+    this.movingObject = movingItems;
     this.startPosY = this.movingObject.y;
   }
 
-  update () {
-  }
 
   buildImage() {
     this.squirrelSprite = new Sprite({
@@ -87,20 +86,29 @@ export default class Character extends Phaser.Group {
   }
   update() {
     console.log(this.vForce)
-    this.movingObject.y -= this.vForce;
-    this.movingObject.x +=  this.hForce;
+    // this.movingObject.y -= this.vForce;
+    // this.movingObject.x +=  this.hForce;
+    this.movingObject.changeY(this.vForce);
+    this.movingObject.changeX(-this.hForce);
 
     if(this.holdDownLeft) {
       this.moveLeft()
+    }else {
+      if(!this.holdDownRight) {
+        this.hForce = 0;
+      }
     }
     if(this.holdDownMiddle) {
       this.moveUp()
-    }
-    else {
-      this.decelerate()
+    } else {
+      this.decelerate(this.decelerationSpeed)
     }
     if(this.holdDownRight) {
       this.moveRight()
+    } else {
+      if(!this.holdDownLeft) {
+        this.hForce = 0;
+      }
     }
   }
   accelerate() {
@@ -108,9 +116,9 @@ export default class Character extends Phaser.Group {
       this.vForce += 1;
     }
   }
-  decelerate() {
+  decelerate(decelerationSpeed) {
     if(this.vForce > 0) {
-      this.vForce -= .3;
+      this.vForce -= decelerationSpeed;
     } else {
       this.vForce = 0;
     }

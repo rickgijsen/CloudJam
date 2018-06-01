@@ -27,16 +27,16 @@ export default class extends Phaser.State {
 
     // this.game.add.existing(this.mushroom)
 
-    this.character = new Character(0, 0);
-    this.game.add.existing(this.character);
+    this.movingItemList = new MovingItemList(0,0);
+    this.game.add.existing(this.movingItemList);
 
-    this.MovingItemList = new MovingItemList(0,0);
-    this.game.add.existing(this.MovingItemList);
+    this.character = new Character(0, 0, this.movingItemList);
+    this.game.add.existing(this.character);
   }
 
   render() {
     if (__DEV__) {
-        game.debug.text('enemies: ' + this.MovingItemList.length, 16, 48);
+        game.debug.text('enemies: ' + this.movingItemList.length, 16, 48);
     }
   }
 }
