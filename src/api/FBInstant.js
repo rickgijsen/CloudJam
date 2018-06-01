@@ -1,4 +1,3 @@
-import DateManager from './DateManager';
 import { print } from '../utils';
 
 export default class Facebook {
