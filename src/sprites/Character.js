@@ -74,7 +74,12 @@ export default class Character extends Phaser.Group {
 
   moveUp() {
     console.log('fart')
-    this.accelerate()
+    if(this.fartBar.filledValue > 0) {
+      this.accelerate()
+    } else {
+      this.decelerate(this.decelerationSpeed)
+      return;
+    }
     if(this.fartBar.filledValue > 0) {
       this.fartBar.filledValue -= this.fartBar.fartCost;
     }
