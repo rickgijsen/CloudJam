@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import BadFood from './BadFood'
 
 export default class extends Phaser.Sprite {
   constructor (x, y, asset) {
@@ -9,9 +10,6 @@ export default class extends Phaser.Sprite {
 
     this.x = x
     this.y = y
-
-    this.velocityX = 0
-    this.velocityY = 0
   }
 
   update () {

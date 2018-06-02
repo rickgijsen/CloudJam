@@ -8,6 +8,5 @@ export default class extends BadFood {
   }
 
   update () {
-    this.x++
   }
 }

@@ -56,14 +56,4 @@ export default class extends Phaser.State {
       this.game.debug.spriteInfo(this.celery, 32, 32)
     }
   }
-
-  update () {
-    game.physics.arcade.collide(this.burger, this.burrito, this.doCollide, null, this)
-  }
-
-  doCollide () {
-    console.log('collide')
-    this.burger.x *= -1
-    this.burrito.x *= -1
-  }
 }

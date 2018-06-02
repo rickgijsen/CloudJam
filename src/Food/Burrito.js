@@ -8,6 +8,5 @@ export default class extends GoodFood {
   }
 
   update () {
-    this.x--
   }
 }
