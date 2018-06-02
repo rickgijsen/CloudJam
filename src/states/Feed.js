@@ -1,6 +1,7 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
 import Player from '../sprites/Player'
+import Hand from '../sprites/Hand'
 import StartText from '../sprites/StartText'
 
 export default class extends Phaser.State {
@@ -19,6 +20,9 @@ export default class extends Phaser.State {
           y: 0
           });
       this.game.add.existing(this.player);
+      this.hand = new Hand({
+        x: 0, y: 0
+      })
 
     // Create the feedme countdown timer
     this.timer.add(this.countDownTimeMs, this.onTimerComplete, this);

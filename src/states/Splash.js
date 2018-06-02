@@ -25,6 +25,8 @@ export default class extends Phaser.State {
     this.load.image('background', 'assets/images/long.jpg')
     this.load.image('fartBar', 'assets/images/empty-bar.png')
     this.load.image('fart', 'assets/images/fart.png')
+      this.load.image('hand_open', 'assets/images/hand_open.png')
+      this.load.image('hand_closed', 'assets/images/hand_closed.png')
 
       //
       // load sounds

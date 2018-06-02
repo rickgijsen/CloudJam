@@ -9,13 +9,10 @@ export default class extends Phaser.Group {
 
         this.game = game
         this.buildImage()
-        this.buildController()
+
         // this.x = x  - this.sprite.texture.width/2
         // this.y = y - this.sprite.texture.height/2
-        this.weight = 0
-        this.fartSound = game.add.audio('fart01');
-        this.fartNumber = 0
-
+        this.open = true;
 
     }
 
@@ -23,41 +20,21 @@ export default class extends Phaser.Group {
         this.sprite = new Sprite({
             x: this.game.world.centerX,
             y: this.game.height - 50,
-            asset: 'char_idle',
-            anchorX: 0.5,
-            anchorY: 1,
+            asset: 'hand_open',
+            anchorX: 1,
+            anchorY: 0,
         })
         this.add(this.sprite)
         console.log(this.sprite)
 
     }
 
-    buildController() {
-        this.clickAreaMiddle = new Overlay({
-            x: this.game.width / 4,
-            y: this.game.width / 4,
-            alpha: 0
-        });
-        this.clickAreaMiddle.width = this.game.width
-        this.add(this.clickAreaMiddle);
-        this.clickAreaMiddle.events.onInputDown.add(() => {
-            console.log("clicked"), this.weight++, this.squish()
-        }, this)
 
-
-    }
 
     update() {
-        if (this.weight === 0) {
-            this.sprite.loadTexture('char_idle')
-        }
-        if (this.weight > 0 && this.weight < 10) {
-            this.sprite.loadTexture('char_eat_01')
-        }
-        if (this.weight >= 10 && this.weight < 1110) {
-            this.sprite.loadTexture('char_eat_02')
-        }
-      
+        if(this.open== false){
+            this.sprite.loadTexture('hand_closed')
+        } else{this.sprite.loadTexture('hand_open')}
     }
 
     squish() {
