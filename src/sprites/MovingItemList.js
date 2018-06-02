@@ -70,7 +70,7 @@ export default class extends Phaser.Group {
         item.destroy()
       } else if (item.position.y > worldHeight + backgroundHeight) {
         let temp = item.position.y - (worldHeight + backgroundHeight);
-        item.position.y = worldHeight - backgroundHeight + temp;
+        item.position.y = worldHeight - backgroundHeight + temp + 1; // insurence pixel
       }
     });
 
