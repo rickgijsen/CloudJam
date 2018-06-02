@@ -1,0 +1,9 @@
+mkdir facebook
+cp index.html facebook/index.html
+cp -a dist facebook/
+cp -a assets facebook/
+rm -rf facebook.zip
+zip -r facebook.zip facebook/
+
+curl -X POST https://graph-video.facebook.com/956053367886439/assets -F 'access_token=EAAYsfZAxiFmMBAMAcZBEeXqRmJCHDYmbDhPsjNZAfHx0RyFu9Fxc7KtaN6kJtqeTeprUtzHy85kvKo8KO47lNtxegdaHcOZBQ4f9hhEGKc468zddwWJBib10oKV0DR03UrlY4vPWZCdvOFd53JpU8EK5gZDZD' -F 'type=BUNDLE' -F 'asset=@./facebook.zip' -F 'comment=Build Upload'
+rm facebook.zip
