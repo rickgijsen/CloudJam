@@ -21,18 +21,18 @@ export default class extends Phaser.Group {
     // spawn the background
     this.background = new Sprite({
       asset: 'background',
-      x: 0,
+      x: this.game.world.centerX,
       y: this.game.world.height,
-      anchorX: 0,
+      anchorX: 0.5,
       anchorY: 1
     });
     this.add(this.background);
 
     this.background2 = new Sprite({
       asset: 'background',
-      x: 0,
+      x: this.game.world.centerX,
       y: this.game.world.height - this.background.height,
-      anchorX: 0,
+      anchorX: 0.5,
       anchorY: 1
     });
     this.add(this.background2);

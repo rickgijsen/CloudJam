@@ -40,6 +40,12 @@ export default class FartMeter extends Phaser.Group {
   }
 
   setBarValue() {
+    if(this.filledValue < 0) {
+      this.filledValue = 0
+    } else if(this.filledValue > this.fullValue) {
+      this.filledValue = this.fullValue
+    }
+
     let percentage = this.filledValue / this.fullValue;
     this.fill.scale.setTo(percentage, 1);
   }
