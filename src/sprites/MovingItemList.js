@@ -1,14 +1,14 @@
 import Phaser from 'phaser'
 import Sprite from '../services/Sprite'
-import Burger from "../Food/Burger";
-import Lettuce from "../Food/Lettuce";
-import Celery from "../Food/Celery";
-import Burrito from "../Food/Burrito";
+import Burger from "../Food/GoodFood/Burger";
+import Lettuce from "../Food/BadFood/Lettuce";
+import Celery from "../Food/BadFood/Celery";
+import Burrito from "../Food/GoodFood/Burrito";
 import Fork from "../Obstacles/Fork";
 import Glass from "../Obstacles/Glass";
 import Plate from "../Obstacles/Plate";
 import Spoon from "../Obstacles/Spoon";
-import Beans from "../Food/Beans";
+import Beans from "../Food/GoodFood/Beans";
 
 export default class extends Phaser.Group {
   constructor(x, y, velocityX, velocityY) {

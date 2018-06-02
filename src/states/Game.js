@@ -1,12 +1,6 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
 
-import Character from '../sprites/Character'
-import MovingItemList from '../sprites/MovingItemList'
-import FartMeter from "../sprites/FartMeter";
-import EndScreen from '../sprites/EndScreen'
-import UI from '../sprites/UI'
-
 //
 // GameState - does nothing
 //
@@ -18,6 +12,12 @@ import UI from '../sprites/UI'
 // when feed timer is done, start state play
 // Once player dies, start state end
 // Ad === profit?
+
+import Character from '../sprites/Character'
+import MovingItemList from '../sprites/MovingItemList'
+import FartMeter from "../sprites/FartMeter";
+import EndScreen from '../sprites/EndScreen'
+import UI from '../sprites/UI'
 
 export default class extends Phaser.State {
   init () { }
@@ -54,7 +54,6 @@ export default class extends Phaser.State {
     this.add.existing(this.endScreen)
   }
 
-
   update () {
     // check collision between squirrel and items
     let char = this.character
@@ -65,7 +64,6 @@ export default class extends Phaser.State {
         fartbar.addFarts(item.fartModifier)
       }
     })
-
   }
 
   render () {
