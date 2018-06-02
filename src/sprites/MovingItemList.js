@@ -44,6 +44,8 @@ export default class extends Phaser.Group {
     if(this.combinedVelocity > this.spawnDistance) {
       this.spawnItems();
       this.combinedVelocity = 0;
+      this.randomDistance = Math.floor(Math.random() * 500) + 500;
+      this.spawnDistance = this.randomDistance;
     }
   }
 
@@ -56,28 +58,16 @@ export default class extends Phaser.Group {
   }
 
   spawnItems () {
-        let amountOfItems = Math.floor(Math.random() * 5) + 1;
-        let spawnedItems = [];
-        for (var i = 0; i < amountOfItems; i++) {
-            var position = Math.floor(Math.random() * (screen.width + 1));
-            spawnedItems.forEach( function (item) {
-                console.log()
-                while(position <= (item[1] + 10) && position >= (item[0]) - 10) {
-                    position = Math.floor(Math.random() * (screen.width + 1));
-                }
-            });
+    var position = Math.floor(Math.random() * (screen.width + 1));
 
-            this.items = new Sprite({
-                asset: 'mushroom',
-                x: position,
-                y: 0,
-                anchorX: 0.5,
-                anchorY: 0.5
-            });
+    this.items = new Sprite({
+        asset: 'mushroom',
+        x: position,
+        y: 0,
+        anchorX: 0.5,
+        anchorY: 0.5
+    });
 
-            let spawnedItem = [position, position + this.items.width];
-            spawnedItems.push(spawnedItem);
-            this.add(this.items)
-        }
-    }
+    this.add(this.items)
+  }
 }

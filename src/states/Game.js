@@ -36,6 +36,11 @@ export default class extends Phaser.State {
 
     this.character = new Character(0, 0, this.movingItemList, this.fartBar);
     this.game.add.existing(this.character);
+
+    let char = this.character;
+    this.movingItemList.forEach( function (item) {
+        game.physics.arcade.collide(char, item);
+    })
   }
 
   render() {
