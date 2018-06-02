@@ -9,7 +9,7 @@ export default class extends Phaser.Group {
     this.y = y
 
     this.velocityX = 0
-    this.velocityY = 2
+    this.velocityY = 0
     this.combinedVelocity = 0
     this.spawnDistance = 500
     this.score = 0;
@@ -30,20 +30,18 @@ export default class extends Phaser.Group {
 
   update () {
     this.combinedVelocity += this.velocityY;
-    this.score += this.velocityY;
+    this.score += Math.floor(this.velocityY);
     let xModifier = this.velocityX
     let yModifier = this.velocityY
     this.forEach(function (item) {
       item.position.y += yModifier
       item.position.x += xModifier
 
-      if (item.position.y > screen.height && item.key != 'background') {
-        console.log(item)
+      if (item.position.y > screen.height && item.key !== 'background') {
         item.destroy()
       }
     })
 
-    console.log(this.combinedVelocity + ' spawndis: ' + this.spawnDistance)
     if (this.combinedVelocity > this.spawnDistance) {
       this.spawnItems()
       this.combinedVelocity = 0

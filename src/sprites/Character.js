@@ -9,10 +9,13 @@ export default class Character extends Phaser.Group {
     this.x = x;
     this.y = y;
     this.fartBar = fartBar;
+    console.log(this.fartBar)
 
     this.holdDownLeft = false;
     this.holdDownMiddle = false;
     this.holdDownRight = false;
+
+    this.gameOver = false;
 
     this.vForce = 30;
     this.vForceMax = 30;
@@ -93,6 +96,11 @@ export default class Character extends Phaser.Group {
     this.hForce = this.horizontalMovingSpeed;
   }
   update() {
+    if(this.gameOver) {
+      this.vForce = 0;
+      this.movingObject.changeY(this.vForce);
+      return;
+    }
     // this.movingObject.y -= this.vForce;
     // this.movingObject.x +=  this.hForce;
     this.movingObject.changeY(this.vForce);
@@ -132,6 +140,8 @@ export default class Character extends Phaser.Group {
       this.vForce -= decelerationSpeed;
     } else {
       this.vForce = 0;
+      this.gameOver = true;
+      this.game.openEndScreen.dispatch(this.movingObject.score);
     }
   }
   createFart() {

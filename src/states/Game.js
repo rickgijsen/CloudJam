@@ -3,6 +3,8 @@ import Phaser from 'phaser'
 import Character from '../sprites/Character'
 import MovingItemList from '../sprites/MovingItemList'
 import FartMeter from "../sprites/FartMeter";
+import EndScreen  from '../sprites/EndScreen'
+import UI from '../sprites/UI'
 
 //
 // GameState - does nothing
@@ -18,7 +20,10 @@ import FartMeter from "../sprites/FartMeter";
 
 export default class extends Phaser.State {
   init() { }
-  preload() { }
+  preload() {
+    this.game.openEndScreen = new Phaser.Signal();
+    this.game.toggleUI = new Phaser.Signal();
+  }
 
   create() {
     // banner.padding.set(10, 16)
@@ -36,25 +41,18 @@ export default class extends Phaser.State {
     this.movingItemList = new MovingItemList(0,0);
     this.game.add.existing(this.movingItemList);
 
-    this.fartBar = new FartMeter(0, 0);
-    this.game.add.existing(this.fartBar);
+    this.ui = new UI(0, 0, this.movingItemList)
+    this.game.add.existing(this.ui);
 
-    this.character = new Character(0, 0, this.movingItemList, this.fartBar);
+    this.character = new Character(0, 0, this.movingItemList, this.ui.fartBar);
     this.game.add.existing(this.character);
 
-    this.bannerText = ''
-    this.banner = this.add.text(this.world.centerX + 120, 30, this.bannerText, {
-      font: '50px Bangers',
-      fill: '#000000',
-      align: 'right'
-    })
-    this.banner.padding.set(10, 16)
-    this.banner.anchor.setTo(0.5, 0.5)
-    this.add.existing(this.banner)
+    this.endScreen = new EndScreen(0, 0)
+    this.add.existing(this.endScreen)
+
   }
 
   render() {
-    this.banner.text = Math.floor(this.movingItemList.score);
     if (__DEV__) {
         game.debug.text('enemies: ' + this.movingItemList.length, 16, 48);
     }
