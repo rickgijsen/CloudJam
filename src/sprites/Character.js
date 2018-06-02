@@ -19,13 +19,15 @@ export default class Character extends Phaser.Group {
     this.gameOver = false;
     this.doOnce = true;
 
-    this.vForce = 15 ; //start boost
-    this.vForceMax = 15;
+    this.vForce = 2 ; //start boost
+    this.vForceMax = 2;
     this.vForceMaxStart = this.vForceMax;
     this.hForce = 0;
-    this.decelerationSpeed = .1;
-    this.horizontalMovingSpeed = 12;
-    this.accelerationSpeed = 10;
+    this.decelerationSpeed = .03;
+    this.horizontalMovingSpeed = 5;
+    this.accelerationSpeed = 5;
+    this.maxMoveDistance = 150;
+    this.extraBoostSpeed = 10
 
     this.buildImage();
     this.buildController()
@@ -50,7 +52,7 @@ export default class Character extends Phaser.Group {
     });
 
     game.physics.arcade.enable(this.squirrelSprite, Phaser.Physics.ARCADE)
-    this.squirrelSprite.scale.setTo(0.7, 0.7)
+    this.squirrelSprite.scale.setTo(0.4, 0.4)
 
     this.add(this.squirrelSprite);
   }
@@ -100,7 +102,7 @@ export default class Character extends Phaser.Group {
     this.createFart()
   }
   moveLeft() {
-    if(this.xDistanceMoved > -290) {
+    if(this.xDistanceMoved > -this.maxMoveDistance) {
       this.squirrelSprite.angle = -20;
       this.hForce = -this.horizontalMovingSpeed;
       this.xDistanceMoved -= this.horizontalMovingSpeed;
@@ -109,7 +111,7 @@ export default class Character extends Phaser.Group {
     }
   }
   moveRight() {
-    if(this.xDistanceMoved< 290) {
+    if(this.xDistanceMoved< this.maxMoveDistance) {
       this.squirrelSprite.angle = 20;
       this.hForce = this.horizontalMovingSpeed;
       this.xDistanceMoved += this.horizontalMovingSpeed;
@@ -139,7 +141,7 @@ export default class Character extends Phaser.Group {
     }
     if(this.holdDownMiddle) {
       this.moveUp()
-      this.vForceMax = this.vForceMaxStart + 10;
+      this.vForceMax = this.vForceMaxStart + this.extraBoostSpeed;
     } else {
       this.vForceMax = this.vForceMaxStart;
       this.doOnce = true;
