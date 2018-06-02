@@ -2,6 +2,7 @@
 import Phaser from 'phaser'
 import Character from '../sprites/Character'
 import MovingItemList from '../sprites/MovingItemList'
+import FartMeter from "../sprites/FartMeter";
 
 export default class extends Phaser.State {
   init() { }
@@ -30,7 +31,10 @@ export default class extends Phaser.State {
     this.movingItemList = new MovingItemList(0,0);
     this.game.add.existing(this.movingItemList);
 
-    this.character = new Character(0, 0, this.movingItemList);
+    this.fartBar = new FartMeter(0, 0);
+    this.game.add.existing(this.fartBar);
+
+    this.character = new Character(0, 0, this.movingItemList, this.fartBar);
     this.game.add.existing(this.character);
   }
 
