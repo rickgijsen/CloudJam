@@ -13,7 +13,7 @@ import Spoon from "../Obstacles/Spoon";
 import Beans from "../Food/GoodFood/Beans";
 import Smoothie from "../Food/BadFood/Smoothie";
 import Carrot from "../Food/BadFood/Carrot";
-import Soda from "../Food/BadFood/Soda";
+import Soda from "../Food/GoodFood/Soda";
 
 export default class extends Phaser.Group {
   constructor(x, y, velocityX, velocityY) {
@@ -41,7 +41,7 @@ export default class extends Phaser.Group {
     this.background2 = new Sprite({
       asset: 'background',
       x: this.game.world.centerX,
-      y: this.game.world.height - this.background.height,
+      y: this.game.world.height - this.background.height + 1,
       anchorX: 0.5,
       anchorY: 1
     });
