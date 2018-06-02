@@ -33,7 +33,7 @@ export default class Character extends Phaser.Group {
     this.squirrelSprite = new Sprite({
       asset: 'squirrel',
       x: this.game.world.centerX,
-      y: this.game.height - 80,
+      y: this.game.height - 100,
       anchorX: 0.5,
       anchorY: 0.5
     });
@@ -75,7 +75,6 @@ export default class Character extends Phaser.Group {
   }
 
   moveUp() {
-    console.log('fart')
     if(this.fartBar.filledValue > 0) {
       this.accelerate()
     } else {
@@ -85,13 +84,12 @@ export default class Character extends Phaser.Group {
     if(this.fartBar.filledValue > 0) {
       this.fartBar.filledValue -= this.fartBar.fartCost;
     }
+    this.createFart()
   }
   moveLeft() {
-    console.log('left')
     this.hForce = -this.horizontalMovingSpeed;
   }
   moveRight() {
-    console.log('right')
     this.hForce = this.horizontalMovingSpeed;
   }
   update() {
@@ -101,10 +99,12 @@ export default class Character extends Phaser.Group {
     this.movingObject.changeX(-this.hForce);
 
     if(this.holdDownLeft) {
+      this.squirrelSprite.angle = -10;
       this.moveLeft()
     }else {
       if(!this.holdDownRight) {
         this.hForce = 0;
+        this.squirrelSprite.angle = 0;
       }
     }
     if(this.holdDownMiddle) {
@@ -113,10 +113,12 @@ export default class Character extends Phaser.Group {
       this.decelerate(this.decelerationSpeed)
     }
     if(this.holdDownRight) {
+      this.squirrelSprite.angle = 10;
       this.moveRight()
     } else {
       if(!this.holdDownLeft) {
         this.hForce = 0;
+        this.squirrelSprite.angle = 0;
       }
     }
   }
@@ -131,5 +133,25 @@ export default class Character extends Phaser.Group {
     } else {
       this.vForce = 0;
     }
+  }
+  createFart() {
+    let fart = new Sprite({
+      asset: 'fart',
+      x: this.game.world.centerX,
+      y: this.game.height - 70,
+      anchorX: 0.5,
+      anchorY: 0.5,
+    })
+    fart.alpha = 0.2
+    fart.scale.setTo(0.6, 0.6)
+    this.add(fart)
+    this.bringToTop(this.squirrelSprite)
+    this.fartTween = this.game.add.tween(fart)
+      .to({ y: fart.y + 200}, 300, Phaser.Easing.Exponential.In, false);
+    this.fartTween.start()
+    this.fartGrowTween = this.game.add.tween(fart.scale)
+      .from({ y: 0.2, x: 0.2}, 300, Phaser.Easing.Exponential.In, false);
+    this.fartGrowTween.start()
+    this.fartGrowTween.onComplete.add(() => {fart.destroy(true)}, this);
   }
 }
