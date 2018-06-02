@@ -80,33 +80,52 @@ export default class extends Phaser.Group {
 
   spawnItems () {
     var position = Math.floor(Math.random() * (screen.width + 1));
-      var chooseFood = Math.floor(Math.random() * (4));
+      var chooseFood = Math.floor(Math.random() * (2));
       switch (chooseFood) {
           case 0:
-            this.items = new Burger({
-                x: position,
-                y: 0
-            });
+            this.spawnGoodFood(position);
             break;
+          case 1:
+              this.spawnBadFood(position);
+              break;
+      }
+      this.add(this.items)
+  }
+
+
+  spawnGoodFood(position) {
+      var chooseFood = Math.floor(Math.random() * (2));
+      switch (chooseFood) {
+          case 0:
+              this.items = new Burger({
+                  x: position,
+                  y: 0
+              });
+              break;
           case 1:
               this.items = new Burrito({
                   x: position,
                   y: 0
               });
               break;
-          case 2:
+      }
+  }
+
+  spawnBadFood (position) {
+      var chooseFood = Math.floor(Math.random() * (2));
+      switch (chooseFood) {
+          case 0:
               this.items = new Lettuce({
                   x: position,
                   y: 0
               });
               break;
-          case 3:
+          case 1:
               this.items = new Celery({
                   x: position,
                   y: 0
               });
               break;
       }
-    this.add(this.items)
   }
 }

@@ -51,9 +51,11 @@ export default class extends Phaser.State {
   update() {
       // check collision between squirrel and items
       let char = this.character;
+      let fartbar = this.fartBar
       this.movingItemList.forEach( function (item) {
           if(game.physics.arcade.overlap(char, item)) {
               item.destroy();
+              fartbar.addFarts(item.fartModifier);
           }
       })
   }
