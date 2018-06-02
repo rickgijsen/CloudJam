@@ -10,5 +10,6 @@ export default class extends Obstacles {
     this.y = y
 
     this.fartModifier = -1000;
+    this.angle -= 45;
   }
 }
