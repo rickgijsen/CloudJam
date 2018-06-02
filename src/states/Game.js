@@ -4,6 +4,18 @@ import Character from '../sprites/Character'
 import MovingItemList from '../sprites/MovingItemList'
 import FartMeter from "../sprites/FartMeter";
 
+//
+// GameState - does nothing
+//
+
+// Every State has its own logic
+// This class controls the logic
+
+// Once this state starts, start state feed on Input
+// when feed timer is done, start state play
+// Once player dies, start state end
+// Ad === profit?
+
 export default class extends Phaser.State {
   init() { }
   preload() { }
