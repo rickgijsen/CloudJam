@@ -14,10 +14,12 @@ export default class Character extends Phaser.Group {
     this.holdDownMiddle = false;
     this.holdDownRight = false;
 
-    this.vForce = 0;
-    this.vForceMax = 10;
+    this.vForce = 30;
+    this.vForceMax = 30;
     this.hForce = 0;
-    this.decelerationSpeed = .5;
+    this.decelerationSpeed = .2;
+    this.horizontalMovingSpeed = 5;
+    this.accelerationSpeed = 2;
 
     this.buildImage();
     this.buildController()
@@ -86,14 +88,13 @@ export default class Character extends Phaser.Group {
   }
   moveLeft() {
     console.log('left')
-    this.hForce = -3;
+    this.hForce = -this.horizontalMovingSpeed;
   }
   moveRight() {
     console.log('right')
-    this.hForce = 3;
+    this.hForce = this.horizontalMovingSpeed;
   }
   update() {
-    console.log(this.vForce)
     // this.movingObject.y -= this.vForce;
     // this.movingObject.x +=  this.hForce;
     this.movingObject.changeY(this.vForce);
@@ -121,7 +122,7 @@ export default class Character extends Phaser.Group {
   }
   accelerate() {
     if(this.vForce < this.vForceMax) {
-      this.vForce += 1;
+      this.vForce += this.accelerationSpeed;
     }
   }
   decelerate(decelerationSpeed) {
