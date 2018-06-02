@@ -21,16 +21,30 @@ export default class extends Phaser.Group {
       anchorX: 0,
       anchorY: 1
     });
-    this.add(this.background)
+    this.add(this.background);
+
+      this.background2 = new Sprite({
+          asset: 'background',
+          x: 0,
+          y: this.game.world.height - this.background.height,
+          anchorX: 0,
+          anchorY: 1
+      });
+
+      this.add(this.background2);
   }
 
   update () {
-      // update the distance traveled
+
+    // update the distance traveled
     this.combinedVelocity += this.velocityY;
     let xModifier = this.velocityX;
     let yModifier = this.velocityY;
 
     // update the items
+      let worldHeight = this.game.world.height;
+      let backgroundHeight = this.background.height;
+      var test = false;
     this.forEach(function (item) {
       item.position.y += yModifier;
       item.position.x += xModifier;
@@ -38,8 +52,17 @@ export default class extends Phaser.Group {
       // destroy the item if it leaves the screen
       if (item.position.y > screen.height && item.key != "background") {
         item.destroy()
+      } else if (item.position.y  > worldHeight + backgroundHeight) {
+          let temp = item.position.y  - (worldHeight + backgroundHeight);
+          item.position.y = worldHeight - backgroundHeight + temp;
+          test = true;
       }
     });
+
+    if(test == true) {
+        this.debug();
+        test = false;
+    }
 
     if(this.combinedVelocity > this.spawnDistance) {
       this.spawnItems();
@@ -57,6 +80,11 @@ export default class extends Phaser.Group {
     this.velocityY = newY
   }
 
+  debug() {
+      console.log("back 1 onder: " + this.background.y + " top: " + (this.background.y + this.background.height));
+      console.log(" back 2 onder: " +  this.background2.y + " top: " + (this.background2.y + this.background2.height));
+  }
+
   spawnItems () {
     var position = Math.floor(Math.random() * (screen.width + 1));
 
@@ -67,6 +95,8 @@ export default class extends Phaser.Group {
         anchorX: 0.5,
         anchorY: 0.5
     });
+
+    this.game.physics.arcade.enable(this.items);
 
     this.add(this.items)
   }

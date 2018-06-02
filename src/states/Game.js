@@ -28,19 +28,24 @@ export default class extends Phaser.State {
 
     // this.game.add.existing(this.mushroom)
 
+
+      this.game.physics.startSystem(Phaser.Physics.ARCADE);
+
     this.movingItemList = new MovingItemList(0,0);
     this.game.add.existing(this.movingItemList);
+
 
     this.fartBar = new FartMeter(0, 0);
     this.game.add.existing(this.fartBar);
 
     this.character = new Character(0, 0, this.movingItemList, this.fartBar);
+      this.game.physics.arcade.enable(this.character);
     this.game.add.existing(this.character);
 
-    let char = this.character;
-    this.movingItemList.forEach( function (item) {
-        game.physics.arcade.collide(char, item);
-    })
+
+    if(game.physics.arcade.overlap(this.character, this.movingItemList)) {
+        console.log("test");
+    }
   }
 
   render() {
