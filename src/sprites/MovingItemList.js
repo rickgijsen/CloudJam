@@ -11,34 +11,35 @@ export default class extends Phaser.Group {
     this.velocityX = 0;
     this.velocityY = 2;
     this.combinedVelocity = 0;
-    this.spawnDistance = 500;
+    this.spawnDistance = 1000;
 
-    this.second = 60;
-    this.standerdTime = this.second * 3;
-    this.timer = 0;
-
+    // spawn the background
     this.background = new Sprite({
       asset: 'background',
       x: 0,
       y: this.game.world.height,
       anchorX: 0,
       anchorY: 1
-    })
+    });
     this.add(this.background)
   }
 
   update () {
+      // update the distance traveled
     this.combinedVelocity += this.velocityY;
     let xModifier = this.velocityX;
     let yModifier = this.velocityY;
+
+    // update the items
     this.forEach(function (item) {
       item.position.y += yModifier;
       item.position.x += xModifier;
 
+      // destroy the item if it leaves the screen
       if (item.position.y > screen.height && item.key != "background") {
         item.destroy()
       }
-    })
+    });
 
     if(this.combinedVelocity > this.spawnDistance) {
       this.spawnItems();
@@ -60,11 +61,11 @@ export default class extends Phaser.Group {
         for (var i = 0; i < amountOfItems; i++) {
             var position = Math.floor(Math.random() * (screen.width + 1));
             spawnedItems.forEach( function (item) {
-                while(position <= item[1] && position >= item[0]) {
-                    position = Math.floor(Math.random() * (screen.width + 1))
+                console.log()
+                while(position <= (item[1] + 10) && position >= (item[0]) - 10) {
+                    position = Math.floor(Math.random() * (screen.width + 1));
                 }
-            })
-
+            });
 
             this.items = new Sprite({
                 asset: 'mushroom',
@@ -72,7 +73,7 @@ export default class extends Phaser.Group {
                 y: 0,
                 anchorX: 0.5,
                 anchorY: 0.5
-            })
+            });
 
             let spawnedItem = [position, position + this.items.width];
             spawnedItems.push(spawnedItem);

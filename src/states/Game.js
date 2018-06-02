@@ -36,7 +36,7 @@ export default class extends Phaser.State {
 
   render() {
     if (__DEV__) {
-        game.debug.text('enemies: ' + this.movingItemList.length, 16, 48);
+        // game.debug.text('enemies: ' + this.movingItemList.length, 16, 48);
     }
   }
 }
