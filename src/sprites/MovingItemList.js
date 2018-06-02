@@ -10,12 +10,13 @@ import Plate from "../Obstacles/Plate";
 import Spoon from "../Obstacles/Spoon";
 
 export default class extends Phaser.Group {
-  constructor (x, y, velocityX, velocityY) {
+  constructor(x, y, velocityX, velocityY) {
     super(game)
 
     this.x = x;
     this.y = y;
 
+    this.score = 0;
     this.velocityX = 0;
     this.velocityY = 2;
     this.combinedVelocity = 0;
@@ -24,29 +25,30 @@ export default class extends Phaser.Group {
     // spawn the background
     this.background = new Sprite({
       asset: 'background',
-      x: 0,
+      x: this.game.world.centerX,
       y: this.game.world.height,
-      anchorX: 0,
+      anchorX: 0.5,
       anchorY: 1
     });
     this.add(this.background);
 
-      this.background2 = new Sprite({
-          asset: 'background',
-          x: 0,
-          y: this.game.world.height - this.background.height,
-          anchorX: 0,
-          anchorY: 1
-      });
-      this.add(this.background2);
+    this.background2 = new Sprite({
+      asset: 'background',
+      x: this.game.world.centerX,
+      y: this.game.world.height - this.background.height,
+      anchorX: 0.5,
+      anchorY: 1
+    });
+    this.add(this.background2);
   }
 
-  update () {
+  update() {
 
     // update the distance traveled
     this.combinedVelocity += this.velocityY;
-    let xModifier = this.velocityX;
-    let yModifier = this.velocityY;
+    this.score += Math.floor(this.velocityY);
+    let xModifier = this.velocityX
+    let yModifier = this.velocityY
 
     // update the items
     let worldHeight = this.game.world.height;
@@ -60,13 +62,13 @@ export default class extends Phaser.Group {
       if (item.position.y > screen.height && item.key != "background") {
         // destroy the item out of bounds
         item.destroy()
-      } else if (item.position.y  > worldHeight + backgroundHeight) {
-          let temp = item.position.y  - (worldHeight + backgroundHeight);
-          item.position.y = worldHeight - backgroundHeight + temp;
+      } else if (item.position.y > worldHeight + backgroundHeight) {
+        let temp = item.position.y - (worldHeight + backgroundHeight);
+        item.position.y = worldHeight - backgroundHeight + temp;
       }
     });
 
-    if(this.combinedVelocity > this.spawnDistance) {
+    if (this.combinedVelocity > this.spawnDistance) {
       this.spawnItems();
       this.combinedVelocity = 0;
       this.randomDistance = Math.floor(Math.random() * 500) + 500;
@@ -74,15 +76,15 @@ export default class extends Phaser.Group {
     }
   }
 
-  changeX (newX) {
+  changeX(newX) {
     this.velocityX = newX
   }
 
-  changeY (newY) {
+  changeY(newY) {
     this.velocityY = newY
   }
 
-  spawnItems () {
+  spawnItems() {
     var position = Math.floor(Math.random() * (screen.width + 1));
       var chooseFood = Math.floor(Math.random() * (3));
       switch (chooseFood) {

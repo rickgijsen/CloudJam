@@ -9,10 +9,14 @@ export default class Character extends Phaser.Group {
     this.x = x;
     this.y = y;
     this.fartBar = fartBar;
+    console.log(this.fartBar)
 
     this.holdDownLeft = false;
     this.holdDownMiddle = false;
     this.holdDownRight = false;
+
+    this.gameOver = false;
+    this.doOnce = true;
 
     this.vForce = 30;
     this.vForceMax = 30;
@@ -23,6 +27,8 @@ export default class Character extends Phaser.Group {
 
     this.buildImage();
     this.buildController()
+    this.createShakeTween()
+    this.squirrelStartY = this.squirrelSprite.y;
 
     this.movingObject = movingItems;
     this.startPosY = this.movingObject.y;
@@ -95,6 +101,11 @@ export default class Character extends Phaser.Group {
     this.hForce = this.horizontalMovingSpeed;
   }
   update() {
+    if(this.gameOver) {
+      this.vForce = 0;
+      this.movingObject.changeY(this.vForce);
+      return;
+    }
     // this.movingObject.y -= this.vForce;
     // this.movingObject.x +=  this.hForce;
     this.movingObject.changeY(this.vForce);
@@ -112,6 +123,10 @@ export default class Character extends Phaser.Group {
     if(this.holdDownMiddle) {
       this.moveUp()
     } else {
+      this.doOnce = true;
+      console.log(this.shakeTween)
+      this.shakeTween.pause()
+      this.squirrelSprite.y = this.squirrelStartY;
       this.decelerate(this.decelerationSpeed)
     }
     if(this.holdDownRight) {
@@ -125,6 +140,12 @@ export default class Character extends Phaser.Group {
     }
   }
   accelerate() {
+    if(this.doOnce) {
+      this.accelerateAnim()
+      this.moveTween = this.game.add.tween(this.squirrelSprite)
+        .to({ y: this.squirrelSprite.y - 10}, 100, Phaser.Easing.Bounce.Out, false)
+      this.moveTween.start()
+    }
     if(this.vForce < this.vForceMax) {
       this.vForce += this.accelerationSpeed;
     }
@@ -134,13 +155,16 @@ export default class Character extends Phaser.Group {
       this.vForce -= decelerationSpeed;
     } else {
       this.vForce = 0;
+      this.gameOver = true;
+      this.game.openEndScreen.dispatch(this.movingObject.score);
     }
   }
   createFart() {
+    let random = Math.floor(Math.random() * (4 - -4) ) + -4;
     let fart = new Sprite({
       asset: 'fart',
-      x: this.game.world.centerX,
-      y: this.game.height - 70,
+      x: this.game.world.centerX + random,
+      y: this.game.height - 80,
       anchorX: 0.5,
       anchorY: 0.5,
     })
@@ -155,5 +179,18 @@ export default class Character extends Phaser.Group {
       .from({ y: 0.2, x: 0.2}, 300, Phaser.Easing.Exponential.In, false);
     this.fartGrowTween.start()
     this.fartGrowTween.onComplete.add(() => {fart.destroy(true)}, this);
+  }
+  accelerateAnim() {
+    this.doOnce = false;
+    this.shakeTween.start();
+    this.shakeTween.resume();
+  }
+
+  createShakeTween() {
+    this.shakeTween = this.game.add.tween(this.squirrelSprite)
+      .to({ x: this.squirrelSprite.x + 1}, 10, Phaser.Easing.Bounce.Out, false)
+      .to({ x: this.squirrelSprite.x - 2 }, 20, Phaser.Easing.Bounce.Out, false)
+      .to({ x: this.squirrelSprite.x + 1}, 10, Phaser.Easing.Bounce.Out, false)
+      .loop(true)
   }
 }

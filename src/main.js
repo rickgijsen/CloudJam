@@ -5,7 +5,10 @@ import Phaser from 'phaser'
 import BootState from './states/Boot'
 import SplashState from './states/Splash'
 import GameState from './states/Game'
-
+import FeedState from './states/Feed'
+import PlayState from './states/Play'
+import EndState from './states/End'
+import AdState from './states/Ad'
 import config from './config'
 
 class Game extends Phaser.Game {
@@ -14,11 +17,15 @@ class Game extends Phaser.Game {
     const width = docElement.clientWidth > config.gameWidth ? config.gameWidth : docElement.clientWidth
     const height = docElement.clientHeight > config.gameHeight ? config.gameHeight : docElement.clientHeight
 
-    super(width, height, Phaser.CANVAS, 'content', null)
+    super(width, height, Phaser.CANVAS, 'content', null);
 
-    this.state.add('Boot', BootState, false)
-    this.state.add('Splash', SplashState, false)
-    this.state.add('Game', GameState, false)
+    this.state.add('Boot', BootState, false);
+    this.state.add('Splash', SplashState, false);
+    this.state.add('Game', GameState, false);
+    this.state.add('Feed', FeedState, false);
+    this.state.add('Play', PlayState, false);
+    this.state.add('End', EndState, false);
+    this.state.add('Ad', AdState, false);
 
     // with Cordova with need to wait that the device is ready so we will call the Boot state in another file
     if (!window.cordova) {
