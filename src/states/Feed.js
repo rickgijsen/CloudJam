@@ -3,10 +3,14 @@ import Phaser from 'phaser'
 import Player from '../sprites/Player'
 import Hand from '../sprites/Hand'
 import StartText from '../sprites/StartText'
+import Sprite from '../services/Sprite'
+import Character from "../sprites/Character";
+import FartMeter from "../sprites/FartMeter";
+import MovingItemList from "../sprites/MovingItemList";
 
 export default class extends Phaser.State {
-  init() { }
-  preload() { }
+  init () { }
+  preload () { }
 
   create() {
     this.countDownTimeMs = 1 * 1000;
@@ -25,9 +29,9 @@ export default class extends Phaser.State {
       })
       this.game.add.existing(this.hand);
     // Create the feedme countdown timer
-    this.timer.add(this.countDownTimeMs, this.onTimerComplete, this);
-    console.log("Starting FeedMe stage: countdown = " + this.countDownTimeMs);
-    this.timer.start();
+    this.timer.add(this.countDownTimeMs, this.onTimerComplete, this)
+    console.log('Starting FeedMe stage: countdown = ' + this.countDownTimeMs)
+    this.timer.start()
   }
 
   // FeedMe timer has completed
@@ -39,11 +43,11 @@ export default class extends Phaser.State {
         this.hand.squish()
 
       }
-    //this.game.state.start("Play");
+    this.game.state.start("Game");
   }
 
   update() {
   }
 
-  render() { }
+  render () { }
 }

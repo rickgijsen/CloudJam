@@ -1,11 +1,14 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
-
-
-
 import Character from '../sprites/Character'
 import MovingItemList from '../sprites/MovingItemList'
-import FartMeter from "../sprites/FartMeter";
+import FartMeter from '../sprites/FartMeter'
+import EndScreen from '../sprites/EndScreen'
+import UI from '../sprites/UI'
+import Burger from '../Food/Burger'
+import Burrito from '../Food/Burrito'
+import Lettuce from '../Food/Lettuce'
+import Celery from '../Food/Celery'
 
 //
 // GameState - does nothing
@@ -20,18 +23,13 @@ import FartMeter from "../sprites/FartMeter";
 // Ad === profit?
 
 export default class extends Phaser.State {
-  init() { }
-  preload() { }
+  init () { }
+  preload () {
+    this.game.openEndScreen = new Phaser.Signal()
+    this.game.toggleUI = new Phaser.Signal()
+  }
 
-
-  create() {
-    // const bannerText = 'Phaser + ES6 + Webpack'
-    // let banner = this.add.text(this.world.centerX, this.game.height - 80, bannerText, {
-    //   font: '40px Bangers',
-    //   fill: '#77BFA3',
-    //   smoothed: false
-    // })
-
+  create () {
     // banner.padding.set(10, 16)
     // banner.anchor.setTo(0.5)
 
@@ -44,19 +42,35 @@ export default class extends Phaser.State {
 
     // this.game.add.existing(this.mushroom)
 
-    this.movingItemList = new MovingItemList(0,0);
-    this.game.add.existing(this.movingItemList);
+    this.physics.startSystem(Phaser.Physics.ARCADE)
 
-    this.fartBar = new FartMeter(0, 0);
-    this.game.add.existing(this.fartBar);
+    this.movingItemList = new MovingItemList(0, 0)
+    this.game.add.existing(this.movingItemList)
 
-    this.character = new Character(0, 0, this.movingItemList, this.fartBar);
-    this.game.add.existing(this.character);
+    this.ui = new UI(0, 0, this.movingItemList)
+    this.game.add.existing(this.ui)
+
+    this.character = new Character(0, 0, this.movingItemList, this.ui.fartBar)
+    this.game.add.existing(this.character)
+
+    this.endScreen = new EndScreen(0, 0)
+    this.add.existing(this.endScreen)
   }
 
-  render() {
+  update () {
+    // check collision between squirrel and items
+    let char = this.character
+    let fartbar = this.ui.fartBar
+    this.movingItemList.forEach(function (item) {
+      if (game.physics.arcade.overlap(char, item)) {
+        item.destroy()
+        fartbar.addFarts(item.fartModifier)
+      }
+    })
+  }
+
+  render () {
     if (__DEV__) {
-        game.debug.text('enemies: ' + this.movingItemList.length, 16, 48);
     }
   }
 }
