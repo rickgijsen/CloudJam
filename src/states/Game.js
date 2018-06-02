@@ -5,22 +5,10 @@ import MovingItemList from '../sprites/MovingItemList'
 import FartMeter from '../sprites/FartMeter'
 import EndScreen from '../sprites/EndScreen'
 import UI from '../sprites/UI'
-import Burger from '../Food/Burger'
-import Burrito from '../Food/Burrito'
-import Lettuce from '../Food/Lettuce'
-import Celery from '../Food/Celery'
-
-//
-// GameState - does nothing
-//
-
-// Every State has its own logic
-// This class controls the logic
-
-// Once this state starts, start state feed on Input
-// when feed timer is done, start state play
-// Once player dies, start state end
-// Ad === profit?
+import Burger from '../Food/GoodFood/Burger'
+import Burrito from '../Food/GoodFood/Burrito'
+import Lettuce from '../Food/BadFood/Lettuce'
+import Celery from '../Food/BadFood/Celery'
 
 export default class extends Phaser.State {
   init () { }
@@ -71,6 +59,7 @@ export default class extends Phaser.State {
 
   render () {
     if (__DEV__) {
+
     }
   }
 }

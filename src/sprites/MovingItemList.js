@@ -1,9 +1,19 @@
 import Phaser from 'phaser'
 import Sprite from '../services/Sprite'
-import Burger from "../Food/Burger";
-import Lettuce from "../Food/Lettuce";
-import Celery from "../Food/Celery";
-import Burrito from "../Food/Burrito";
+import Burger from "../Food/GoodFood/Burger";
+import Lettuce from "../Food/BadFood/Lettuce";
+import Celery from "../Food/BadFood/Celery";
+import Apple from "../Food/BadFood/Apple";
+import Burrito from "../Food/GoodFood/Burrito";
+import Pizza from "../Food/GoodFood/Pizza";
+import Fork from "../Obstacles/Fork";
+import Glass from "../Obstacles/Glass";
+import Plate from "../Obstacles/Plate";
+import Spoon from "../Obstacles/Spoon";
+import Beans from "../Food/GoodFood/Beans";
+import Smoothie from "../Food/BadFood/Smoothie";
+import Carrot from "../Food/BadFood/Carrot";
+import Soda from "../Food/GoodFood/Soda";
 
 export default class extends Phaser.Group {
   constructor(x, y, velocityX, velocityY) {
@@ -31,7 +41,7 @@ export default class extends Phaser.Group {
     this.background2 = new Sprite({
       asset: 'background',
       x: this.game.world.centerX,
-      y: this.game.world.height - this.background.height,
+      y: this.game.world.height - this.background.height + 1,
       anchorX: 0.5,
       anchorY: 1
     });
@@ -82,56 +92,121 @@ export default class extends Phaser.Group {
 
   spawnItems() {
     var position = Math.floor(Math.random() * (screen.width + 1));
-    var chooseFood = Math.floor(Math.random() * (2));
-    switch (chooseFood) {
-      case 0:
-        this.spawnGoodFood(position);
-        break;
-      case 1:
-        this.spawnBadFood(position);
-        break;
-    }
-    this.add(this.items)
+      var chooseFood = Math.floor(Math.random() * (3));
+      switch (chooseFood) {
+          case 0:
+            this.spawnGoodFood(position);
+            break;
+          case 1:
+              this.spawnBadFood(position);
+              break;
+          case 2:
+              this.spawnObstacles(position);
+              break;
+      }
+      this.add(this.items)
   }
 
 
   spawnGoodFood(position) {
-    console.log("good");
-    var chooseFood = Math.floor(Math.random() * (2));
-    switch (chooseFood) {
-      case 0:
-        this.items = new Burger({
-          x: position,
-          y: 0
-        });
-        break;
-      case 1:
-        this.items = new Burrito({
-          x: position,
-          y: 0
-        });
-        break;
-    }
+      var chooseFood = Math.floor(Math.random() * (5));
+      switch (chooseFood) {
+          case 0:
+              this.items = new Burger({
+                  x: position,
+                  y: 0
+              });
+              break;
+          case 1:
+              this.items = new Burrito({
+                  x: position,
+                  y: 0
+              });
+              break;
+          case 2:
+              this.items = new Beans({
+                  x: position,
+                  y: 0
+              });
+              break;
+          case 3:
+              this.items = new Pizza({
+                  x: position,
+                  y: 0
+              });
+              break;
+          case 4:
+              this.items = new Soda({
+                  x: position,
+                  y: 0
+              })
+              break;
+      }
   }
 
-  spawnBadFood(position) {
-    console.log("bad");
-    var chooseFood = Math.floor(Math.random() * (2));
-    switch (chooseFood) {
-      case 0:
-        console.log("Lettuce");
-        this.items = new Lettuce({
-          x: position,
-          y: 0
-        });
-        break;
-      case 1:
-        console.log("Celery");
-        this.items = new Celery({
-          x: position,
-          y: 0
-        });
-        break;
-    }
+  spawnBadFood (position) {
+      var chooseFood = Math.floor(Math.random() * (5));
+      switch (chooseFood) {
+          case 0:
+              this.items = new Lettuce({
+                  x: position,
+                  y: 0
+              });
+              break;
+          case 1:
+              this.items = new Celery({
+                  x: position,
+                  y: 0
+              });
+              break;
+          case 2:
+              this.items = new Apple({
+                  x: position,
+                  y: 0
+              });
+              break;
+          case 3:
+              this.items = new Smoothie({
+                  x: position,
+                  y: 0
+              });
+              break;
+          case 4:
+              this.items = new Carrot({
+                  x: position,
+                  y: 0
+              });
+              break;
+      }
   }
+
+    spawnObstacles (position) {
+        var chooseFood = Math.floor(Math.random() * (4));
+        switch (chooseFood) {
+            case 0:
+                this.items = new Fork({
+                    x: position,
+                    y: 0
+                })
+                break;
+            case 1:
+                this.items = new Glass({
+                    x: position,
+                    y: 0
+                })
+                break;
+            case 2:
+                this.items = new Plate({
+                    x: position,
+                    y: 0
+                })
+                break;
+            case 3:
+                this.items = new Spoon({
+                    x: position,
+                    y: 0
+                })
+                break;
+        }
+    }
 }
