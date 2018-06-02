@@ -1,6 +1,11 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 324f7be4043ca7bd930e13424a249ebaa6c19a1a
 import Character from '../sprites/Character'
 import MovingItemList from '../sprites/MovingItemList'
 import FartMeter from '../sprites/FartMeter'
