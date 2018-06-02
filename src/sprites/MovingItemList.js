@@ -55,14 +55,8 @@ export default class extends Phaser.Group {
       } else if (item.position.y  > worldHeight + backgroundHeight) {
           let temp = item.position.y  - (worldHeight + backgroundHeight);
           item.position.y = worldHeight - backgroundHeight + temp;
-          test = true;
       }
     });
-
-    if(test == true) {
-        this.debug();
-        test = false;
-    }
 
     if(this.combinedVelocity > this.spawnDistance) {
       this.spawnItems();
@@ -78,11 +72,6 @@ export default class extends Phaser.Group {
 
   changeY (newY) {
     this.velocityY = newY
-  }
-
-  debug() {
-      console.log("back 1 onder: " + this.background.y + " top: " + (this.background.y + this.background.height));
-      console.log(" back 2 onder: " +  this.background2.y + " top: " + (this.background2.y + this.background2.height));
   }
 
   spawnItems () {
