@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import Sprite from '../services/sprite'
+import Sprite from '../services/Sprite'
 import Overlay from '../services/overlay'
 import Text from '../services/Text'
 
@@ -46,7 +46,7 @@ export default class EndScreen extends Phaser.Group {
     this.add(this.restartButton);
 
     this.restartButton.events.onInputDown.add(() => {
-      this.game.state.start('Game')
+      this.game.state.start('Feed')
     }, this)
   }
   buildText() {

@@ -1,16 +1,11 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 324f7be4043ca7bd930e13424a249ebaa6c19a1a
 import Character from '../sprites/Character'
 import MovingItemList from '../sprites/MovingItemList'
 import FartMeter from '../sprites/FartMeter'
 import EndScreen from '../sprites/EndScreen'
 import UI from '../sprites/UI'
+import MuteButton from '../sprites/MuteButton'
 import Burger from '../Food/Burger'
 import Burrito from '../Food/Burrito'
 import Lettuce from '../Food/Lettuce'
@@ -33,6 +28,7 @@ export default class extends Phaser.State {
   preload () {
     this.game.openEndScreen = new Phaser.Signal()
     this.game.toggleUI = new Phaser.Signal()
+    this.game.muteButton = new Phaser.Signal()
   }
 
   create () {
@@ -61,6 +57,10 @@ export default class extends Phaser.State {
 
     this.endScreen = new EndScreen(0, 0)
     this.add.existing(this.endScreen)
+
+    this.muteButton = new MuteButton(0, 0)
+
+    this.game.muteButton.dispatch()
   }
 
   update () {
