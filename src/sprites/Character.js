@@ -13,7 +13,6 @@ export default class Character extends Phaser.Group {
     this.holdDownMiddle = false;
     this.holdDownRight = false;
 
-
     this.vForce = 0;
     this.vForceMax = 10;
     this.hForce = 0;
