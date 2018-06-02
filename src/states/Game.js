@@ -1,6 +1,9 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
-import Mushroom from '../sprites/Mushroom'
+import Fork from '../Obstacles/Fork'
+import Glass from '../Obstacles/Glass'
+import Plate from '../Obstacles/Plate'
+import Spoon from '../Obstacles/Spoon'
 
 export default class extends Phaser.State {
   init() { }
@@ -17,19 +20,38 @@ export default class extends Phaser.State {
     banner.padding.set(10, 16)
     banner.anchor.setTo(0.5)
 
-    this.mushroom = new Mushroom({
-      game: this.game,
-      x: this.world.centerX,
-      y: this.world.centerY,
-      asset: 'mushroom'
+    this.fork = new Fork({
+      x: game.width / 4,
+      y: game.height / 2
     })
 
-    this.game.add.existing(this.mushroom)
+    this.glass = new Glass({
+      x: game.width / 1.5,
+      y: game.height / 2
+    })
+
+    this.plate = new Plate({
+      x: game.width / 4,
+      y: game.height / 4
+    })
+
+    this.spoon = new Spoon({
+      x: game.width / 1.5,
+      y: game.height / 3
+    })
+
+    this.game.add.existing(this.fork)
+    this.game.add.existing(this.glass)
+    this.game.add.existing(this.plate)
+    this.game.add.existing(this.spoon)
   }
 
   render() {
     if (__DEV__) {
-      this.game.debug.spriteInfo(this.mushroom, 32, 32)
+      this.game.debug.spriteInfo(this.fork, 32, 32)
+      this.game.debug.spriteInfo(this.glass, 32, 32)
+      this.game.debug.spriteInfo(this.plate, 32, 32)
+      this.game.debug.spriteInfo(this.spoon, 32, 32)
     }
   }
 }
