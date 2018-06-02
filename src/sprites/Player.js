@@ -6,26 +6,29 @@ import Overlay from "../services/Overlay";
 export default class extends Phaser.Group {
     constructor (x, y) {
         super(game)
+
+        this.game = game
         this.buildImage()
         this.buildController()
-        this.x = x  - this.sprite.texture.width/2;
-        this.y = y - this.sprite.texture.height/2;
-        this.weight = 0;
+        // this.x = x  - this.sprite.texture.width/2
+        // this.y = y - this.sprite.texture.height/2
+        this.weight = 0
+        this.fartSound = game.add.audio('fart01');
 
 
 
   }
   buildImage() {
       this.sprite = new Sprite({
-
+            x: this.game.world.centerX,
+          y: this.game.height-50,
           asset: 'char_idle',
-          anchor: 0.5
+          anchorX: 0.5,
+          anchorY: 1,
       })
       this.add(this.sprite)
       console.log(this.sprite)
 
-      this.sprite.x = this.game.world.centerX,
-      this.sprite.y = this.game.height-150
   }
 
   buildController() {
@@ -53,9 +56,38 @@ export default class extends Phaser.Group {
   }
 
   squish() {
-        console.log(this.sprite.texture.width)
-      this.sprite.moveInTween = this.game.add.tween(this)
-          .from({ width: -500 }, 500, Phaser.Easing.Bounce.InOut, false);
+        console.log(this.sprite.scale)
+      this.sprite.scale.x = 1
+      this.sprite.scale.y = 1
+      game.soundManager.playSound(this.getRandomFart(Math.floor(Math.random() * 5)))
+      this.sprite.moveInTween = this.game.add.tween(this.sprite.scale)
+          .from({ x: .5, y:1.2}, 500, Phaser.Easing.Circular.Out, false)
+
+
+
       this.sprite.moveInTween.start();
+  }
+
+getRandomFart(fartNumber){
+    switch (fartNumber){
+        case 0:
+            console.log("fart1")
+            return "fart01"
+            break;
+        case 1:
+            console.log("fart2")
+            return "fart02"
+            break;
+        case 2:
+            console.log("fart3")
+            return "fart03"
+            break;
+        case 3: console.log("fart4")
+            return "fart04"
+            break;
+        case 4: console.log("fart5")
+            return "fart05"
+            break;
+    }
   }
 }
