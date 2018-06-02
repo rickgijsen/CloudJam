@@ -4,11 +4,11 @@ import Phaser from 'phaser'
 import Character from '../sprites/Character'
 import MovingItemList from '../sprites/MovingItemList'
 import FartMeter from "../sprites/FartMeter";
-import Burger from '../Food/Burger'
-import Burrito from '../Food/Burrito'
-import Lettuce from '../Food/Lettuce'
-import Celery from '../Food/Celery'
 
+import Fork from '../Obstacles/Fork'
+import Glass from '../Obstacles/Glass'
+import Plate from '../Obstacles/Plate'
+import Spoon from '../Obstacles/Spoon'
 
 export default class extends Phaser.State {
   init () { }
@@ -34,7 +34,7 @@ export default class extends Phaser.State {
 
     // this.game.add.existing(this.mushroom)
 
-      this.physics.startSystem(Phaser.Physics.ARCADE)
+    this.physics.startSystem(Phaser.Physics.ARCADE)
 
     this.movingItemList = new MovingItemList(0,0);
     this.game.add.existing(this.movingItemList);
@@ -52,16 +52,42 @@ export default class extends Phaser.State {
       // check collision between squirrel and items
       let char = this.character;
       let fartbar = this.fartBar
-      this.movingItemList.forEach( function (item) {
-          if(game.physics.arcade.overlap(char, item)) {
+      this.movingItemList.forEach(function (item) {
+          if (game.physics.arcade.overlap(char, item)) {
               item.destroy();
               fartbar.addFarts(item.fartModifier);
           }
       })
+
+      this.fork = new Fork({
+          x: game.width / 4,
+          y: game.height / 2
+      })
+
+      this.glass = new Glass({
+          x: game.width / 1.5,
+          y: game.height / 2
+      })
+
+      this.plate = new Plate({
+          x: game.width / 4,
+          y: game.height / 4
+      })
+
+      this.spoon = new Spoon({
+          x: game.width / 1.5,
+          y: game.height / 3
+      })
+
+      this.game.add.existing(this.fork)
+      this.game.add.existing(this.glass)
+      this.game.add.existing(this.plate)
+      this.game.add.existing(this.spoon)
   }
 
   render () {
     if (__DEV__) {
+
     }
   }
 }
