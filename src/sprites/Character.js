@@ -24,7 +24,7 @@ export default class Character extends Phaser.Group {
     this.vForceMaxStart = this.vForceMax;
     this.hForce = 0;
     this.decelerationSpeed = .1;
-    this.horizontalMovingSpeed = 8;
+    this.horizontalMovingSpeed = 12;
     this.accelerationSpeed = 10;
 
     this.buildImage();
@@ -101,7 +101,7 @@ export default class Character extends Phaser.Group {
   }
   moveLeft() {
     if(this.xDistanceMoved > -290) {
-      this.squirrelSprite.angle = -10;
+      this.squirrelSprite.angle = -20;
       this.hForce = -this.horizontalMovingSpeed;
       this.xDistanceMoved -= this.horizontalMovingSpeed;
     } else {
@@ -110,7 +110,7 @@ export default class Character extends Phaser.Group {
   }
   moveRight() {
     if(this.xDistanceMoved< 290) {
-      this.squirrelSprite.angle = 10;
+      this.squirrelSprite.angle = 20;
       this.hForce = this.horizontalMovingSpeed;
       this.xDistanceMoved += this.horizontalMovingSpeed;
     } else {
