@@ -12,7 +12,7 @@ export default class EndScreen extends Phaser.Group {
     this.y = y;
 
     this.game.openEndScreen.add((score) => {
-      this.scoreText.text = `${Math.floor(score / 10) / 100}m`
+      this.scoreText.text = `Score: \n${Math.floor(score / 10) / 100}m`
       this.switchVisibility();
       this.game.toggleUI.dispatch();
     });
@@ -37,7 +37,7 @@ export default class EndScreen extends Phaser.Group {
     this.restartButton = new Sprite({
       asset: 'button',
       x: this.game.world.centerX,
-      y: 450,
+      y: this.game.world.centerY + 150,
       anchorX: 0.5,
       anchorY: 0.5,
       inputEnabled: true
@@ -55,8 +55,10 @@ export default class EndScreen extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 0.5,
       center: true,
-      fontSize: 36,
-      color: '#2a2a2a',
+      fontSize: 30,
+      color: '#000000',
+      stroke: '#FFFFFF',
+      strokeThickness: 3
     });
 
     this.restartButton.addChild(this.buttonText);
@@ -64,12 +66,14 @@ export default class EndScreen extends Phaser.Group {
     this.title = new Text({
       text: 'GAME OVER',
       x: this.game.world.centerX,
-      y: 220,
+      y: this.game.world.centerY - 100,
       anchorX: 0.5,
       anchorY: 0.5,
       center: true,
-      fontSize: 36,
-      color: '#2a2a2a',
+      fontSize: 22,
+      color: '#000000',
+      stroke: '#FFFFFF',
+      strokeThickness: 3
     });
 
     this.add(this.title);
@@ -77,11 +81,11 @@ export default class EndScreen extends Phaser.Group {
     this.scoreText = new Text({
       text: ``,
       x: this.game.world.centerX,
-      y: 280,
+      y: this.game.world.centerY,
       anchorX: 0.5,
       center: true,
-      fontSize: 36,
-      color: '#2a2a2a',
+      fontSize: 22,
+      color: '#000000',
     });
 
     this.add(this.scoreText);
