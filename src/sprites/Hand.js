@@ -13,19 +13,21 @@ export default class extends Phaser.Group {
         // this.x = x  - this.sprite.texture.width/2
         // this.y = y - this.sprite.texture.height/2
         this.open = true;
+        this.moved = false;
 
     }
 
     buildImage() {
         this.sprite = new Sprite({
-            x: this.game.world.centerX,
-            y: this.game.height - 50,
+
             asset: 'hand_open',
-            anchorX: 1,
-            anchorY: 0,
+            anchorX: 0.5,
+            anchorY: 0.5,
         })
         this.add(this.sprite)
         console.log(this.sprite)
+        this.position.x = this.game.world.centerX
+        this.position.y = this.game.world.height+300
 
     }
 
@@ -38,7 +40,7 @@ export default class extends Phaser.Group {
     }
 
     squish() {
-        console.log(this.sprite.scale)
+        this.open = false;
         this.sprite.scale.x = 1
         this.sprite.scale.y = 1
         game.soundManager.playSound(this.getRandomFart(Math.floor(Math.random() * 5)))
@@ -47,6 +49,23 @@ export default class extends Phaser.Group {
 
 
         this.sprite.moveInTween.start();
+    }
+
+    rePosition() {
+        //this.position.x = this.game.world.centerX
+        //this.position.y = this.game.world.centerY
+
+       // game.soundManager.playSound(this.getRandomFart(Math.floor(Math.random() * 5)))
+        this.sprite.moveInTween = this.game.add.tween(this.position)
+            .to({x: this.game.world.centerX+20, y: this.game.world.height-100}, 2000, Phaser.Easing.Elastic.Out, false)
+
+
+
+        this.sprite.moveInTween.start();
+
+        this.sprite.moveInTween.onComplete.add(() => {this.squish()}, this)
+
+
     }
 
     getRandomFart(fartNumber) {
