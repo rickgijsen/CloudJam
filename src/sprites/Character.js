@@ -3,11 +3,12 @@ import Sprite from '../services/sprite'
 import Overlay from '../services/overlay'
 
 export default class Character extends Phaser.Group {
-  constructor (x, y,  movingItems) {
+  constructor (x, y,  movingItems, fartBar) {
     super(game)
 
     this.x = x;
     this.y = y;
+    this.fartBar = fartBar;
 
     this.holdDownLeft = false;
     this.holdDownMiddle = false;
@@ -75,6 +76,9 @@ export default class Character extends Phaser.Group {
   moveUp() {
     console.log('fart')
     this.accelerate()
+    if(this.fartBar.filledValue > 0) {
+      this.fartBar.filledValue -= this.fartBar.fartCost;
+    }
   }
   moveLeft() {
     console.log('left')
