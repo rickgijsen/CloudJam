@@ -6,7 +6,4 @@ export default class extends GoodFood {
     this.anchor.setTo(0.5)
     this.scale.setTo(0.1, 0.1)
   }
-
-  update () {
-  }
 }

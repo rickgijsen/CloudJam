@@ -1,5 +1,5 @@
 import Phaser from 'phaser'
-import BadFood from './BadFood'
+import GoodFood from '../GoodFood/GoodFood'
 
 export default class extends Phaser.Sprite {
   constructor (x, y, asset) {
