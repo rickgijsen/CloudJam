@@ -19,7 +19,7 @@ export default class extends Phaser.State {
     this.load.image('fartBar', 'assets/images/empty-bar.png')
     this.load.image('fart', 'assets/images/fart.png')
     this.load.image('burger', 'assets/images/burger.png')
-      this.load.image('evil-burger', 'assets/images/evil-burger.png')
+    this.load.image('evil-burger', 'assets/images/evil-burger.png')
   }
 
   create () {
