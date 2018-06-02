@@ -12,7 +12,7 @@ export default class EndScreen extends Phaser.Group {
     this.y = y;
 
     this.game.openEndScreen.add((score) => {
-      this.scoreText.text = `Score: \n${score}`
+      this.scoreText.text = `${Math.floor(score / 10) / 100}m`
       this.switchVisibility();
       this.game.toggleUI.dispatch();
     });

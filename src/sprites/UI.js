@@ -26,9 +26,8 @@ export default class UI extends Phaser.Group {
   }
 
   buildScore() {
-    this.scoreText = ''
     this.banner = new Text({
-      text: this.scoreText,
+      text: '',
       fontSize: 40,
       fill: '#000000',
       align: 'right',
@@ -41,7 +40,7 @@ export default class UI extends Phaser.Group {
   }
 
   update() {
-    this.banner.text = this.movingItems.score;
+    this.banner.text = `${Math.floor(this.movingItems.score / 10) / 100}m`;
     this.fartBar.update();
   }
   switchVisibility() {
