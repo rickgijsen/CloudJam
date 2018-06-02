@@ -28,8 +28,12 @@ export default class extends Phaser.State {
     this.load.image('button', 'assets/images/button.png')
     this.load.image('popUpBackground', 'assets/images/pop-up-background.png')
     this.load.image('burger', 'assets/images/final/burgers.png')
-
-
+    this.load.image('celery', 'assets/images/final/celery.png')
+    this.load.image('apple', 'assets/images/final/apple.png')
+    this.load.image('carrot', 'assets/images/final/carrot.png')
+    this.load.image('lettuce', 'assets/images/final/lettuce.png')
+    this.load.image('smoothie', 'assets/images/final/healthy_smoothie.png')
+    this.load.image('soda', 'assets/images/final/soda.png')
   }
 
   create () {

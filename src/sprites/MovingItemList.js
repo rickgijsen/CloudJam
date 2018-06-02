@@ -3,6 +3,7 @@ import Sprite from '../services/Sprite'
 import Burger from "../Food/GoodFood/Burger";
 import Lettuce from "../Food/BadFood/Lettuce";
 import Celery from "../Food/BadFood/Celery";
+import Apple from "../Food/BadFood/Apple";
 import Burrito from "../Food/GoodFood/Burrito";
 import Pizza from "../Food/GoodFood/Pizza";
 import Fork from "../Obstacles/Fork";
@@ -10,6 +11,9 @@ import Glass from "../Obstacles/Glass";
 import Plate from "../Obstacles/Plate";
 import Spoon from "../Obstacles/Spoon";
 import Beans from "../Food/GoodFood/Beans";
+import Smoothie from "../Food/BadFood/Smoothie";
+import Carrot from "../Food/BadFood/Carrot";
+import Soda from "../Food/BadFood/Soda";
 
 export default class extends Phaser.Group {
   constructor(x, y, velocityX, velocityY) {
@@ -105,7 +109,7 @@ export default class extends Phaser.Group {
 
 
   spawnGoodFood(position) {
-      var chooseFood = Math.floor(Math.random() * (4));
+      var chooseFood = Math.floor(Math.random() * (5));
       switch (chooseFood) {
           case 0:
               this.items = new Burger({
@@ -131,11 +135,17 @@ export default class extends Phaser.Group {
                   y: 0
               });
               break;
+          case 4:
+              this.items = new Soda({
+                  x: position,
+                  y: 0
+              })
+              break;
       }
   }
 
   spawnBadFood (position) {
-      var chooseFood = Math.floor(Math.random() * (2));
+      var chooseFood = Math.floor(Math.random() * (5));
       switch (chooseFood) {
           case 0:
               this.items = new Lettuce({
@@ -145,6 +155,24 @@ export default class extends Phaser.Group {
               break;
           case 1:
               this.items = new Celery({
+                  x: position,
+                  y: 0
+              });
+              break;
+          case 2:
+              this.items = new Apple({
+                  x: position,
+                  y: 0
+              });
+              break;
+          case 3:
+              this.items = new Smoothie({
+                  x: position,
+                  y: 0
+              });
+              break;
+          case 4:
+              this.items = new Carrot({
                   x: position,
                   y: 0
               });
