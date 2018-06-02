@@ -33,6 +33,9 @@ export default class Character extends Phaser.Group {
 
     this.movingObject = movingItems;
     this.startPosY = this.movingObject.y;
+    this.xDistanceMoved = 0;
+    this.canMoveLeft = true;
+    this.canMoveRight = true;
   }
 
 
@@ -96,25 +99,35 @@ export default class Character extends Phaser.Group {
     this.createFart()
   }
   moveLeft() {
-    this.hForce = -this.horizontalMovingSpeed;
+    if(this.xDistanceMoved > -290) {
+      this.squirrelSprite.angle = -10;
+      this.hForce = -this.horizontalMovingSpeed;
+      this.xDistanceMoved -= this.horizontalMovingSpeed;
+    } else {
+      this.hForce = 0
+    }
   }
   moveRight() {
-    this.hForce = this.horizontalMovingSpeed;
+    if(this.xDistanceMoved< 290) {
+      this.squirrelSprite.angle = 10;
+      this.hForce = this.horizontalMovingSpeed;
+      this.xDistanceMoved += this.horizontalMovingSpeed;
+    } else {
+      this.hForce = 0
+    }
   }
   update() {
-    console.log(this.movingObject.background.x)
+    console.log(this.xDistanceMoved)
     if(this.gameOver) {
       this.vForce = 0;
       this.movingObject.changeY(this.vForce);
       return;
     }
-    // this.movingObject.y -= this.vForce;
-    // this.movingObject.x +=  this.hForce;
+
     this.movingObject.changeY(this.vForce);
     this.movingObject.changeX(-this.hForce);
 
     if(this.holdDownLeft) {
-      this.squirrelSprite.angle = -10;
       this.moveLeft()
     }else {
       if(!this.holdDownRight) {
@@ -131,7 +144,6 @@ export default class Character extends Phaser.Group {
       this.decelerate(this.decelerationSpeed)
     }
     if(this.holdDownRight) {
-      this.squirrelSprite.angle = 10;
       this.moveRight()
     } else {
       if(!this.holdDownLeft) {
