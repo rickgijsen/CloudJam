@@ -1,5 +1,9 @@
 import Phaser from 'phaser'
 import Sprite from '../services/Sprite'
+import Burger from "../Food/Burger";
+import Lettuce from "../Food/Lettuce";
+import Celery from "../Food/Celery";
+import Burrito from "../Food/Burrito";
 
 export default class extends Phaser.Group {
   constructor (x, y, velocityX, velocityY) {
@@ -30,7 +34,6 @@ export default class extends Phaser.Group {
           anchorX: 0,
           anchorY: 1
       });
-
       this.add(this.background2);
   }
 
@@ -42,15 +45,16 @@ export default class extends Phaser.Group {
     let yModifier = this.velocityY;
 
     // update the items
-      let worldHeight = this.game.world.height;
-      let backgroundHeight = this.background.height;
-      var test = false;
+    let worldHeight = this.game.world.height;
+    let backgroundHeight = this.background.height;
+
     this.forEach(function (item) {
       item.position.y += yModifier;
       item.position.x += xModifier;
 
       // destroy the item if it leaves the screen
       if (item.position.y > screen.height && item.key != "background") {
+        // destroy the item out of bounds
         item.destroy()
       } else if (item.position.y  > worldHeight + backgroundHeight) {
           let temp = item.position.y  - (worldHeight + backgroundHeight);
@@ -76,17 +80,33 @@ export default class extends Phaser.Group {
 
   spawnItems () {
     var position = Math.floor(Math.random() * (screen.width + 1));
-
-    this.items = new Sprite({
-        asset: 'mushroom',
-        x: position,
-        y: 0,
-        anchorX: 0.5,
-        anchorY: 0.5
-    });
-
-    this.game.physics.arcade.enable(this.items);
-
+      var chooseFood = Math.floor(Math.random() * (4));
+      switch (chooseFood) {
+          case 0:
+            this.items = new Burger({
+                x: position,
+                y: 0
+            });
+            break;
+          case 1:
+              this.items = new Burrito({
+                  x: position,
+                  y: 0
+              });
+              break;
+          case 2:
+              this.items = new Lettuce({
+                  x: position,
+                  y: 0
+              });
+              break;
+          case 3:
+              this.items = new Celery({
+                  x: position,
+                  y: 0
+              });
+              break;
+      }
     this.add(this.items)
   }
 }
