@@ -8,6 +8,7 @@ import Fork from "../Obstacles/Fork";
 import Glass from "../Obstacles/Glass";
 import Plate from "../Obstacles/Plate";
 import Spoon from "../Obstacles/Spoon";
+import Beans from "../Food/Beans";
 
 export default class extends Phaser.Group {
   constructor(x, y, velocityX, velocityY) {
@@ -103,7 +104,7 @@ export default class extends Phaser.Group {
 
 
   spawnGoodFood(position) {
-      var chooseFood = Math.floor(Math.random() * (2));
+      var chooseFood = Math.floor(Math.random() * (3));
       switch (chooseFood) {
           case 0:
               this.items = new Burger({
@@ -113,6 +114,12 @@ export default class extends Phaser.Group {
               break;
           case 1:
               this.items = new Burrito({
+                  x: position,
+                  y: 0
+              });
+              break;
+          case 2:
+              this.items = new Beans({
                   x: position,
                   y: 0
               });

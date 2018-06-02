@@ -16,13 +16,17 @@ export default class extends Phaser.State {
     this.load.image('mushroom', 'assets/images/mushroom2.png')
     this.load.image('squirrel', 'assets/images/squirrel.png')
     this.load.image('background', 'assets/images/final/BG.jpg')
+    this.load.image('burrito', 'assets/images/final/burrito.png')
+    this.load.image('fork', 'assets/images/final/fork.png')
+    this.load.image('beans', 'assets/images/final/beans.png')
     this.load.image('fartBar', 'assets/images/empty-bar.png')
     this.load.image('fart', 'assets/images/fart.png')
     this.load.image('button', 'assets/images/button.png')
     this.load.image('popUpBackground', 'assets/images/pop-up-background.png')
-    this.load.image('burger', 'assets/images/burger.png')
+    this.load.image('burger', 'assets/images/final/burgers.png')
     this.load.image('evil-burger', 'assets/images/evil-burger.png')
     this.load.image('aseprite', 'assets/images/aseprite.png')
+
   }
 
   create () {

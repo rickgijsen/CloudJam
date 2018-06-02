@@ -18,7 +18,6 @@ import UI from '../sprites/UI'
 // when feed timer is done, start state play
 // Once player dies, start state end
 // Ad === profit?
->>>>>>> origin/feature/images
 
 export default class extends Phaser.State {
   init () { }

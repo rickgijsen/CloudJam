@@ -2,43 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d003ea71-bf06-4373-a751-453ffc2fe7fb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/images/button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/BG.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/beans.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/burgers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/burrito.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/edge_of_mantel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/fart icon_meter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/fart_icon bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/fart_icon_bar full.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/fat_hand.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/fat_squirrel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/fork.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/glass_middle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/glass_top.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/mantel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/mediumhand.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/pizza.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/plate1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/plate2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/single_mantel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/soda.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/spoon_bottom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/spoon_mid.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/squirrel_middle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/thin_hand.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/final/thin_squirrel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/pop-up-background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sprites/EndScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sprites/UI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/states/Ad.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/states/End.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/states/Feed.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/states/Play.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/Text.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/Text.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Food/Burger.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Food/Burger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Food/Burrito.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Food/Burrito.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Obstacles/Fork.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obstacles/Fork.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sprites/Character.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprites/Character.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sprites/FartMeter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprites/FartMeter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sprites/MovingItemList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprites/MovingItemList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/states/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/states/Game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/states/Splash.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/states/Splash.js" afterDir="false" />
@@ -55,41 +22,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Glass.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Obstacles/Glass.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-            </state>
-          </provider>
+      <file leaf-file-name="burrito.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/images/final/burrito.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file leaf-file-name="Game.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/states/Game.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-820">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+      <file leaf-file-name="burgers.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/images/final/burgers.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file leaf-file-name="Fork.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Obstacles/Fork.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MovingItemList.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MovingItemList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sprites/MovingItemList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1428">
-              <caret line="84" column="3" lean-forward="true" selection-start-line="84" selection-start-column="3" selection-end-line="84" selection-end-column="3" />
+            <state relative-caret-position="-72">
+              <caret line="122" column="30" lean-forward="true" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="30" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -97,61 +44,61 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Plate.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Obstacles/Plate.js">
+      <file leaf-file-name="BG.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/images/final/BG.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="Character.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sprites/Character.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+            <state relative-caret-position="17">
+              <caret line="125" column="25" lean-forward="true" selection-start-line="125" selection-start-column="25" selection-end-line="125" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Obstacles.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Obstacles/Obstacles.js">
+      <file leaf-file-name="Splash.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/states/Splash.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Spoon.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Obstacles/Spoon.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Burrito.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Food/Burrito.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Burger.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Food/Burger.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BadFood.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Food/BadFood.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+            <state relative-caret-position="323">
+              <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Fork.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Obstacles/Fork.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="beans.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/images/final/beans.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="Beans.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Food/Beans.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fork.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/images/final/fork.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -163,6 +110,12 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>console.loh</find>
+      <find>console.log</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -172,21 +125,22 @@
         <option value="$PROJECT_DIR$/src/sprites/Mushroom.js" />
         <option value="$PROJECT_DIR$/src/states/Boot.js" />
         <option value="$PROJECT_DIR$/src/sprites/FartMeter.js" />
-        <option value="$PROJECT_DIR$/src/sprites/Character.js" />
-        <option value="$PROJECT_DIR$/src/states/Splash.js" />
         <option value="$PROJECT_DIR$/src/Obstacles/Obstacles.js" />
-        <option value="$PROJECT_DIR$/src/Obstacles/Fork.js" />
         <option value="$PROJECT_DIR$/src/Obstacles/Glass.js" />
         <option value="$PROJECT_DIR$/src/Obstacles/Plate.js" />
         <option value="$PROJECT_DIR$/src/Obstacles/Spoon.js" />
         <option value="$PROJECT_DIR$/src/Food/Lettuce.js" />
         <option value="$PROJECT_DIR$/src/Food/GoodFood.js" />
         <option value="$PROJECT_DIR$/src/Food/Celery.js" />
-        <option value="$PROJECT_DIR$/src/Food/Burrito.js" />
-        <option value="$PROJECT_DIR$/src/Food/Burger.js" />
         <option value="$PROJECT_DIR$/src/Food/BadFood.js" />
         <option value="$PROJECT_DIR$/src/states/Game.js" />
+        <option value="$PROJECT_DIR$/src/sprites/Character.js" />
+        <option value="$PROJECT_DIR$/src/Food/Burrito.js" />
+        <option value="$PROJECT_DIR$/src/Food/Burger.js" />
+        <option value="$PROJECT_DIR$/src/Food/Beans.js" />
         <option value="$PROJECT_DIR$/src/sprites/MovingItemList.js" />
+        <option value="$PROJECT_DIR$/src/states/Splash.js" />
+        <option value="$PROJECT_DIR$/src/Obstacles/Fork.js" />
       </list>
     </option>
   </component>
@@ -207,7 +161,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -228,6 +183,19 @@
               <item name="CloudJam" type="b2602c69:ProjectViewProjectNode" />
               <item name="CloudJam" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudJam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudJam" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudJam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudJam" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="final" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CloudJam" type="b2602c69:ProjectViewProjectNode" />
@@ -273,6 +241,11 @@
     <property name="node.js.selected.package.eslint" value="C:\Users\Rick\Documents\TEMP - D Schijf\CloudGames\CloudJam\node_modules\eslint" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Kelvin Noordenbos\Documents\GitHub\CloudJam\src\Food" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -301,14 +274,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26805000" />
+    <option name="totallyTimeSpent" value="28888000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
@@ -316,7 +288,7 @@
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info id="npm" order="0" side_tool="true" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.32837406" />
+      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.32837406" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="1" />
@@ -347,179 +319,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sprites/Mushroom.js" />
-    <entry file="file://$PROJECT_DIR$/src/sprites/Character.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sprites/Mushroom.js" />
-    <entry file="file://$PROJECT_DIR$/src/states/Game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/states/Splash.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/states/Boot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="31" column="18" lean-forward="true" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.eslintrc.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/states/Boot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/Sprite.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/Overlay.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/states/Game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sprites/Mushroom.js" />
-    <entry file="file://$PROJECT_DIR$/src/states/Splash.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sprites/Character.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="110" column="7" selection-start-line="110" selection-start-column="7" selection-end-line="110" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sprites/MovingItemList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-147">
-          <caret line="50" column="35" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/states/Game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/states/Boot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-43">
-          <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sprites/Mushroom.js" />
-    <entry file="file://$PROJECT_DIR$/src/sprites/Character.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sprites/Mushroom.js" />
-    <entry file="file://$PROJECT_DIR$/src/states/Game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/states/Splash.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/states/Boot.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -560,16 +359,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sprites/Character.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/phaser-ce/typescript/phaser.comments.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170187">
@@ -592,67 +381,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/states/Splash.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/states/Boot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sprites/FartMeter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Food/Lettuce.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Food/GoodFood.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Food/Celery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Food/Burrito.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Food/Burger.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
@@ -697,30 +426,210 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Obstacles/Fork.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/thin_squirrel.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/states/Game.js">
+    <entry file="file://$PROJECT_DIR$/assets/images/final/thin_hand.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/spoon_bottom.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/squirrel_middle.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/fart_icon_bar full.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/glass_middle.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/glass_top.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/fat_hand.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/single_mantel.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/states/Feed.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-820">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="255">
+          <caret line="19" selection-start-line="19" selection-end-line="19" selection-end-column="77" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sprites/MovingItemList.js">
+    <entry file="file://$PROJECT_DIR$/src/states/End.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="84" column="3" lean-forward="true" selection-start-line="84" selection-start-column="3" selection-end-line="84" selection-end-column="3" />
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/states/Boot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/states/Ad.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sprites/FartMeter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sprites/EndScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="14" column="62" lean-forward="true" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Food/GoodFood.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Food/Burrito.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/states/Play.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="25" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/states/Game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#22#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Food/Burger.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Food/Celery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/soda.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/plate2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/plate1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/pizza.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/BG.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/burrito.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/burgers.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/beans.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sprites/Character.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="125" column="25" lean-forward="true" selection-start-line="125" selection-start-column="25" selection-end-line="125" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sprites/MovingItemList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-72">
+          <caret line="122" column="30" lean-forward="true" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Food/Beans.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/final/fork.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/states/Splash.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Obstacles/Fork.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>

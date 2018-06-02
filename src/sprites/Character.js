@@ -9,7 +9,6 @@ export default class Character extends Phaser.Group {
     this.x = x;
     this.y = y;
     this.fartBar = fartBar;
-    console.log(this.fartBar)
 
     this.holdDownLeft = false;
     this.holdDownMiddle = false;
@@ -124,7 +123,6 @@ export default class Character extends Phaser.Group {
       this.moveUp()
     } else {
       this.doOnce = true;
-      console.log(this.shakeTween)
       this.shakeTween.pause()
       this.squirrelSprite.y = this.squirrelStartY;
       this.decelerate(this.decelerationSpeed)
