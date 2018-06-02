@@ -94,6 +94,7 @@ export default class extends Phaser.Group {
 
 
   spawnGoodFood(position) {
+      console.log("good");
       var chooseFood = Math.floor(Math.random() * (2));
       switch (chooseFood) {
           case 0:
@@ -112,15 +113,18 @@ export default class extends Phaser.Group {
   }
 
   spawnBadFood (position) {
+      console.log("bad");
       var chooseFood = Math.floor(Math.random() * (2));
       switch (chooseFood) {
           case 0:
+              console.log("Lettuce");
               this.items = new Lettuce({
                   x: position,
                   y: 0
               });
               break;
           case 1:
+              console.log("Celery");
               this.items = new Celery({
                   x: position,
                   y: 0
