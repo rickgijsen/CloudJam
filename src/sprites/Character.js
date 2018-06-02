@@ -9,7 +9,8 @@ export default class Character extends Phaser.Group {
     this.x = x;
     this.y = y;
     this.fartBar = fartBar;
-    console.log(this.fartBar)
+
+    this.fatLevel = 0;
 
     this.holdDownLeft = false;
     this.holdDownMiddle = false;
@@ -37,7 +38,7 @@ export default class Character extends Phaser.Group {
 
   buildImage() {
     this.squirrelSprite = new Sprite({
-      asset: 'squirrel',
+      asset: `squirrel${this.fatLevel}`,
       x: this.game.world.centerX,
       y: this.game.height - 100,
       anchorX: 0.5,
@@ -45,7 +46,7 @@ export default class Character extends Phaser.Group {
     });
 
     game.physics.arcade.enable(this.squirrelSprite, Phaser.Physics.ARCADE)
-    this.squirrelSprite.scale.setTo(0.1, 0.1)
+    this.squirrelSprite.scale.setTo(0.7, 0.7)
 
     this.add(this.squirrelSprite);
   }
@@ -101,6 +102,7 @@ export default class Character extends Phaser.Group {
     this.hForce = this.horizontalMovingSpeed;
   }
   update() {
+    console.log(this.movingObject.background.x)
     if(this.gameOver) {
       this.vForce = 0;
       this.movingObject.changeY(this.vForce);
@@ -124,7 +126,6 @@ export default class Character extends Phaser.Group {
       this.moveUp()
     } else {
       this.doOnce = true;
-      console.log(this.shakeTween)
       this.shakeTween.pause()
       this.squirrelSprite.y = this.squirrelStartY;
       this.decelerate(this.decelerationSpeed)
