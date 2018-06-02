@@ -4,6 +4,10 @@ import Burger from "../Food/Burger";
 import Lettuce from "../Food/Lettuce";
 import Celery from "../Food/Celery";
 import Burrito from "../Food/Burrito";
+import Fork from "../Obstacles/Fork";
+import Glass from "../Obstacles/Glass";
+import Plate from "../Obstacles/Plate";
+import Spoon from "../Obstacles/Spoon";
 
 export default class extends Phaser.Group {
   constructor (x, y, velocityX, velocityY) {
@@ -80,7 +84,7 @@ export default class extends Phaser.Group {
 
   spawnItems () {
     var position = Math.floor(Math.random() * (screen.width + 1));
-      var chooseFood = Math.floor(Math.random() * (2));
+      var chooseFood = Math.floor(Math.random() * (3));
       switch (chooseFood) {
           case 0:
             this.spawnGoodFood(position);
@@ -88,13 +92,15 @@ export default class extends Phaser.Group {
           case 1:
               this.spawnBadFood(position);
               break;
+          case 2:
+              this.spawnObstacles(position);
+              break;
       }
       this.add(this.items)
   }
 
 
   spawnGoodFood(position) {
-      console.log("good");
       var chooseFood = Math.floor(Math.random() * (2));
       switch (chooseFood) {
           case 0:
@@ -113,18 +119,15 @@ export default class extends Phaser.Group {
   }
 
   spawnBadFood (position) {
-      console.log("bad");
       var chooseFood = Math.floor(Math.random() * (2));
       switch (chooseFood) {
           case 0:
-              console.log("Lettuce");
               this.items = new Lettuce({
                   x: position,
                   y: 0
               });
               break;
           case 1:
-              console.log("Celery");
               this.items = new Celery({
                   x: position,
                   y: 0
@@ -132,4 +135,34 @@ export default class extends Phaser.Group {
               break;
       }
   }
+
+    spawnObstacles (position) {
+        var chooseFood = Math.floor(Math.random() * (4));
+        switch (chooseFood) {
+            case 0:
+                this.items = new Fork({
+                    x: position,
+                    y: 0
+                })
+                break;
+            case 1:
+                this.items = new Glass({
+                    x: position,
+                    y: 0
+                })
+                break;
+            case 2:
+                this.items = new Plate({
+                    x: position,
+                    y: 0
+                })
+                break;
+            case 3:
+                this.items = new Spoon({
+                    x: position,
+                    y: 0
+                })
+                break;
+        }
+    }
 }

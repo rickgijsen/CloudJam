@@ -5,9 +5,6 @@ export default class extends BadFood {
     super(x, y, 'evil-burger')
     this.anchor.setTo(0.5)
     this.scale.setTo(0.1, 0.1);
-    this.fartModifier = -100;
-  }
-
-  update () {
+    this.fartModifier = -50;
   }
 }

@@ -58,31 +58,6 @@ export default class extends Phaser.State {
               fartbar.addFarts(item.fartModifier);
           }
       })
-
-      this.fork = new Fork({
-          x: game.width / 4,
-          y: game.height / 2
-      })
-
-      this.glass = new Glass({
-          x: game.width / 1.5,
-          y: game.height / 2
-      })
-
-      this.plate = new Plate({
-          x: game.width / 4,
-          y: game.height / 4
-      })
-
-      this.spoon = new Spoon({
-          x: game.width / 1.5,
-          y: game.height / 3
-      })
-
-      this.game.add.existing(this.fork)
-      this.game.add.existing(this.glass)
-      this.game.add.existing(this.plate)
-      this.game.add.existing(this.spoon)
   }
 
   render () {
