@@ -26,11 +26,16 @@ export default class extends Phaser.Group {
     this.velocityX = 0;
     this.velocityY = 2;
     this.combinedVelocity = 0;
+    this.totaldistance = 0;
     this.spawnDistance = 1000;
+    this.changeToGlassDistance = 10000;
+    this.changeToMarbelDistance = 20000;
+    this.newTableSprite = "";
+    this.newSplitterSprite = "";
 
     // spawn the background
     this.background = new Sprite({
-      asset: 'background',
+      asset: 'floor',
       x: this.game.world.centerX,
       y: this.game.world.height,
       anchorX: 0.5,
@@ -39,16 +44,59 @@ export default class extends Phaser.Group {
     this.add(this.background);
 
     this.background2 = new Sprite({
-      asset: 'background',
+      asset: 'floor',
       x: this.game.world.centerX,
       y: this.game.world.height - this.background.height + 1,
       anchorX: 0.5,
       anchorY: 1
     });
     this.add(this.background2);
+
+    this.table1 = new Sprite({
+          asset: 'woodenTable',
+          x: this.game.world.centerX,
+          y: this.game.world.height,
+          anchorX: 0.5,
+          anchorY: 1
+      });
+      this.add(this.table1);
+
+      this.table2 = new Sprite({
+          asset: 'woodenTable',
+          x: this.game.world.centerX,
+          y: this.game.world.height - this.table1.height + 1,
+          anchorX: 0.5,
+          anchorY: 1
+      });
+      this.add(this.table2);
+
+      this.stitcher = new Sprite({
+          asset: 'woodenPatch',
+          x: this.game.world.centerX,
+          y: this.game.world.height - (this.table1.height * 2) + 1,
+          anchorX: 0.5,
+          anchorY: 1
+      });
+      this.add(this.stitcher);
   }
 
   update() {
+
+    this.totaldistance += this.velocityY;
+    if(this.totaldistance >= this.changeToGlassDistance) {
+        console.log("shit");
+        this.changeToGlassDistance = 1000000000000;
+        this.newTableSprite = "glassTable";
+        this.newSplitterSprite = "glassPatch";
+        this.spawnBegin = true;
+    } else if (this.totaldistance >= this.changeToMarbelDistance) {
+        console.log("shit2");
+        this.totaldistance = 0;
+        this.changeToMarbelDistance = 1000000000000;
+        this.newTableSprite = "marbelTable";
+        this.newSplitterSprite = "marbelPatch";
+        this.spawnBegin = true;
+    }
 
     // update the distance traveled
     this.combinedVelocity += this.velocityY;
@@ -59,20 +107,60 @@ export default class extends Phaser.Group {
     // update the items
     let worldHeight = this.game.world.height;
     let backgroundHeight = this.background.height;
+    let tableHeight = this.table1.height;
+    let tussenpartHeight = this.stitcher.height;
+    let newTableSprite = this.newTableSprite;
+    let newSplitterSprite = this.newSplitterSprite;
+    let spawnBegin = this.spawnBegin;
 
     this.forEach(function (item) {
+
       item.position.y += yModifier;
       item.position.x += xModifier;
 
       // destroy the item if it leaves the screen
-      if (item.position.y > screen.height && item.key != "background") {
+      if (item.position.y > screen.height && item.key != "floor" && item.key != "woodenTable" && item.key != "woodenPatch" && item.key != "woodenGlass" && item.key != "glassTable" && item.key != "glassPatch" && item.key != "glassMarbel" && item.key != "marbelTable" && item.key != "marbelPatch") {
         // destroy the item out of bounds
         item.destroy()
       } else if (item.position.y > worldHeight + backgroundHeight) {
-        let temp = item.position.y - (worldHeight + backgroundHeight);
-        item.position.y = worldHeight - backgroundHeight + temp + 1; // insurence pixel
+
+            // berekenen de pixel verschil buiten het scherm en dan updaten als ie buiten het scherm valt
+            if(item.key == "floor") {
+                let temp = item.position.y - (worldHeight + backgroundHeight);
+                item.position.y = worldHeight - backgroundHeight + temp + 1; // insurence pixel
+            } else if (item.key == "woodenGlass" || item.key == "woodenPatch") {
+                let temp = item.position.y - (worldHeight + tussenpartHeight);
+                item.position.y = worldHeight - (backgroundHeight * 2) + temp + 1; // insurence pixel
+                if(newSplitterSprite == "glassPatch" && item.key != "glassPatch") {
+                    if(spawnBegin == true) {
+                        item.loadTexture("woodenGlass");
+                        spawnBegin = false;
+                    } else {
+                        item.loadTexture(newSplitterSprite);
+                    }
+                }
+                if (newSplitterSprite == "marbelPatch" && item.key != "marbelPatch") {
+                    if(spawnBegin == true) {
+                        item.loadTexture("glassMarbel");
+                        spawnBegin = false;
+                    } else {
+                        item.loadTexture(newSplitterSprite);
+                    }
+                }
+            } else {
+                let temp = item.position.y - (worldHeight + tableHeight);
+                item.position.y = worldHeight - tableHeight - tussenpartHeight + temp + 1;
+                if(newTableSprite == "glassTable" && item.key != "glassTable") {
+                    item.loadTexture(newTableSprite);
+                }
+                if (newTableSprite == "marbelTable" && item.key != "marbelTable") {
+                    item.loadTexture(newTableSprite);
+                }
+            }
       }
     });
+    this.spawnBegin = spawnBegin;
+
 
     if (this.combinedVelocity > this.spawnDistance) {
       this.spawnItems();
