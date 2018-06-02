@@ -21,13 +21,6 @@ export default class extends Phaser.State {
   preload() { }
 
   create() {
-    // const bannerText = 'Phaser + ES6 + Webpack'
-    // let banner = this.add.text(this.world.centerX, this.game.height - 80, bannerText, {
-    //   font: '40px Bangers',
-    //   fill: '#77BFA3',
-    //   smoothed: false
-    // })
-
     // banner.padding.set(10, 16)
     // banner.anchor.setTo(0.5)
 
@@ -48,9 +41,20 @@ export default class extends Phaser.State {
 
     this.character = new Character(0, 0, this.movingItemList, this.fartBar);
     this.game.add.existing(this.character);
+
+    this.bannerText = ''
+    this.banner = this.add.text(this.world.centerX + 120, 30, this.bannerText, {
+      font: '50px Bangers',
+      fill: '#000000',
+      align: 'right'
+    })
+    this.banner.padding.set(10, 16)
+    this.banner.anchor.setTo(0.5, 0.5)
+    this.add.existing(this.banner)
   }
 
   render() {
+    this.banner.text = Math.floor(this.movingItemList.score);
     if (__DEV__) {
         game.debug.text('enemies: ' + this.movingItemList.length, 16, 48);
     }
