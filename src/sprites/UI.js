@@ -31,7 +31,7 @@ export default class UI extends Phaser.Group {
       fontSize: 20,
       color: '#000000',
       align: 'right',
-      x: this.game.world.centerX + 125,
+      x: this.game.width - 45,
       y: 45,
       stroke: '#FFFFFF',
       strokeThickness: 3

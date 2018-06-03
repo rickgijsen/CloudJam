@@ -52,7 +52,6 @@ export default class Character extends Phaser.Group {
     });
 
     game.physics.arcade.enable(this.squirrelSprite, Phaser.Physics.ARCADE)
-    this.squirrelSprite.scale.setTo(0.4, 0.4)
 
     this.add(this.squirrelSprite);
   }

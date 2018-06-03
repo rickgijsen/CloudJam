@@ -37,7 +37,6 @@ export default class extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 1
     })
-    this.background.scale.setTo(.5, .5)
     this.add(this.background)
 
     this.background2 = new Sprite({
@@ -47,7 +46,6 @@ export default class extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 1
     })
-    this.background2.scale.setTo(.5, .5)
     this.add(this.background2)
   }
 
