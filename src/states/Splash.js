@@ -17,14 +17,19 @@ export default class extends Phaser.State {
     // load your assets
     //
     this.load.image('mushroom', 'assets/images/mushroom2.png')
-    this.load.image('char_idle', 'assets/images/char_idle.png')
-    this.load.image('char_eat_01', 'assets/images/char_eat_01.png')
-    this.load.image('char_eat_02', 'assets/images/char_eat_02.png')
+    this.load.image('char_nu', 'assets/images/normal_unsqueezed.png')
+    this.load.image('char_ns', 'assets/images/normal_squeezed.png')
+    this.load.image('char_mu', 'assets/images/medium_unsqueezed.png')
+      this.load.image('char_ms', 'assets/images/medium_squeezed.png')
+      this.load.image('char_fu', 'assets/images/fat_unsqueezed.png')
+      this.load.image('char_fs', 'assets/images/fat_squeezed.png')
     this.load.image('tapStart', 'assets/images/tapStart.png')
     this.load.image('squirrel', 'assets/images/squirrel.png')
     this.load.image('fart', 'assets/images/fart.png')
     this.load.image('hand_open', 'assets/images/hand_open.png')
     this.load.image('hand_closed', 'assets/images/hand_closed.png')
+      this.load.image('hand_fingers', 'assets/images/hand_closedFingers.png')
+      this.load.image('background_feed', 'assets/images/BG_squeeze.png')
 
     //
     // load sounds

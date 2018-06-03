@@ -5,17 +5,12 @@ import Text from '../services/Text'
 export default class MuteButton extends Phaser.Group {
   constructor (x, y) {
     super(game)
-    this.visible = false
 
     this.x = x
     this.y = y
 
     this.buildMuteButton()
     this.buildMuteButtonText()
-    this.game.muteButton.add(() => {
-      this.game.world.bringToTop(this)
-      this.visible = true
-    })
   }
 
   buildMuteButton () {

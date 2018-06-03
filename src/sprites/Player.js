@@ -13,17 +13,18 @@ export default class extends Phaser.Group {
         // this.x = x  - this.sprite.texture.width/2
         // this.y = y - this.sprite.texture.height/2
         this.weight = 0
+        this.weightperStep = 10
         this.fartSound = game.add.audio('fart01');
         this.fartNumber = 0
 
-
+        this.fatLevel = 0;
     }
 
     buildImage() {
         this.sprite = new Sprite({
             x: this.game.world.centerX,
             y: this.game.height - 50,
-            asset: 'char_idle',
+            asset: 'char_nu',
             anchorX: 0.5,
             anchorY: 1,
         })
@@ -41,27 +42,36 @@ export default class extends Phaser.Group {
         this.clickAreaMiddle.width = this.game.width
         this.add(this.clickAreaMiddle);
         this.clickAreaMiddle.events.onInputDown.add(() => {
-            console.log("clicked"), this.weight++, this.squish()
+            console.log("clicked"), this.squish()
         }, this)
 
 
     }
-
-    update() {
+    updateWeight(){
+        this.weight+=this.weightperStep
+        console.log(this.weight)
         if (this.weight === 0) {
-            this.sprite.loadTexture('char_idle')
+            this.sprite.loadTexture('char_nu')
+            this.fatLevel = 0
         }
-        if (this.weight > 0 && this.weight < 10) {
-            this.sprite.loadTexture('char_eat_01')
+        if (this.weight > 330 && this.weight < 650) {
+            this.sprite.loadTexture('char_mu')
+            this.fatLevel = 1
         }
-        if (this.weight >= 10 && this.weight < 1110) {
-            this.sprite.loadTexture('char_eat_02')
+        if (this.weight >= 660 && this.weight < 1000) {
+            this.sprite.loadTexture('char_fu')
+            this.fatLevel = 2
         }
+    }
+    update() {
+
+
       
     }
 
     squish() {
-        console.log(this.sprite.scale)
+      //  console.log(this.sprite.scale)
+        this.updateWeight()
         this.sprite.scale.x = 1
         this.sprite.scale.y = 1
         game.soundManager.playSound(this.getRandomFart(Math.floor(Math.random() * 5)))
@@ -76,28 +86,29 @@ export default class extends Phaser.Group {
 
         switch (fartNumber) {
             case 0:
-                console.log("fart1")
+              //  console.log("fart1")
                 this.fartNumber = 0
 
                 return "fart01"
                 break;
             case 1:
-                console.log("fart2")
-                this.fartNumber = 0
+              //  console.log("fart2")
+                this.fartNumber = 1
+
                 return "fart02"
                 break;
             case 2:
-                console.log("fart3")
+              //  console.log("fart3")
                 this.fartNumber = 0
                 return "fart03"
                 break;
             case 3:
-                console.log("fart4")
+             //   console.log("fart4")
                 this.fartNumber = 0
                 return "fart04"
                 break;
             case 4:
-                console.log("fart5")
+               // console.log("fart5")
                 this.fartNumber = 0
                 return "fart05"
                 break;

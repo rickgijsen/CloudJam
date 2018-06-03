@@ -57,10 +57,6 @@ export default class extends Phaser.State {
 
     this.endScreen = new EndScreen(0, 0)
     this.add.existing(this.endScreen)
-
-    this.muteButton = new MuteButton(0, 0)
-
-    this.game.muteButton.dispatch()
   }
 
   update () {
