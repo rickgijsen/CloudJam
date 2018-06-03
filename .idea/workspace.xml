@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d003ea71-bf06-4373-a751-453ffc2fe7fb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Obstacles/Fork.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obstacles/Fork.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Obstacles/Glass.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obstacles/Glass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Obstacles/Plate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obstacles/Plate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Obstacles/Spoon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obstacles/Spoon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/states/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/states/Game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sprites/MovingItemList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sprites/MovingItemList.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,11 +18,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="MovingItemList.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="MovingItemList.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/sprites/MovingItemList.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1768">
-                  <caret line="179" column="18" lean-forward="true" selection-start-line="179" selection-start-column="18" selection-end-line="179" selection-end-column="18" />
+                <state relative-caret-position="-1071">
+                  <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
                   <folding>
                     <element signature="e#0#27#0" expanded="true" />
                   </folding>
@@ -35,7 +30,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="End.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="End.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/states/End.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="204">
@@ -83,8 +78,8 @@
           <file leaf-file-name="Game.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/states/Game.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
+                <state relative-caret-position="255">
+                  <caret line="73" column="16" lean-forward="true" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
                   </folding>
@@ -183,12 +178,12 @@
         <option value="$PROJECT_DIR$/src/Food/BadFood/Smoothie.js" />
         <option value="$PROJECT_DIR$/src/states/Splash.js" />
         <option value="$PROJECT_DIR$/src/sprites/FartMeter.js" />
-        <option value="$PROJECT_DIR$/src/sprites/MovingItemList.js" />
         <option value="$PROJECT_DIR$/src/Obstacles/Fork.js" />
         <option value="$PROJECT_DIR$/src/Obstacles/Plate.js" />
         <option value="$PROJECT_DIR$/src/Obstacles/Spoon.js" />
         <option value="$PROJECT_DIR$/src/Obstacles/Glass.js" />
         <option value="$PROJECT_DIR$/src/states/Game.js" />
+        <option value="$PROJECT_DIR$/src/sprites/MovingItemList.js" />
       </list>
     </option>
   </component>
@@ -233,6 +228,36 @@
               <item name="CloudJam" type="b2602c69:ProjectViewProjectNode" />
               <item name="CloudJam" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudJam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudJam" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudJam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudJam" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="final" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudJam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudJam" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="final" type="462c0819:PsiDirectoryNode" />
+              <item name="table progression" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CloudJam" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CloudJam" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="final" type="462c0819:PsiDirectoryNode" />
+              <item name="table progression" type="462c0819:PsiDirectoryNode" />
+              <item name="backup" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CloudJam" type="b2602c69:ProjectViewProjectNode" />
@@ -318,12 +343,12 @@
       <workItem from="1527943428172" duration="1161000" />
       <workItem from="1527961968581" duration="11923000" />
       <workItem from="1528024933619" duration="693000" />
-      <workItem from="1528028234486" duration="1612000" />
+      <workItem from="1528028234486" duration="2175000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47308000" />
+    <option name="totallyTimeSpent" value="47871000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -628,16 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sprites/MovingItemList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1768">
-          <caret line="179" column="18" lean-forward="true" selection-start-line="179" selection-start-column="18" selection-end-line="179" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/states/Ad.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -722,10 +737,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/states/Game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
+        <state relative-caret-position="255">
+          <caret line="73" column="16" lean-forward="true" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sprites/MovingItemList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1071">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>

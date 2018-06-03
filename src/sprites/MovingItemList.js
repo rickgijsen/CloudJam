@@ -24,6 +24,8 @@ export default class extends Phaser.Group {
 
     this.score = 0
     this.velocityX = 0
+    this.reachedGlass = false;
+    this.reachedMarbel = false;
     this.velocityY = 2
     this.combinedVelocity = 0
     this.totaldistance = 0
@@ -90,14 +92,13 @@ export default class extends Phaser.Group {
     this.totaldistance += this.velocityY
     var tempPosY = this.stitcher.position.y + this.velocityY
     if (tempPosY > (this.game.world.height + this.stitcher.height)) {
-      if (this.totaldistance >= this.changeToGlassDistance) {
-        this.changeToGlassDistance = 1000000000000
+      if (this.totaldistance >= this.changeToGlassDistance && this.reachedGlass == false) {
+        this.reachedGlass = true;
         this.newTableSprite = 'glassTable'
         this.newSplitterSprite = 'glassPatch'
         this.spawnBegin = true
-      } else if (this.totaldistance >= this.changeToMarbelDistance) {
-        this.totaldistance = 0
-        this.changeToMarbelDistance = 1000000000000
+      } else if (this.totaldistance >= this.changeToMarbelDistance && this.reachedMarbel == false) {
+        this.reachedMarbel = true;
         this.newTableSprite = 'marbelTable'
         this.newSplitterSprite = 'marbelPatch'
         this.spawnBegin = true
