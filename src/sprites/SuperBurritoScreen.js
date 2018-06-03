@@ -32,6 +32,7 @@ export default class SuperBurritoScreen extends Phaser.Group {
     this.buildButtons();
     this.buildText()
     this.buildCloseButton()
+     this.buildSuperBurito();
   }
 
   buildBackground() {
@@ -110,6 +111,19 @@ export default class SuperBurritoScreen extends Phaser.Group {
     this.add(this.infoText);
   }
 
+    buildSuperBurito () {
+        this.superBurito = new Sprite({
+            asset: 'superBurito',
+            x: this.game.world.centerX,
+            y: this.game.world.centerY,
+            anchorX: 0.5,
+            anchorY: 0.5
+        })
+
+        this.superBurito.scale.setTo(1, 1)
+
+        this.add(this.superBurito)
+    }
   buildCloseButton () {
     this.closeButton = new Sprite({
       asset: 'buttonClose',
