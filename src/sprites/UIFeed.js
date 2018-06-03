@@ -16,7 +16,7 @@ export default class UIFeed extends Phaser.Group {
     this.buildFartMeter();
     this.buildMute()
 
-    this.game.toggleUI.add(() => {
+    this.game.toggleUIFeed.add(() => {
       this.switchVisibility();
     })
   }

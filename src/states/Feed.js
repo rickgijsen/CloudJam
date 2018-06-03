@@ -17,15 +17,16 @@ import InviteFriendsPopUp from "../sprites/InviteFriendsPopUp";
 export default class extends Phaser.State {
   init () { }
   preload () {
-    this.game.toggleUI = new Phaser.Signal();
+    this.game.toggleUIFeed = new Phaser.Signal();
     this.game.openInviteFriendsPopUp = new Phaser.Signal();
-    this.game.muteButton = new Phaser.Signal();
   }
 
   create() {
     this.countDownTimeMs = 5 * 1000;
     this.timer = this.game.time.create(false);
 
+    this.background = new BackgroundFeed()
+    this.game.add.existing(this.background)
     this.ui = new UIFeed(0, 0)
     this.add.existing(this.ui)
     this.friendInvitePopUp = new InviteFriendsPopUp(0, 0)
@@ -33,13 +34,12 @@ export default class extends Phaser.State {
 
 
     // Add the feed sprites here
-      this.background = new BackgroundFeed()
+
       this.finger = new Finger(0, 0)
       this.player = new Player({
           x: 0,
           y: 0
           });
-      this.game.add.existing(this.background)
         this.game.add.existing(this.finger)
       this.game.add.existing(this.player);
       this.hand = new Hand(0, 0, this.player)
@@ -49,13 +49,13 @@ export default class extends Phaser.State {
     console.log('Starting FeedMe stage: countdown = ' + this.countDownTimeMs)
     this.timer.start()
 
-    this.game.muteButton.dispatch()
     this.game.openInviteFriendsPopUp.dispatch()
   }
 
   // FeedMe timer has completed
   onTimerComplete() {
     console.log("FeedMe stage has finished");
+    this.game.toggleUIFeed.dispatch()
         this.finger.rePosition()
       this.hand.rePosition()
       if(this.hand.moved){
