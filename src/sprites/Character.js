@@ -19,15 +19,15 @@ export default class Character extends Phaser.Group {
     this.gameOver = false;
     this.doOnce = true;
 
-    this.vForce = 2 ; //start boost
+    this.vForce = 7 ; //start boost
     this.vForceMax = 2;
     this.vForceMaxStart = this.vForceMax;
     this.hForce = 0;
     this.decelerationSpeed = .03;
-    this.horizontalMovingSpeed = 5;
-    this.accelerationSpeed = 5;
+    this.horizontalMovingSpeed = 6;
+    this.accelerationSpeed = 3;
     this.maxMoveDistance = 150;
-    this.extraBoostSpeed = 10
+    this.extraBoostSpeed = 5
 
     this.buildImage();
     this.buildController()

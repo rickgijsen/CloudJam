@@ -26,7 +26,8 @@ export default class extends Phaser.Group {
     this.velocityX = 0
     this.velocityY = 2
     this.combinedVelocity = 0
-    this.spawnDistance = 1000
+    this.spawnDistance = 800
+    this.spawnWidth = 100;
 
     // spawn the background
     this.background = new Sprite({
@@ -92,7 +93,7 @@ export default class extends Phaser.Group {
   }
 
   spawnItems () {
-    var position = Math.floor(Math.random() * (screen.width - 300 + 1) + 300)
+    var position = Math.floor(Math.random() * ((this.game.world.centerX + this.spawnWidth) - (this.game.world.centerX - this.spawnWidth)) ) + (this.game.world.centerX - this.spawnWidth);
     var chooseFood = Math.floor(Math.random() * (3))
     switch (chooseFood) {
       case 0:
