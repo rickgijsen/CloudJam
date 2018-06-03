@@ -60,20 +60,36 @@ export default class extends Phaser.State {
     this.endScreen = new EndScreen(0, 0)
     this.add.existing(this.endScreen)
 
+    this.alreadyDead = false;
     this.superBurritoScreen = new SuperBurritoScreen(0, 0, this.character, this.ui.fartBar)
     this.add.existing(this.superBurritoScreen)
+
   }
 
   update () {
     // check collision between squirrel and items
     let char = this.character
     let fartbar = this.ui.fartBar
+    var isDead = false;
     this.movingItemList.forEach(function (item) {
       if (game.physics.arcade.overlap(char, item)) {
-        item.destroy()
-        fartbar.addFarts(item.fartModifier)
+        if(item.isObstacle != true) {
+            item.destroy()
+            fartbar.addFarts(item.fartModifier)
+        } else {
+            isDead = true;
+            fartbar.addFarts(fartbar.fullValue * -1);
+        }
       }
     })
+
+    if(isDead == true && !(this.alreadyDead)) {
+        this.character.vForce = 0;
+        this.character.gameOver = true;
+        this.game.openEndScreen.dispatch(this.character.movingObject.score);
+        this.alreadyDead = true;
+        isDead = false;
+    }
   }
 
   render () {

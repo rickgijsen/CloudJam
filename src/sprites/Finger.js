@@ -25,7 +25,6 @@ export default class extends Phaser.Group {
     })
     this.sprite.alpha = 0
     this.add(this.sprite)
-    console.log(this.sprite)
   }
 
   update () {

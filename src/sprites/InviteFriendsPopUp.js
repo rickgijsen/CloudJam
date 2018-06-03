@@ -26,7 +26,6 @@ export default class InviteFriendsPopUp extends Phaser.Group {
     this.game.openInviteFriendsPopUp.add(() => {
       this.game.world.bringToTop(this)
       this.switchVisibility()
-      console.log('POP-UP OPEN')
     })
   }
 

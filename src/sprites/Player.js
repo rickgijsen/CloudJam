@@ -32,7 +32,6 @@ export default class extends Phaser.Group {
       anchorY: 1
     })
     this.add(this.sprite)
-    console.log(this.sprite)
   }
 
   buildController() {
