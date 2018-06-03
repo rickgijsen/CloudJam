@@ -6,7 +6,7 @@ export default {
   parent: 'gameWrapper',
   scaleMode: Phaser.ScaleManager.EXACT_FIT,
   renderer: Phaser.CANVAS,
-  fullScreenScaleMode: Phaser.ScaleManager.EXACT_FIT,
+  fullScreenScaleMode: Phaser.ScaleManager.NO_SCALE,
   transparent: false,
   antialias: false,
   webfonts: ['Bangers']

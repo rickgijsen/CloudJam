@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import Sprite from '../services/sprite'
+import Player from '../sprites/Player'
+
 import Overlay from '../services/overlay'
 
 export default class FartMeter extends Phaser.Group {
@@ -10,14 +12,34 @@ export default class FartMeter extends Phaser.Group {
     this.y = y;
 
     this.fullValue = 1000;
-    this.filledValue = 800;
+    this.filledValue =  this.game.fartBoostValue;
 
-    this.fartCost = 5;
+    this.fartCost = 1;
 
     this.buildBar();
   }
 
   buildBar() {
+    this.barBottom = new Sprite({
+      asset: 'fartBarBg',
+      x: 55,
+      y: 20,
+      anchorX: 0,
+      anchorY: 0
+    });
+    this.barBottom.scale.setTo(0.4, 0.4)
+    this.add(this.barBottom);
+
+    this.fill = new Sprite({
+      asset: 'fartBarFill',
+      x: 55,
+      y: 20,
+      anchorX: 0,
+      anchorY: 0
+    })
+    this.fill.scale.setTo(0.1, 0.1)
+    this.add(this.fill);
+
     this.bar = new Sprite({
       asset: 'fartBar',
       x: 10,
@@ -25,18 +47,8 @@ export default class FartMeter extends Phaser.Group {
       anchorX: 0,
       anchorY: 0
     });
-    this.bar.scale.setTo(0.2, 0.2)
+    this.bar.scale.setTo(0.4, 0.4)
     this.add(this.bar);
-
-    this.fill = new Overlay({
-      color: '#358c3c',
-      x: 20,
-      y: 20,
-      alpha: 1,
-      width: 185,
-      height: 10
-    })
-    this.add(this.fill);
   }
 
   setBarValue() {
@@ -47,7 +59,7 @@ export default class FartMeter extends Phaser.Group {
     }
 
     let percentage = this.filledValue / this.fullValue;
-    this.fill.scale.setTo(percentage, 1);
+    this.fill.scale.setTo(percentage * 0.4, .4);
   }
 
   update() {

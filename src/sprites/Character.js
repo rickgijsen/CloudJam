@@ -10,6 +10,8 @@ export default class Character extends Phaser.Group {
     this.y = y;
     this.fartBar = fartBar;
 
+    this.fatLevel = 2;
+
     this.holdDownLeft = false;
     this.holdDownMiddle = false;
     this.holdDownRight = false;
@@ -17,12 +19,15 @@ export default class Character extends Phaser.Group {
     this.gameOver = false;
     this.doOnce = true;
 
-    this.vForce = 30;
-    this.vForceMax = 30;
+    this.vForce = 7 ; //start boost
+    this.vForceMax = 2;
+    this.vForceMaxStart = this.vForceMax;
     this.hForce = 0;
-    this.decelerationSpeed = .2;
-    this.horizontalMovingSpeed = 5;
-    this.accelerationSpeed = 2;
+    this.decelerationSpeed = .03;
+    this.horizontalMovingSpeed = 6;
+    this.accelerationSpeed = 3;
+    this.maxMoveDistance = 150;
+    this.extraBoostSpeed = 5
 
     this.buildImage();
     this.buildController()
@@ -31,12 +36,15 @@ export default class Character extends Phaser.Group {
 
     this.movingObject = movingItems;
     this.startPosY = this.movingObject.y;
+    this.xDistanceMoved = 0;
+    this.canMoveLeft = true;
+    this.canMoveRight = true;
   }
 
 
   buildImage() {
     this.squirrelSprite = new Sprite({
-      asset: 'squirrel',
+      asset: `squirrel${this.fatLevel}`,
       x: this.game.world.centerX,
       y: this.game.height - 100,
       anchorX: 0.5,
@@ -44,7 +52,7 @@ export default class Character extends Phaser.Group {
     });
 
     game.physics.arcade.enable(this.squirrelSprite, Phaser.Physics.ARCADE)
-    this.squirrelSprite.scale.setTo(0.1, 0.1)
+    this.squirrelSprite.scale.setTo(0.4, 0.4)
 
     this.add(this.squirrelSprite);
   }
@@ -94,24 +102,36 @@ export default class Character extends Phaser.Group {
     this.createFart()
   }
   moveLeft() {
-    this.hForce = -this.horizontalMovingSpeed;
+    if(this.xDistanceMoved > -this.maxMoveDistance) {
+      this.squirrelSprite.angle = -20;
+      this.hForce = -this.horizontalMovingSpeed;
+      this.xDistanceMoved -= this.horizontalMovingSpeed;
+    } else {
+      this.hForce = 0
+    }
   }
   moveRight() {
-    this.hForce = this.horizontalMovingSpeed;
+    if(this.xDistanceMoved< this.maxMoveDistance) {
+      this.squirrelSprite.angle = 20;
+      this.hForce = this.horizontalMovingSpeed;
+      this.xDistanceMoved += this.horizontalMovingSpeed;
+    } else {
+      this.hForce = 0
+    }
   }
   update() {
     if(this.gameOver) {
       this.vForce = 0;
+      this.hForce = 0;
       this.movingObject.changeY(this.vForce);
+      this.movingObject.changeX(this.hForce);
       return;
     }
-    // this.movingObject.y -= this.vForce;
-    // this.movingObject.x +=  this.hForce;
+
     this.movingObject.changeY(this.vForce);
     this.movingObject.changeX(-this.hForce);
 
     if(this.holdDownLeft) {
-      this.squirrelSprite.angle = -10;
       this.moveLeft()
     }else {
       if(!this.holdDownRight) {
@@ -121,20 +141,32 @@ export default class Character extends Phaser.Group {
     }
     if(this.holdDownMiddle) {
       this.moveUp()
+      this.vForceMax = this.vForceMaxStart + this.extraBoostSpeed;
     } else {
+      this.vForceMax = this.vForceMaxStart;
       this.doOnce = true;
       this.shakeTween.pause()
       this.squirrelSprite.y = this.squirrelStartY;
       this.decelerate(this.decelerationSpeed)
     }
     if(this.holdDownRight) {
-      this.squirrelSprite.angle = 10;
       this.moveRight()
     } else {
       if(!this.holdDownLeft) {
         this.hForce = 0;
         this.squirrelSprite.angle = 0;
       }
+    }
+
+    if(this.fartBar.filledValue> (this.fartBar.fullValue / 3) * 2) {
+      this.fatLevel = 2;
+      this.squirrelSprite.loadTexture(`squirrel${this.fatLevel}`);
+    } else if(this.fartBar.filledValue> (this.fartBar.fullValue / 3)) {
+      this.fatLevel = 1;
+      this.squirrelSprite.loadTexture(`squirrel${this.fatLevel}`);
+    } else {
+      this.fatLevel = 0;
+      this.squirrelSprite.loadTexture(`squirrel${this.fatLevel}`);
     }
   }
   accelerate() {
@@ -153,21 +185,23 @@ export default class Character extends Phaser.Group {
       this.vForce -= decelerationSpeed;
     } else {
       this.vForce = 0;
+      this.hForce = 0;
       this.gameOver = true;
       this.game.openEndScreen.dispatch(this.movingObject.score);
     }
   }
   createFart() {
-    let random = Math.floor(Math.random() * (4 - -4) ) + -4;
+    let randomPos = Math.round(Math.random()) * 2 - 1;
+    let randomSize = Math.floor(Math.random() * 3 )+ 1;
     let fart = new Sprite({
       asset: 'fart',
-      x: this.game.world.centerX + random,
+      x: this.game.world.centerX + randomPos,
       y: this.game.height - 80,
       anchorX: 0.5,
       anchorY: 0.5,
     })
-    fart.alpha = 0.2
-    fart.scale.setTo(0.6, 0.6)
+    fart.alpha = 0.4
+    fart.scale.setTo(0.6 * randomSize, 0.6 * randomSize)
     this.add(fart)
     this.bringToTop(this.squirrelSprite)
     this.fartTween = this.game.add.tween(fart)

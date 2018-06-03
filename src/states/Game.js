@@ -1,5 +1,15 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
+import Character from '../sprites/Character'
+import MovingItemList from '../sprites/MovingItemList'
+import FartMeter from '../sprites/FartMeter'
+import EndScreen from '../sprites/EndScreen'
+import UI from '../sprites/UI'
+import MuteButton from '../sprites/MuteButton'
+import Burger from '../Food/GoodFood/Burger'
+import Burrito from '../Food/GoodFood/Burrito'
+import Lettuce from '../Food/BadFood/Lettuce'
+import Celery from '../Food/BadFood/Celery'
 
 //
 // GameState - does nothing
@@ -13,17 +23,12 @@ import Phaser from 'phaser'
 // Once player dies, start state end
 // Ad === profit?
 
-import Character from '../sprites/Character'
-import MovingItemList from '../sprites/MovingItemList'
-import FartMeter from "../sprites/FartMeter";
-import EndScreen from '../sprites/EndScreen'
-import UI from '../sprites/UI'
-
 export default class extends Phaser.State {
   init () { }
   preload () {
     this.game.openEndScreen = new Phaser.Signal()
     this.game.toggleUI = new Phaser.Signal()
+    this.game.muteButton = new Phaser.Signal()
   }
 
   create () {

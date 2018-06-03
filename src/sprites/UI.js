@@ -28,11 +28,13 @@ export default class UI extends Phaser.Group {
   buildScore() {
     this.banner = new Text({
       text: '',
-      fontSize: 40,
-      fill: '#000000',
+      fontSize: 20,
+      color: '#000000',
       align: 'right',
-      x: this.game.world.centerX + 120,
-      y: 30
+      x: this.game.world.centerX + 125,
+      y: 45,
+      stroke: '#FFFFFF',
+      strokeThickness: 3
     })
     this.banner.padding.set(10, 16)
     this.banner.anchor.setTo(0.5, 0.5)
