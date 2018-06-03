@@ -12,7 +12,6 @@ export default class extends Phaser.State {
   }
 
   onPlayerDies() {
-    console.log("Obesimon went to a better place...");
     this.game.state.start("End");
   }
   render() { }
