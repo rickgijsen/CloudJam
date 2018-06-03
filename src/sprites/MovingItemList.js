@@ -60,7 +60,7 @@ export default class extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 1
     })
-    this.table1.scale.setTo(0.5, 0.5)
+    this.table1.scale.setTo(1, 1)
     this.add(this.table1)
 
     this.table2 = new Sprite({
@@ -70,7 +70,7 @@ export default class extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 1
     })
-    this.table2.scale.setTo(0.5, 0.5)
+    this.table2.scale.setTo(1, 1)
     this.add(this.table2)
 
     this.stitcher = new Sprite({
@@ -80,7 +80,7 @@ export default class extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 1
     })
-    this.stitcher.scale.setTo(0.5, 0.5)
+    this.stitcher.scale.setTo(1, 1)
     this.add(this.stitcher)
   }
 
