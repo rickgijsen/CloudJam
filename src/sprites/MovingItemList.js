@@ -26,32 +26,84 @@ export default class extends Phaser.Group {
     this.velocityX = 0
     this.velocityY = 2
     this.combinedVelocity = 0
-    this.spawnDistance = 800
-    this.spawnWidth = 100;
+    this.totaldistance = 0
+    this.spawnDistance = 1000
+    this.changeToGlassDistance = 11000
+    this.changeToMarbelDistance = 22000
+    this.newTableSprite = ''
+    this.newSplitterSprite = ''
+    this.spawnWidth = 80
 
     // spawn the background
     this.background = new Sprite({
-      asset: 'background',
+      asset: 'floor',
       x: this.game.world.centerX,
       y: this.game.world.height,
       anchorX: 0.5,
       anchorY: 1
     })
-    this.background.scale.setTo(.5, .5)
+    this.background.scale.setTo(1, 1)
     this.add(this.background)
 
     this.background2 = new Sprite({
-      asset: 'background',
+      asset: 'floor',
       x: this.game.world.centerX,
       y: this.game.world.height - this.background.height + 1,
       anchorX: 0.5,
       anchorY: 1
     })
-    this.background2.scale.setTo(.5, .5)
+    this.background2.scale.setTo(1, 1)
     this.add(this.background2)
+
+    this.table1 = new Sprite({
+      asset: 'woodenTable',
+      x: this.game.world.centerX,
+      y: this.game.world.height,
+      anchorX: 0.5,
+      anchorY: 1
+    })
+    this.table1.scale.setTo(0.5, 0.5)
+    this.add(this.table1)
+
+    this.table2 = new Sprite({
+      asset: 'woodenTable',
+      x: this.game.world.centerX,
+      y: this.game.world.height - this.table1.height,
+      anchorX: 0.5,
+      anchorY: 1
+    })
+    this.table2.scale.setTo(0.5, 0.5)
+    this.add(this.table2)
+
+    this.stitcher = new Sprite({
+      asset: 'woodenPatch',
+      x: this.game.world.centerX,
+      y: this.game.world.height - (this.table1.height * 2),
+      anchorX: 0.5,
+      anchorY: 1
+    })
+    this.stitcher.scale.setTo(0.5, 0.5)
+    this.add(this.stitcher)
   }
 
   update () {
+    this.totaldistance += this.velocityY
+    var tempPosY = this.stitcher.position.y + this.velocityY
+    if (tempPosY > (this.game.world.height + this.stitcher.height)) {
+      if (this.totaldistance >= this.changeToGlassDistance) {
+        this.changeToGlassDistance = 1000000000000
+        this.newTableSprite = 'glassTable'
+        this.newSplitterSprite = 'glassPatch'
+        this.spawnBegin = true
+      } else if (this.totaldistance >= this.changeToMarbelDistance) {
+        this.totaldistance = 0
+        this.changeToMarbelDistance = 1000000000000
+        this.newTableSprite = 'marbelTable'
+        this.newSplitterSprite = 'marbelPatch'
+        this.spawnBegin = true
+      }
+    }
+
     // update the distance traveled
     this.combinedVelocity += this.velocityY
     this.score += Math.floor(this.velocityY)
@@ -61,20 +113,57 @@ export default class extends Phaser.Group {
     // update the items
     let worldHeight = this.game.world.height
     let backgroundHeight = this.background.height
+    let tableHeight = this.table1.height
+    let tussenpartHeight = this.stitcher.height
+    let newTableSprite = this.newTableSprite
+    let newSplitterSprite = this.newSplitterSprite
+    let spawnBegin = this.spawnBegin
 
     this.forEach(function (item) {
       item.position.y += yModifier
       item.position.x += xModifier
 
       // destroy the item if it leaves the screen
-      if (item.position.y > screen.height && item.key != 'background') {
+      if (item.position.y > screen.height && item.key != 'floor' && item.key != 'woodenTable' && item.key != 'woodenPatch' && item.key != 'woodenGlass' && item.key != 'glassTable' && item.key != 'glassPatch' && item.key != 'glassMarbel' && item.key != 'marbelTable' && item.key != 'marbelPatch') {
         // destroy the item out of bounds
         item.destroy()
-      } else if (item.position.y > worldHeight + backgroundHeight) {
-        let temp = item.position.y - (worldHeight + backgroundHeight)
-        item.position.y = worldHeight - backgroundHeight + temp
+      } else {
+        // berekenen de pixel verschil buiten het scherm en dan updaten als ie buiten het scherm valt
+        if (item.key == 'floor' && item.position.y > worldHeight + backgroundHeight) {
+          let temp = item.position.y - (worldHeight + backgroundHeight)
+          item.position.y = worldHeight - backgroundHeight + temp + 1 // insurence pixel
+        } else if ((item.key == 'woodenGlass' || item.key == 'woodenPatch' || item.key == 'glassPatch' || item.key == 'glassMarbel' || item.key == 'marbelPatch') && item.position.y > worldHeight + tussenpartHeight) {
+          let temp = item.position.y - (worldHeight + tussenpartHeight)
+          item.position.y = worldHeight - (tableHeight * 2) + temp // insurence pixel
+          if (newSplitterSprite == 'glassPatch' && item.key != 'glassPatch') {
+            if (spawnBegin == true) {
+              item.loadTexture('woodenGlass')
+              spawnBegin = false
+            } else {
+              item.loadTexture(newSplitterSprite)
+            }
+          }
+          if (newSplitterSprite == 'marbelPatch' && item.key != 'marbelPatch') {
+            if (spawnBegin == true) {
+              item.loadTexture('glassMarbel')
+              spawnBegin = false
+            } else {
+              item.loadTexture(newSplitterSprite)
+            }
+          }
+        } else if (item.position.y > worldHeight + tableHeight && item.key != 'floor') {
+          let temp = item.position.y - (worldHeight + tableHeight)
+          item.position.y = worldHeight - tableHeight - tussenpartHeight + temp
+          if (newTableSprite == 'glassTable' && item.key != 'glassTable') {
+            item.loadTexture(newTableSprite)
+          }
+          if (newTableSprite == 'marbelTable' && item.key != 'marbelTable') {
+            item.loadTexture(newTableSprite)
+          }
+        }
       }
     })
+    this.spawnBegin = spawnBegin
 
     if (this.combinedVelocity > this.spawnDistance) {
       this.spawnItems()
@@ -93,7 +182,7 @@ export default class extends Phaser.Group {
   }
 
   spawnItems () {
-    var position = Math.floor(Math.random() * ((this.game.world.centerX + this.spawnWidth) - (this.game.world.centerX - this.spawnWidth)) ) + (this.game.world.centerX - this.spawnWidth);
+    var position = Math.floor(Math.random() * ((this.game.world.centerX + this.spawnWidth) - (this.game.world.centerX - this.spawnWidth))) + (this.game.world.centerX - this.spawnWidth)
     var chooseFood = Math.floor(Math.random() * (3))
     switch (chooseFood) {
       case 0:
