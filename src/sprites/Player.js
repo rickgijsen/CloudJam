@@ -74,7 +74,7 @@ export default class extends Phaser.Group {
         this.updateWeight()
         this.sprite.scale.x = 1
         this.sprite.scale.y = 1
-        game.soundManager.playSound(this.getRandomFart(Math.floor(Math.random() * 5)))
+        game.soundManager.playSound(this.getRandomFart(Math.floor(Math.random() * 6)))
         this.sprite.moveInTween = this.game.add.tween(this.sprite.scale)
             .from({x: .5, y: 1.2}, 500, Phaser.Easing.Circular.Out, false)
 
@@ -86,31 +86,36 @@ export default class extends Phaser.Group {
 
         switch (fartNumber) {
             case 0:
-              //  console.log("fart1")
+              //  console.log("eat01")
                 this.fartNumber = 0
 
-                return "fart01"
+                return "eat01"
                 break;
             case 1:
-              //  console.log("fart2")
+              //  console.log("eat02")
                 this.fartNumber = 1
 
-                return "fart02"
+                return "eat02"
                 break;
             case 2:
-              //  console.log("fart3")
+              //  console.log("eat03")
                 this.fartNumber = 0
-                return "fart03"
+                return "eat03"
                 break;
             case 3:
-             //   console.log("fart4")
+             //   console.log("eat04")
                 this.fartNumber = 0
-                return "fart04"
+                return "eat04"
                 break;
             case 4:
-               // console.log("fart5")
+               // console.log("eat05")
                 this.fartNumber = 0
-                return "fart05"
+                return "eat05"
+                break;
+            case 5:
+                // console.log("eat06")
+                this.fartNumber = 0
+                return "eat06"
                 break;
 
         }
