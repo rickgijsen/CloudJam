@@ -12,7 +12,7 @@ export default class extends Phaser.State {
   preload() {
     WebFont.load({
       google: {
-        families: ['Jelly Donuts'],
+        families: ['Bangers'],
       },
       active: this.fontsLoaded,
     });
