@@ -1,8 +1,8 @@
 import Phaser from 'phaser';
 
 export default {
-  width: 1280,
-  height: 720,
+  width: 720,
+  height: 1280,
   parent: 'gameWrapper',
   scaleMode: Phaser.ScaleManager.EXACT_FIT,
   renderer: Phaser.CANVAS,
