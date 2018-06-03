@@ -18,6 +18,7 @@ export default class Character extends Phaser.Group {
 
     this.gameOver = false;
     this.doOnce = true;
+    this.showedBurritoOnce = false;
 
     this.vForce = 7 ; //start boost
     this.vForceMax = 2;
@@ -187,7 +188,11 @@ export default class Character extends Phaser.Group {
       this.vForce = 0;
       this.hForce = 0;
       this.gameOver = true;
-      this.game.openEndScreen.dispatch(this.movingObject.score);
+      if(!this.showedBurritoOnce) {
+        this.game.openBurritoScreen.dispatch(this.movingObject.score);
+      } else {
+        this.game.openEndScreen.dispatch(this.movingObject.score);
+      }
     }
   }
   createFart() {

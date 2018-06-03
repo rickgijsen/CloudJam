@@ -4,6 +4,7 @@ import Character from '../sprites/Character'
 import MovingItemList from '../sprites/MovingItemList'
 import FartMeter from '../sprites/FartMeter'
 import EndScreen from '../sprites/EndScreen'
+import SuperBurritoScreen from '../sprites/SuperBurritoScreen'
 import UI from '../sprites/UI'
 import MuteButton from '../sprites/MuteButton'
 import Burger from '../Food/GoodFood/Burger'
@@ -27,6 +28,7 @@ export default class extends Phaser.State {
   init () { }
   preload () {
     this.game.openEndScreen = new Phaser.Signal()
+    this.game.openBurritoScreen = new Phaser.Signal()
     this.game.toggleUI = new Phaser.Signal()
     this.game.muteButton = new Phaser.Signal()
   }
@@ -57,6 +59,9 @@ export default class extends Phaser.State {
 
     this.endScreen = new EndScreen(0, 0)
     this.add.existing(this.endScreen)
+
+    this.superBurritoScreen = new SuperBurritoScreen(0, 0, this.character, this.ui.fartBar)
+    this.add.existing(this.superBurritoScreen)
   }
 
   update () {
