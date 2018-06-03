@@ -1,6 +1,8 @@
 
 import Phaser from 'phaser';
 import Sprite from '../services/sprite'
+import Player from '../sprites/Player'
+
 import Overlay from '../services/overlay'
 
 export default class FartMeter extends Phaser.Group {
@@ -11,7 +13,7 @@ export default class FartMeter extends Phaser.Group {
     this.y = y;
 
     this.fullValue = 1000;
-    this.filledValue = 800;
+    this.filledValue =  800;
 
     this.fartCost = 1;
 

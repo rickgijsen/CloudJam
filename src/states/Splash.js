@@ -29,6 +29,7 @@ export default class extends Phaser.State {
     this.load.image('hand_open', 'assets/images/hand_open.png')
     this.load.image('hand_closed', 'assets/images/hand_closed.png')
       this.load.image('hand_fingers', 'assets/images/hand_closedFingers.png')
+      this.load.image('background_feed', 'assets/images/BG_squeeze.png')
 
     //
     // load sounds

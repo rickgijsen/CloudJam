@@ -3,12 +3,14 @@ import Phaser from 'phaser'
 import Player from '../sprites/Player'
 import Hand from '../sprites/Hand'
 import Finger from '../sprites/Finger'
-
+import fartMeter from '../sprites/FartMeter'
 import StartText from '../sprites/StartText'
+
 import Sprite from '../services/Sprite'
 import Character from "../sprites/Character";
 import FartMeter from "../sprites/FartMeter";
 import MovingItemList from "../sprites/MovingItemList";
+import BackgroundFeed from "../sprites/BackgroundFeed";
 
 export default class extends Phaser.State {
   init () { }
@@ -20,15 +22,18 @@ export default class extends Phaser.State {
 
 
     // Add the feed sprites here
+      this.background = new BackgroundFeed()
       this.finger = new Finger(0, 0)
       this.player = new Player({
           x: 0,
           y: 0
           });
+      this.game.add.existing(this.background)
         this.game.add.existing(this.finger)
       this.game.add.existing(this.player);
       this.hand = new Hand(0, 0, this.player)
       this.game.add.existing(this.hand);
+
     // Create the feedme countdown timer
     this.timer.add(this.countDownTimeMs, this.onTimerComplete, this)
     console.log('Starting FeedMe stage: countdown = ' + this.countDownTimeMs)
