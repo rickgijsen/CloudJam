@@ -1,6 +1,7 @@
 import Phaser from 'phaser'
 import { centerGameObjects } from '../utils'
 import SoundManager from '../services/SoundManager'
+import Facebook from '../services/Facebook';
 
 export default class extends Phaser.State {
   init () {
@@ -11,7 +12,8 @@ export default class extends Phaser.State {
     this.loaderBg = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'loaderBg')
     this.loaderBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'loaderBar')
     centerGameObjects([this.loaderBg, this.loaderBar])
-
+    this.load.onFileComplete.add(this.fileComplete, this);
+    this.load.onLoadComplete.add(this.loadComplete, this);
     this.load.setPreloadSprite(this.loaderBar)
     //
     // load your assets
@@ -93,8 +95,14 @@ export default class extends Phaser.State {
     this.load.image('smoothie', 'assets/images/final/healthy_smoothie.png')
     this.load.image('soda', 'assets/images/final/soda.png')
   }
+  fileComplete (progress, cacheKey, success, totalLoaded, totalFiles) {
+    Facebook.setLoadingProgress(progress);
+  }
 
-  create () {
+  loadComplete () {
+    Facebook.startGameAsync(this.startGame, this);
+  }
+  startGame () {
     this.state.start('Feed')
   }
 

@@ -13,6 +13,7 @@ export default class MuteButton extends Phaser.Group {
     this.buildMuteButtonText()
   }
 
+
   buildMuteButton () {
     this.button = new Sprite({
       asset: 'buttonSmall',

@@ -10,6 +10,7 @@ import PlayState from './states/Play'
 import EndState from './states/End'
 import AdState from './states/Ad'
 import config from './config'
+import Facebook from './services/Facebook'
 
 class Game extends Phaser.Game {
   constructor () {
@@ -34,7 +35,7 @@ class Game extends Phaser.Game {
   }
 }
 
-window.game = new Game()
+Facebook.initializeAsync(Game);
 
 if (window.cordova) {
   var app = {
