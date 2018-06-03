@@ -32,7 +32,7 @@ export default class Character extends Phaser.Group {
     this.buildImage();
     this.buildController()
     this.createShakeTween()
-    this.squirrelStartY = this.squirrelSprite.y;
+    this.squirrelStartY = this.sprite.y;
 
     this.movingObject = movingItems;
     this.startPosY = this.movingObject.y;
@@ -43,7 +43,7 @@ export default class Character extends Phaser.Group {
 
 
   buildImage() {
-    this.squirrelSprite = new Sprite({
+    this.sprite = new Sprite({
       asset: `squirrel${this.fatLevel}`,
       x: this.game.world.centerX,
       y: this.game.height - 100,
@@ -51,10 +51,10 @@ export default class Character extends Phaser.Group {
       anchorY: 0.5
     });
 
-    game.physics.arcade.enable(this.squirrelSprite, Phaser.Physics.ARCADE)
-    this.squirrelSprite.scale.setTo(0.4, 0.4)
+    game.physics.arcade.enable(this.sprite, Phaser.Physics.ARCADE)
+    this.sprite.scale.setTo(0.4, 0.4)
 
-    this.add(this.squirrelSprite);
+    this.add(this.sprite);
   }
 
   buildController() {
@@ -103,7 +103,7 @@ export default class Character extends Phaser.Group {
   }
   moveLeft() {
     if(this.xDistanceMoved > -this.maxMoveDistance) {
-      this.squirrelSprite.angle = -20;
+      this.sprite.angle = -20;
       this.hForce = -this.horizontalMovingSpeed;
       this.xDistanceMoved -= this.horizontalMovingSpeed;
     } else {
@@ -112,7 +112,7 @@ export default class Character extends Phaser.Group {
   }
   moveRight() {
     if(this.xDistanceMoved< this.maxMoveDistance) {
-      this.squirrelSprite.angle = 20;
+      this.sprite.angle = 20;
       this.hForce = this.horizontalMovingSpeed;
       this.xDistanceMoved += this.horizontalMovingSpeed;
     } else {
@@ -136,7 +136,7 @@ export default class Character extends Phaser.Group {
     }else {
       if(!this.holdDownRight) {
         this.hForce = 0;
-        this.squirrelSprite.angle = 0;
+        this.sprite.angle = 0;
       }
     }
     if(this.holdDownMiddle) {
@@ -146,7 +146,7 @@ export default class Character extends Phaser.Group {
       this.vForceMax = this.vForceMaxStart;
       this.doOnce = true;
       this.shakeTween.pause()
-      this.squirrelSprite.y = this.squirrelStartY;
+      this.sprite.y = this.squirrelStartY;
       this.decelerate(this.decelerationSpeed)
     }
     if(this.holdDownRight) {
@@ -154,26 +154,26 @@ export default class Character extends Phaser.Group {
     } else {
       if(!this.holdDownLeft) {
         this.hForce = 0;
-        this.squirrelSprite.angle = 0;
+        this.sprite.angle = 0;
       }
     }
 
     if(this.fartBar.filledValue> (this.fartBar.fullValue / 3) * 2) {
       this.fatLevel = 2;
-      this.squirrelSprite.loadTexture(`squirrel${this.fatLevel}`);
+      this.sprite.loadTexture(`squirrel${this.fatLevel}`);
     } else if(this.fartBar.filledValue> (this.fartBar.fullValue / 3)) {
       this.fatLevel = 1;
-      this.squirrelSprite.loadTexture(`squirrel${this.fatLevel}`);
+      this.sprite.loadTexture(`squirrel${this.fatLevel}`);
     } else {
       this.fatLevel = 0;
-      this.squirrelSprite.loadTexture(`squirrel${this.fatLevel}`);
+      this.sprite.loadTexture(`squirrel${this.fatLevel}`);
     }
   }
   accelerate() {
     if(this.doOnce) {
       this.accelerateAnim()
-      this.moveTween = this.game.add.tween(this.squirrelSprite)
-        .to({ y: this.squirrelSprite.y - 10}, 100, Phaser.Easing.Bounce.Out, false)
+      this.moveTween = this.game.add.tween(this.sprite)
+        .to({ y: this.sprite.y - 10}, 100, Phaser.Easing.Bounce.Out, false)
       this.moveTween.start()
     }
     if(this.vForce < this.vForceMax) {
@@ -203,7 +203,7 @@ export default class Character extends Phaser.Group {
     fart.alpha = 0.4
     fart.scale.setTo(0.6 * randomSize, 0.6 * randomSize)
     this.add(fart)
-    this.bringToTop(this.squirrelSprite)
+    this.bringToTop(this.sprite)
     this.fartTween = this.game.add.tween(fart)
       .to({ y: fart.y + 200}, 300, Phaser.Easing.Exponential.In, false);
     this.fartTween.start()
@@ -219,10 +219,10 @@ export default class Character extends Phaser.Group {
   }
 
   createShakeTween() {
-    this.shakeTween = this.game.add.tween(this.squirrelSprite)
-      .to({ x: this.squirrelSprite.x + 1}, 10, Phaser.Easing.Bounce.Out, false)
-      .to({ x: this.squirrelSprite.x - 2 }, 20, Phaser.Easing.Bounce.Out, false)
-      .to({ x: this.squirrelSprite.x + 1}, 10, Phaser.Easing.Bounce.Out, false)
+    this.shakeTween = this.game.add.tween(this.sprite)
+      .to({ x: this.sprite.x + 1}, 10, Phaser.Easing.Bounce.Out, false)
+      .to({ x: this.sprite.x - 2 }, 20, Phaser.Easing.Bounce.Out, false)
+      .to({ x: this.sprite.x + 1}, 10, Phaser.Easing.Bounce.Out, false)
       .loop(true)
   }
 }

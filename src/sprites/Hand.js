@@ -80,14 +80,13 @@ export default class extends Phaser.Group {
   onTimerComplete () {
 
   }
-  rePosition () {
-    // this.position.x = this.game.world.centerX
-    // this.position.y = this.game.world.centerY
+  rePosition (x,y) {
 
-    // game.soundManager.playSound(this.getRandomFart(Math.floor(Math.random() * 5)))
+
+
     this.moveInTween = this.game.add.tween(this.sprite)
 
-      .to({x: this.game.world.centerX + 75, y: this.game.world.centerY + 30}, 1500, Phaser.Easing.Circular.Out, false)
+      .to({x: x, y: y}, 1500, Phaser.Easing.Circular.Out, false)
     this.moveInTween.onComplete.add(() => { this.squish() }, this)
     this.moveInTween.start()
   }

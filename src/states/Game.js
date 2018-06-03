@@ -5,6 +5,8 @@ import MovingItemList from '../sprites/MovingItemList'
 import FartMeter from '../sprites/FartMeter'
 import EndScreen from '../sprites/EndScreen'
 import UI from '../sprites/UI'
+import Hand from '../sprites/Hand'
+import Finger from '../sprites/Finger'
 import MuteButton from '../sprites/MuteButton'
 import Burger from '../Food/GoodFood/Burger'
 import Burrito from '../Food/GoodFood/Burrito'
@@ -52,11 +54,20 @@ export default class extends Phaser.State {
     this.ui = new UI(0, 0, this.movingItemList)
     this.game.add.existing(this.ui)
 
+      this.finger = new Finger(0,0)
+      this.game.add.existing(this.finger)
+
     this.character = new Character(0, 0, this.movingItemList, this.ui.fartBar)
     this.game.add.existing(this.character)
 
+      this.hand = new Hand(0,0,this.character)
+      this.game.add.existing(this.hand)
+
     this.endScreen = new EndScreen(0, 0)
     this.add.existing(this.endScreen)
+
+      this.finger.rePosition()
+      this.hand.rePosition(this.game.world.centerX,this.game.world.centerY + 30)
   }
 
   update () {

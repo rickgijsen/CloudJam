@@ -57,7 +57,7 @@ export default class extends Phaser.State {
     console.log('FeedMe stage has finished')
     this.game.toggleUIFeed.dispatch()
     this.finger.rePosition()
-    this.hand.rePosition()
+    this.hand.rePosition(this.game.world.centerX + 75,this.game.world.centerY + 30)
     if (this.hand.moved) {
       this.hand.squish()
       if (this.player.weight === 0) {
