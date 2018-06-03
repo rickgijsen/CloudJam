@@ -47,15 +47,12 @@ export default class MuteButton extends Phaser.Group {
   }
 
   muteAndUnmute () {
-    console.log('click')
 
     if (!this.game.sound.mute) {
       this.game.sound.mute = true
-      console.log('muted')
       this.icon.loadTexture('mute')
     } else {
       this.game.sound.mute = false
-      console.log('unmuted')
       this.icon.loadTexture('unmute')
     }
   }

@@ -44,7 +44,6 @@ export default class extends Phaser.State {
     this.game.add.existing(this.hand)
     // Create the feedme countdown timer
     this.timer.add(this.countDownTimeMs, this.onTimerComplete, this)
-    console.log('Starting FeedMe stage: countdown = ' + this.countDownTimeMs)
 
     this.ui = new UIFeed(0, 0, this.player, this)
     this.add.existing(this.ui)
@@ -54,7 +53,6 @@ export default class extends Phaser.State {
   // FeedMe timer has completed
   onTimerComplete () {
     this.player.gameHasEnded = true;
-    console.log('FeedMe stage has finished')
     this.game.toggleUIFeed.dispatch()
     this.finger.rePosition()
     this.hand.rePosition()
