@@ -36,11 +36,11 @@ export default class extends Phaser.State {
 
     // Add the feed sprites here
 
-    this.finger = new Finger(0, 0)
+    this.finger = new Finger(0, 0,true)
     this.player = new Player(0, 0, this)
     this.game.add.existing(this.finger)
     this.game.add.existing(this.player)
-    this.hand = new Hand(0, 0, this.player)
+    this.hand = new Hand(0, 0, this.player,true)
     this.game.add.existing(this.hand)
     // Create the feedme countdown timer
     this.timer.add(this.countDownTimeMs, this.onTimerComplete, this)
@@ -56,7 +56,7 @@ export default class extends Phaser.State {
     this.player.gameHasEnded = true;
     console.log('FeedMe stage has finished')
     this.game.toggleUIFeed.dispatch()
-    this.finger.rePosition()
+    this.finger.rePosition(this.game.world.centerX + 40,this.game.world.centerY - 54)
     this.hand.rePosition(this.game.world.centerX + 75,this.game.world.centerY + 30)
     if (this.hand.moved) {
       this.hand.squish()

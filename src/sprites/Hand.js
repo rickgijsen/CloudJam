@@ -5,15 +5,22 @@ import Overlay from '../services/Overlay'
 
 // @author: Aaron Ligthart
 export default class extends Phaser.Group {
-  constructor (x, y, player) {
+  constructor (x, y, player,open) {
     super(game)
-
+      this.open = open
     this.game = game
-    this.buildImage()
+      if(this.open=== true){
+          this.buildImage('hand_open')
+      }
+      if(this.open=== false){
+          this.buildImage('hand_closed')
+
+      }
+
 
     // this.x = x  - this.sprite.texture.width/2
     // this.y = y - this.sprite.texture.height/2
-    this.open = true
+
     this.moved = false
 
     this.player = player
@@ -22,11 +29,12 @@ export default class extends Phaser.Group {
     this.timeTillFadeout = 1 * 1000
   }
 
-  buildImage () {
+  buildImage (asset) {
     this.sprite = new Sprite({
       x: this.game.world.centerX + 200,
       y: 2000,
-      asset: 'hand_open',
+
+      asset: asset,
       anchorX: 0.5,
       anchorY: 0.5
     })

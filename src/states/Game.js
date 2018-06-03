@@ -54,20 +54,21 @@ export default class extends Phaser.State {
     this.ui = new UI(0, 0, this.movingItemList)
     this.game.add.existing(this.ui)
 
-      this.finger = new Finger(0,0)
+      this.finger = new Finger(0,0,false)
       this.game.add.existing(this.finger)
 
     this.character = new Character(0, 0, this.movingItemList, this.ui.fartBar)
     this.game.add.existing(this.character)
 
-      this.hand = new Hand(0,0,this.character)
+      this.hand = new Hand(0,0,this.character,false)
       this.game.add.existing(this.hand)
 
     this.endScreen = new EndScreen(0, 0)
     this.add.existing(this.endScreen)
 
-      this.finger.rePosition()
-      this.hand.rePosition(this.game.world.centerX,this.game.world.centerY + 30)
+      this.finger.rePosition(this.game.world.centerX-5,this.game.world.centerY +144)
+      this.hand.rePosition(this.game.world.centerX+30,this.game.world.centerY + 230)
+
   }
 
   update () {
