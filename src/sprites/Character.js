@@ -15,6 +15,8 @@ export default class Character extends Phaser.Group {
     this.holdDownLeft = false;
     this.holdDownMiddle = false;
     this.holdDownRight = false;
+    this.keepPlayingSound = false;
+    this.soundCanTurnOff = false;
 
     this.gameOver = false;
     this.doOnce = true;
@@ -67,7 +69,14 @@ export default class Character extends Phaser.Group {
     this.clickAreaMiddle.scale.setTo( (1 / 3) ,1)
     this.add(this.clickAreaMiddle);
     this.clickAreaMiddle.events.onInputDown.add(() => {this.holdDownMiddle = true}, this)
-    this.clickAreaMiddle.events.onInputUp.add(() => {this.holdDownMiddle = false}, this)
+    this.clickAreaMiddle.events.onInputUp.add(() => {
+        this.holdDownMiddle = false
+        if(this.soundCanTurnOff == true) {
+            game.soundManager.stopSound('fartBoost')
+            this.soundCanTurnOff = false;
+            this.keepPlayingSound = false;
+        }
+    }, this)
 
     this.clickAreaLeft = new Overlay({
       x: 0,
@@ -93,6 +102,7 @@ export default class Character extends Phaser.Group {
   moveUp() {
     if(this.fartBar.filledValue > 0) {
       this.accelerate()
+
     } else {
       this.decelerate(this.decelerationSpeed)
       return;
@@ -196,6 +206,11 @@ export default class Character extends Phaser.Group {
     }
   }
   createFart() {
+    if(this.keepPlayingSound == false) {
+        this.keepPlayingSound = game.soundManager.playSound('fartBoost', true)
+        this.soundCanTurnOff = true;
+    }
+
     let randomPos = Math.round(Math.random()) * 2 - 1;
     let randomSize = Math.floor(Math.random() * 3 )+ 1;
     let fart = new Sprite({

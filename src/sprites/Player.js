@@ -4,7 +4,7 @@ import Overlay from '../services/Overlay'
 
 // @author: Aaron Ligthart
 export default class extends Phaser.Group {
-  constructor (x, y, feed) {
+  constructor(x, y, feed) {
     super(game)
 
     this.gameHasStarted = false
@@ -23,7 +23,7 @@ export default class extends Phaser.Group {
     this.fatLevel = 0
   }
 
-  buildImage () {
+  buildImage() {
     this.sprite = new Sprite({
       x: this.game.world.centerX,
       y: this.game.height - 50,
@@ -35,7 +35,7 @@ export default class extends Phaser.Group {
     console.log(this.sprite)
   }
 
-  buildController () {
+  buildController() {
     this.clickAreaMiddle = new Overlay({
       x: this.game.width / 4,
       y: this.game.width / 4,
@@ -44,7 +44,7 @@ export default class extends Phaser.Group {
     this.clickAreaMiddle.width = this.game.width
     this.add(this.clickAreaMiddle)
     this.clickAreaMiddle.events.onInputDown.add(() => {
-      if(!this.gameHasEnded) {
+      if (!this.gameHasEnded) {
         this.squish()
         this.game.addFarts.dispatch(10)
         if (!this.gameHasStarted) {
@@ -55,7 +55,8 @@ export default class extends Phaser.Group {
       }
     }, this)
   }
-  updateWeight () {
+
+  updateWeight() {
     this.weight += this.weightperStep
     if (this.weight === 0) {
       this.sprite.loadTexture('char_nu')
@@ -70,11 +71,25 @@ export default class extends Phaser.Group {
       this.fatLevel = 2
     }
   }
-  update () {
+
+  squish() {
+    //  console.log(this.sprite.scale)
+    this.updateWeight()
+    this.sprite.scale.x = 1
+    this.sprite.scale.y = 1
+    game.soundManager.playSound(this.getRandomFart(Math.floor(Math.random() * 6)))
+    this.sprite.moveInTween = this.game.add.tween(this.sprite.scale)
+      .from({x: .5, y: 1.2}, 500, Phaser.Easing.Circular.Out, false)
+
+
+    this.sprite.moveInTween.start();
+  }
+
+  update() {
 
   }
 
-  squish () {
+  squish() {
     //  console.log(this.sprite.scale)
     this.updateWeight()
     this.sprite.scale.x = 1
@@ -86,35 +101,40 @@ export default class extends Phaser.Group {
     this.sprite.moveInTween.start()
   }
 
-  getRandomFart (fartNumber) {
+  getRandomFart(fartNumber) {
     switch (fartNumber) {
       case 0:
         //  console.log("fart1")
         this.fartNumber = 0
-
-        return 'fart01'
-        break
+        return "eat01"
+        break;
       case 1:
-        //  console.log("fart2")
+        //  console.log("eat02")
         this.fartNumber = 1
 
-        return 'fart02'
-        break
+        return "eat02"
+        break;
       case 2:
-        //  console.log("fart3")
+        //  console.log("eat03")
         this.fartNumber = 0
-        return 'fart03'
-        break
+        return "eat03"
+        break;
       case 3:
-        //   console.log("fart4")
+        //   console.log("eat04")
         this.fartNumber = 0
-        return 'fart04'
-        break
+        return "eat04"
+        break;
       case 4:
-        // console.log("fart5")
+        // console.log("eat05")
         this.fartNumber = 0
-        return 'fart05'
-        break
+        return "eat05"
+        break;
+      case 5:
+        // console.log("eat06")
+        this.fartNumber = 0
+        return "eat06"
+        break;
+
     }
   }
 }

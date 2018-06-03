@@ -70,6 +70,13 @@ export default class extends Phaser.State {
     this.sfxList.push({ name: 'fart03', dir: 'assets/sounds/fart03.wav', loop: false })
     this.sfxList.push({ name: 'fart04', dir: 'assets/sounds/fart04.mp3', loop: false })
     this.sfxList.push({ name: 'fart05', dir: 'assets/sounds/fart05.mp3', loop: false })
+      this.sfxList.push({ name: 'eat01', dir: 'assets/sounds/eat01.mp3', loop: false })
+      this.sfxList.push({ name: 'eat02', dir: 'assets/sounds/eat02.mp3', loop: false })
+      this.sfxList.push({ name: 'eat03', dir: 'assets/sounds/eat03.mp3', loop: false })
+      this.sfxList.push({ name: 'eat04', dir: 'assets/sounds/eat04.mp3', loop: false })
+      this.sfxList.push({ name: 'eat05', dir: 'assets/sounds/eat05.mp3', loop: false })
+      this.sfxList.push({ name: 'eat06', dir: 'assets/sounds/eat06.mp3', loop: false })
+      this.sfxList.push({ name: 'fartBoost', dir: 'assets/sounds/fartboost_looped.mp3', loop: false })
 
     this.loadSounds(this.sfxList)
 

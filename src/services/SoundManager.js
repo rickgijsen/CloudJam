@@ -23,8 +23,16 @@ export default class SoundManager {
     return sounds[Math.floor(Math.random() * sounds.length)];
   }
 
-  playSound(key) {
-    this.getSound(key).play()
+  stopSound(key) {
+    this.getSound(key).stop()
+  }
+
+  playSound(key, loop = false) {
+      this.getSound(key).play()
+      if(loop == true) {
+          this.getSound(key).loop = true;
+      }
+      return true;
   }
 
   playSoundRandom(baseKey)
