@@ -21,6 +21,7 @@ export default class InviteFriendsPopUp extends Phaser.Group {
     this.buildInviteFriendsBackground()
     this.buildInviteFriendsButton()
     this.buildInviteFriendsButtonText()
+     this.buildInviteFriendsFatFriend()
     this.buildCloseButton()
     this.game.openInviteFriendsPopUp.add(() => {
       this.game.world.bringToTop(this)
@@ -42,6 +43,19 @@ export default class InviteFriendsPopUp extends Phaser.Group {
     this.add(this.background)
   }
 
+    buildInviteFriendsFatFriend () {
+        this.fatFriend = new Sprite({
+            asset: 'fatFriend',
+            x: this.game.world.centerX,
+            y: this.game.world.centerY,
+            anchorX: 0.5,
+            anchorY: 0.5
+        })
+
+        this.fatFriend.scale.setTo(0.4, 0.4)
+
+        this.add(this.fatFriend)
+    }
   buildInviteFriendsButton () {
     this.inviteFriendsButton = new Sprite({
       asset: 'button',
