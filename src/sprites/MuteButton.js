@@ -2,7 +2,7 @@ import Phaser from 'phaser'
 import Sprite from '../services/Sprite'
 import Text from '../services/Text'
 
-export default class InviteFriendsPopUp extends Phaser.Group {
+export default class MuteButton extends Phaser.Group {
   constructor (x, y) {
     super(game)
     this.visible = false
