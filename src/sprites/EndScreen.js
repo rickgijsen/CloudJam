@@ -54,7 +54,7 @@ export default class EndScreen extends Phaser.Group {
     this.add(this.restartButton);
 
     this.restartButton.events.onInputDown.add(() => {
-      this.game.state.start('Game')
+      this.game.state.start('Feed')
     }, this)
   }
   buildText() {
