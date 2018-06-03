@@ -16,6 +16,7 @@ export default class UIFeed extends Phaser.Group {
     this.buildFartMeter();
     this.buildMute()
     this.buildText()
+      this.buildLogo ()
 
     this.game.toggleUIFeed.add(() => {
       this.switchVisibility();
@@ -37,7 +38,19 @@ export default class UIFeed extends Phaser.Group {
     this.muteButton = new MuteButton(0, 0)
     this.add(this.muteButton)
   }
+    buildLogo () {
+        this.logo = new Sprite({
+            asset: 'logo',
+            x: this.game.world.centerX,
+            y: this.game.world.height-50,
+            anchorX: 0.5,
+            anchorY: 0.5
+        })
 
+        this.logo.scale.setTo(0.25, 0.25)
+
+        this.add(this.logo)
+    }
   buildText() {
     this.startText = new Text({
       text: 'Tap to feed!',
@@ -83,6 +96,7 @@ export default class UIFeed extends Phaser.Group {
     this.fastScaleTween.start();
     this.counterText.visible = true;
     this.muteButton.visible = false;
+    this.logo.visible = false;
     this.fartBar.scale.setTo(1.3, 1.3)
 
     this.moveTween = this.game.add.tween(this.startText)

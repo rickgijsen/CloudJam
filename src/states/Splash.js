@@ -32,6 +32,7 @@ export default class extends Phaser.State {
       this.load.image('background_feed', 'assets/images/BG_squeeze.png')
       this.load.image('fatFriend', 'assets/images/fat_friend.png')
       this.load.image('superBurito', 'assets/images/burito_super.png')
+      this.load.image('logo', 'assets/images/logo_fartboost.png')
 
     //
     // load sounds
