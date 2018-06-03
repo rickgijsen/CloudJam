@@ -72,6 +72,13 @@ export default class extends Phaser.State {
     this.sfxList.push({ name: 'fart03', dir: 'assets/sounds/fart03.wav', loop: false })
     this.sfxList.push({ name: 'fart04', dir: 'assets/sounds/fart04.mp3', loop: false })
     this.sfxList.push({ name: 'fart05', dir: 'assets/sounds/fart05.mp3', loop: false })
+      this.sfxList.push({ name: 'eat01', dir: 'assets/sounds/eat01.mp3', loop: false })
+      this.sfxList.push({ name: 'eat02', dir: 'assets/sounds/eat02.mp3', loop: false })
+      this.sfxList.push({ name: 'eat03', dir: 'assets/sounds/eat03.mp3', loop: false })
+      this.sfxList.push({ name: 'eat04', dir: 'assets/sounds/eat04.mp3', loop: false })
+      this.sfxList.push({ name: 'eat05', dir: 'assets/sounds/eat05.mp3', loop: false })
+      this.sfxList.push({ name: 'eat06', dir: 'assets/sounds/eat06.mp3', loop: false })
+      this.sfxList.push({ name: 'fartBoost', dir: 'assets/sounds/fartboost_looped.mp3', loop: false })
 
     this.loadSounds(this.sfxList)
 
@@ -94,6 +101,16 @@ export default class extends Phaser.State {
     this.load.image('lettuce', 'assets/images/final/lettuce.png')
     this.load.image('smoothie', 'assets/images/final/healthy_smoothie.png')
     this.load.image('soda', 'assets/images/final/soda.png')
+    this.load.image('floor', 'assets/images/final/table progression/floor.jpg');
+    this.load.image('woodenTable', 'assets/images/final/table progression/wooden_table.png');
+    this.load.image('woodenGlass', 'assets/images/final/table progression/wooden_glass.png');
+    this.load.image('glassMarbel', 'assets/images/final/table progression/glass_marbel.png');
+    this.load.image('glassTable', 'assets/images/final/table progression/glass_table.png');
+    this.load.image('glassPatch', 'assets/images/final/table progression/glass_patch.png')
+    this.load.image('marbelPatch', 'assets/images/final/table progression/marbel_patch.png')
+    this.load.image('marbelTable', 'assets/images/final/table progression/marbel_table.png')
+    this.load.image('woodenPatch', 'assets/images/final/table progression/wooden_patch.png')
+
   }
   fileComplete (progress, cacheKey, success, totalLoaded, totalFiles) {
     Facebook.setLoadingProgress(progress);

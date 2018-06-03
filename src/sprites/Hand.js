@@ -49,20 +49,16 @@ export default class extends Phaser.Group {
     this.sprite.moveInTween.start()
 
     this.sprite.loadTexture('hand_closed')
-    console.log('hands down you got a fatty of', this.player.weight)
     switch (this.player.fatLevel) {
       case 0:
         this.player.sprite.loadTexture('char_ns')
-        console.log('normal')
         break
       case 1:
         this.player.sprite.loadTexture('char_ms')
-        console.log('middle')
 
         break
       case 2:
         this.player.sprite.loadTexture('char_fs')
-        console.log('fat')
         break
       default:
         this.player.sprite.loadTexture('char_ns')
@@ -95,28 +91,22 @@ export default class extends Phaser.Group {
   getRandomFart (fartNumber) {
     switch (fartNumber) {
       case 0:
-        console.log('fart1')
         this.fartNumber = 0
-
         return 'fart01'
         break
       case 1:
-        console.log('fart2')
         this.fartNumber = 0
         return 'fart02'
         break
       case 2:
-        console.log('fart3')
         this.fartNumber = 0
         return 'fart03'
         break
       case 3:
-        console.log('fart4')
         this.fartNumber = 0
         return 'fart04'
         break
       case 4:
-        console.log('fart5')
         this.fartNumber = 0
         return 'fart05'
         break
