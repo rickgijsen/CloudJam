@@ -4,7 +4,7 @@ export default class Text extends Phaser.Text {
 
     constructor ({
                      text = '', x = 0, y = 0, anchorX = 0, anchorY = 0, fontSize = 20,
-                     fontName = 'Bangers', fontWeight = 'normal', color = '#323232',
+                     fontName = 'Jelly Donuts', fontWeight = 'normal', color = '#323232',
                      visible = true, align = 'center', boundsAlignH = 'center', boundsAlignV = 'middle',
                      stroke = '#000000', strokeThickness = 0, inputEnabled = false,
                  }) {

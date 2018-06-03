@@ -1,0 +1,10 @@
+import GoodFood from './GoodFood.js'
+
+export default class extends GoodFood {
+  constructor ({x, y}) {
+    super(x, y, 'burger')
+    this.anchor.setTo(0.5)
+    this.scale.setTo(0.2, 0.2)
+    this.fartModifier = 50;
+  }
+}

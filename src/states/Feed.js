@@ -7,17 +7,23 @@ import Sprite from '../services/Sprite'
 import Text from '../services/Text'
 import InviteFriendsPopUp from '../sprites/InviteFriendsPopUp'
 import MuteButton from '../sprites/MuteButton'
+import Character from '../sprites/Character'
+import FartMeter from '../sprites/FartMeter'
+import MovingItemList from '../sprites/MovingItemList'
+import UIFeed from '../sprites/UIFeed'
 
 export default class extends Phaser.State {
   init () { }
   preload () {
     this.game.openInviteFriendsPopUp = new Phaser.Signal()
     this.game.muteButton = new Phaser.Signal()
+    this.game.toggleUI = new Phaser.Signal()
   }
 
   create () {
+    this.ui = new UIFeed(0, 0)
+    this.add.existing(this.ui)
     this.friendInvitePopUp = new InviteFriendsPopUp(0, 0)
-    this.muteButton = new MuteButton(0, 0)
     this.add.existing(this.friendInvitePopUp)
     this.countDownTimeMs = 1 * 1000
     this.timer = this.game.time.create(false)
@@ -49,7 +55,7 @@ export default class extends Phaser.State {
     if (this.hand.moved) {
       this.hand.squish()
     }
-    // this.game.state.start('Game')
+    this.game.state.start('Game')
   }
 
   update () {

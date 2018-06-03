@@ -6,10 +6,10 @@ import FartMeter from '../sprites/FartMeter'
 import EndScreen from '../sprites/EndScreen'
 import UI from '../sprites/UI'
 import MuteButton from '../sprites/MuteButton'
-import Burger from '../Food/Burger'
-import Burrito from '../Food/Burrito'
-import Lettuce from '../Food/Lettuce'
-import Celery from '../Food/Celery'
+import Burger from '../Food/GoodFood/Burger'
+import Burrito from '../Food/GoodFood/Burrito'
+import Lettuce from '../Food/BadFood/Lettuce'
+import Celery from '../Food/BadFood/Celery'
 
 //
 // GameState - does nothing
@@ -77,6 +77,7 @@ export default class extends Phaser.State {
 
   render () {
     if (__DEV__) {
+
     }
   }
 }

@@ -15,47 +15,53 @@ export default class InviteFriendsPopUp extends Phaser.Group {
     this.game.muteButton.add(() => {
       this.game.world.bringToTop(this)
       this.visible = true
-      console.log('MUTE READY')
     })
   }
 
   buildMuteButton () {
     this.button = new Sprite({
-      asset: 'button',
-      x: this.game.world.width,
-      y: this.game.world.height,
-      anchorX: 1,
-      anchorY: 1,
+      asset: 'buttonSmall',
+      x: this.game.world.width - 50,
+      y: 50,
+      anchorX: .5,
+      anchorY: .5,
       inputEnabled: true
     })
-    this.button.scale.setTo(0.3, 0.3)
+    this.button.scale.setTo(0.5, 0.5)
     this.add(this.button)
 
     this.button.events.onInputDown.add(() => {
       this.muteAndUnmute()
-      console.log('MUTED')
     })
   }
 
   buildMuteButtonText () {
-    this.buttonText = new Text({
-      text: 'Mute',
-      anchorX: 2.1,
-      anchorY: 1.3,
-      center: true,
-      fontSize: 55,
-      color: '#2a2a2a'
+    this.icon = new Sprite({
+      asset: 'unmute',
+      x: 0,
+      y: 0,
+      anchorX: .5,
+      anchorY: .5,
+      inputEnabled: true
     })
-
-    this.button.addChild(this.buttonText)
+    this.icon.scale.setTo(.15, .15)
+    this.button.addChild(this.icon)
+    this.icon.events.onInputDown.add(() => {
+      this.muteAndUnmute()
+    })
   }
 
   muteAndUnmute () {
+    console.log('click')
 
     if (!this.game.sound.mute) {
       this.game.sound.mute = true
+      console.log('muted')
+      this.icon.loadTexture('mute')
     } else {
       this.game.sound.mute = false
+      console.log('unmuted')
+      this.icon.loadTexture('unmute')
     }
   }
 }
