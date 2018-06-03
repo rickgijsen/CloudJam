@@ -37,7 +37,7 @@ export default class InviteFriendsPopUp extends Phaser.Group {
       anchorY: 0.5
     })
 
-    this.background.scale.setTo(0.5, 0.5)
+    this.background.scale.setTo(0.7, 0.7)
     this.add(this.background)
   }
 
@@ -45,12 +45,12 @@ export default class InviteFriendsPopUp extends Phaser.Group {
     this.inviteFriendsButton = new Sprite({
       asset: 'button',
       x: this.game.world.centerX,
-      y: this.game.world.centerY + 200,
+      y: this.game.world.centerY + 270,
       anchorX: 0.5,
       anchorY: 0.5,
       inputEnabled: true
     })
-    this.inviteFriendsButton.scale.setTo(0.5, 0.5)
+    this.inviteFriendsButton.scale.setTo(0.7, 0.7)
     this.add(this.inviteFriendsButton)
 
     this.inviteFriendsButton.events.onInputDown.add(() => {
@@ -75,11 +75,11 @@ export default class InviteFriendsPopUp extends Phaser.Group {
     this.title = new Text({
       text: 'Invite your\nfriends!',
       x: this.game.world.centerX,
-      y: this.game.world.centerY - 165,
+      y: this.game.world.centerY - 240,
       anchorX: 0.5,
       anchorY: 0.5,
       center: true,
-      fontSize: 15,
+      fontSize: 20,
       color: '#000000',
       stroke: '#FFFFFF',
       strokeThickness: 3
@@ -91,14 +91,14 @@ export default class InviteFriendsPopUp extends Phaser.Group {
   buildCloseButton () {
     this.closeButton = new Sprite({
       asset: 'buttonClose',
-      x: this.game.world.centerX + 140,
+      x: this.game.width - 50,
       // y: this.game.world.centerY - 165,
-      y: 40,
+      y: 50,
       anchorX: 0.5,
       anchorY: 0.5,
       inputEnabled: true
     })
-    this.closeButton.scale.setTo(0.4, 0.4)
+    this.closeButton.scale.setTo(0.5, 0.5)
     this.add(this.closeButton)
 
     this.closeButton.events.onInputDown.add(() => {

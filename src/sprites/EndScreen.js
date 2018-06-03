@@ -37,7 +37,7 @@ export default class EndScreen extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 0.5
     });
-    this.background.scale.setTo(.5, .5)
+    this.background.scale.setTo(.7, .7)
     this.add(this.background);
   }
 
@@ -45,12 +45,12 @@ export default class EndScreen extends Phaser.Group {
     this.restartButton = new Sprite({
       asset: 'button',
       x: this.game.world.centerX,
-      y: this.game.world.centerY + 200,
+      y: this.game.world.centerY + 270,
       anchorX: 0.5,
       anchorY: 0.5,
       inputEnabled: true
     });
-    this.restartButton.scale.setTo(0.5, 0.5)
+    this.restartButton.scale.setTo(0.7, 0.7)
     this.add(this.restartButton);
 
     this.restartButton.events.onInputDown.add(() => {
@@ -74,7 +74,7 @@ export default class EndScreen extends Phaser.Group {
     this.title = new Text({
       text: 'GAME OVER',
       x: this.game.world.centerX,
-      y: this.game.world.centerY - 165,
+      y: this.game.world.centerY - 240,
       anchorX: 0.5,
       anchorY: 0.5,
       center: true,
@@ -89,10 +89,10 @@ export default class EndScreen extends Phaser.Group {
     this.scoreText = new Text({
       text: ``,
       x: this.game.world.centerX,
-      y: this.game.world.centerY + 90,
+      y: this.game.world.centerY,
       anchorX: 0.5,
       center: true,
-      fontSize: 18,
+      fontSize: 20,
       color: '#000000',
       stroke: '#FFFFFF',
       strokeThickness: 3

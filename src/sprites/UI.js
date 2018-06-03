@@ -28,11 +28,11 @@ export default class UI extends Phaser.Group {
   buildScore() {
     this.banner = new Text({
       text: '',
-      fontSize: 20,
+      fontSize: 30,
       color: '#000000',
       align: 'right',
-      x: this.game.width - 45,
-      y: 45,
+      x: this.game.width - 50,
+      y: 40,
       stroke: '#FFFFFF',
       strokeThickness: 3
     })

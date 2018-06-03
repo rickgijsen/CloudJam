@@ -46,7 +46,7 @@ export default class UIFeed extends Phaser.Group {
       x: this.game.world.centerX,
       y: this.game.world.centerY - 150,
       center: true,
-      fontSize: 15,
+      fontSize: 20,
       color: '#000000',
       stroke: '#FFFFFF',
       strokeThickness: 3
@@ -70,7 +70,7 @@ export default class UIFeed extends Phaser.Group {
       x: this.game.world.centerX,
       y: this.game.world.centerY - 150,
       center: true,
-      fontSize: 50,
+      fontSize: 60,
       color: '#000000',
       stroke: '#FFFFFF',
       strokeThickness: 3
@@ -86,7 +86,7 @@ export default class UIFeed extends Phaser.Group {
     this.fartBar.scale.setTo(1.3, 1.3)
 
     this.moveTween = this.game.add.tween(this.startText)
-      .to({y: this.game.world.centerY - 210 }, 1000, Phaser.Easing.Elastic.Out, false)
+      .to({y: this.game.world.centerY - 230 }, 1000, Phaser.Easing.Elastic.Out, false)
     this.moveTween.start();
 
     this.bobbleTween = this.game.add.tween(this.fartBar)

@@ -32,7 +32,7 @@ export default class extends Phaser.Group {
     this.changeToMarbelDistance = 22000
     this.newTableSprite = ''
     this.newSplitterSprite = ''
-    this.spawnWidth = 80
+    this.spawnWidth = 100
 
     // spawn the background
     this.background = new Sprite({
@@ -42,6 +42,7 @@ export default class extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 1
     })
+    this.background.scale.setTo(1, 1)
     this.add(this.background)
 
     this.background2 = new Sprite({
@@ -51,6 +52,7 @@ export default class extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 1
     })
+    this.background2.scale.setTo(1, 1)
     this.add(this.background2)
 
     this.table1 = new Sprite({
@@ -60,7 +62,7 @@ export default class extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 1
     })
-    this.table1.scale.setTo(1, 1)
+    this.table1.scale.setTo(.7, .7)
     this.add(this.table1)
 
     this.table2 = new Sprite({
@@ -70,7 +72,7 @@ export default class extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 1
     })
-    this.table2.scale.setTo(1, 1)
+    this.table2.scale.setTo(.7, .7)
     this.add(this.table2)
 
     this.stitcher = new Sprite({
@@ -80,7 +82,7 @@ export default class extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 1
     })
-    this.stitcher.scale.setTo(1, 1)
+    this.stitcher.scale.setTo(.7, .7)
     this.add(this.stitcher)
   }
 

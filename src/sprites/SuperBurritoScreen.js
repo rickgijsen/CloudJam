@@ -42,7 +42,7 @@ export default class SuperBurritoScreen extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 0.5
     });
-    this.background.scale.setTo(.5, .5)
+    this.background.scale.setTo(.7, .7)
     this.add(this.background);
   }
 
@@ -50,12 +50,12 @@ export default class SuperBurritoScreen extends Phaser.Group {
     this.restartButton = new Sprite({
       asset: 'button',
       x: this.game.world.centerX,
-      y: this.game.world.centerY + 200,
+      y: this.game.world.centerY + 270,
       anchorX: 0.5,
       anchorY: 0.5,
       inputEnabled: true
     });
-    this.restartButton.scale.setTo(0.5, 0.5)
+    this.restartButton.scale.setTo(0.7, 0.7)
     this.add(this.restartButton);
 
     this.restartButton.events.onInputDown.add(() => {
@@ -83,11 +83,11 @@ export default class SuperBurritoScreen extends Phaser.Group {
     this.title = new Text({
       text: 'Super\nburrito!',
       x: this.game.world.centerX,
-      y: this.game.world.centerY - 165,
+      y: this.game.world.centerY - 240,
       anchorX: 0.5,
       anchorY: 0.5,
       center: true,
-      fontSize: 18,
+      fontSize: 20,
       color: '#000000',
       stroke: '#FFFFFF',
       strokeThickness: 3
@@ -96,12 +96,12 @@ export default class SuperBurritoScreen extends Phaser.Group {
     this.add(this.title);
 
     this.infoText = new Text({
-      text: `Eat the super burrito\nfor an extra boost`,
+      text: `Eat the\nsuper burrito\nfor an extra\nboost`,
       x: this.game.world.centerX,
-      y: this.game.world.centerY + 90,
+      y: this.game.world.centerY,
       anchorX: 0.5,
       center: true,
-      fontSize: 12,
+      fontSize: 20,
       color: '#000000',
       stroke: '#FFFFFF',
       strokeThickness: 3
@@ -113,14 +113,14 @@ export default class SuperBurritoScreen extends Phaser.Group {
   buildCloseButton () {
     this.closeButton = new Sprite({
       asset: 'buttonClose',
-      x: this.game.world.centerX + 140,
+      x: this.game.width - 50,
       // y: this.game.world.centerY - 165,
-      y: 40,
+      y: 50,
       anchorX: 0.5,
       anchorY: 0.5,
       inputEnabled: true
     })
-    this.closeButton.scale.setTo(0.4, 0.4)
+    this.closeButton.scale.setTo(0.5, 0.5)
     this.add(this.closeButton)
 
     this.closeButton.events.onInputDown.add(() => {

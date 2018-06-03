@@ -22,22 +22,22 @@ export default class FartMeter extends Phaser.Group {
   buildBar() {
     this.barBottom = new Sprite({
       asset: 'fartBarBg',
-      x: 55,
-      y: 20,
+      x: 75,
+      y: 22,
       anchorX: 0,
       anchorY: 0
     });
-    this.barBottom.scale.setTo(0.4, 0.4)
+    this.barBottom.scale.setTo(0.6, 0.6)
     this.add(this.barBottom);
 
     this.fill = new Sprite({
       asset: 'fartBarFill',
-      x: 55,
+      x: 75,
       y: 20,
       anchorX: 0,
       anchorY: 0
     })
-    this.fill.scale.setTo(0.1, 0.1)
+    this.fill.scale.setTo(0.6, 0.6)
     this.add(this.fill);
 
     this.bar = new Sprite({
@@ -47,7 +47,7 @@ export default class FartMeter extends Phaser.Group {
       anchorX: 0,
       anchorY: 0
     });
-    this.bar.scale.setTo(0.4, 0.4)
+    this.bar.scale.setTo(0.6, 0.6)
     this.add(this.bar);
   }
 
@@ -59,7 +59,7 @@ export default class FartMeter extends Phaser.Group {
     }
 
     let percentage = this.filledValue / this.fullValue;
-    this.fill.scale.setTo(percentage * 0.4, .4);
+    this.fill.scale.setTo(percentage * 0.7, .7);
   }
 
   update() {

@@ -17,13 +17,13 @@ export default class MuteButton extends Phaser.Group {
   buildMuteButton () {
     this.button = new Sprite({
       asset: 'buttonSmall',
-      x: this.game.world.width - 40,
-      y: 40,
+      x: this.game.world.width - 50,
+      y: 50,
       anchorX: .5,
       anchorY: .5,
       inputEnabled: true
     })
-    this.button.scale.setTo(0.4, 0.4)
+    this.button.scale.setTo(0.5, 0.5)
     this.add(this.button)
 
     this.button.events.onInputDown.add(() => {

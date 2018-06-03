@@ -29,7 +29,7 @@ export default class Character extends Phaser.Group {
     this.decelerationSpeed = .03;
     this.horizontalMovingSpeed = 6;
     this.accelerationSpeed = 3;
-    this.maxMoveDistance = 150;
+    this.maxMoveDistance = 200;
     this.extraBoostSpeed = 5
 
     this.buildImage();
@@ -53,7 +53,7 @@ export default class Character extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 0.5
     });
-
+    this.squirrelSprite.scale.setTo(0.7, 0.7)
     game.physics.arcade.enable(this.squirrelSprite, Phaser.Physics.ARCADE)
 
     this.add(this.squirrelSprite);
