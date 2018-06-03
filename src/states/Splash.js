@@ -52,9 +52,26 @@ export default class extends Phaser.State {
     this.load.image('fartBarFill', 'assets/images/final/fart_icon_bar_full.png')
     this.load.image('fart', 'assets/images/fart.png')
     this.load.image('button', 'assets/images/button.png')
+    this.load.image('buttonClose', 'assets/images/final/button_closed.png')
     this.load.image('popUpBackground', 'assets/images/pop-up-background.png')
     this.load.image('burger', 'assets/images/burger.png')
     this.load.image('evil-burger', 'assets/images/evil-burger.png')
+    this.load.image('hand_open', 'assets/images/hand_open.png')
+    this.load.image('hand_closed', 'assets/images/hand_closed.png')
+    this.load.image('mute', 'assets/images/mute.png')
+    this.load.image('unmute', 'assets/images/unmute.png')
+
+    //
+    // load sounds
+    //
+    this.sfxList = []
+    this.sfxList.push({ name: 'fart01', dir: 'assets/sounds/fart01.wav', loop: false })
+    this.sfxList.push({ name: 'fart02', dir: 'assets/sounds/fart02.wav', loop: false })
+    this.sfxList.push({ name: 'fart03', dir: 'assets/sounds/fart03.wav', loop: false })
+    this.sfxList.push({ name: 'fart04', dir: 'assets/sounds/fart04.mp3', loop: false })
+    this.sfxList.push({ name: 'fart05', dir: 'assets/sounds/fart05.mp3', loop: false })
+
+    this.loadSounds(this.sfxList)
 
     this.load.image('burrito', 'assets/images/final/burrito.png')
     this.load.image('pizza', 'assets/images/final/pizza.png')
@@ -66,6 +83,7 @@ export default class extends Phaser.State {
     this.load.image('fartBar', 'assets/images/empty-bar.png')
     this.load.image('fart', 'assets/images/fart.png')
     this.load.image('button', 'assets/images/button.png')
+    this.load.image('buttonSmall', 'assets/images/button_small.png')
     this.load.image('popUpBackground', 'assets/images/pop-up-background.png')
     this.load.image('burger', 'assets/images/final/burgers.png')
     this.load.image('celery', 'assets/images/final/celery.png')

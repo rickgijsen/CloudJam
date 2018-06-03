@@ -5,6 +5,7 @@ export default class extends Phaser.Sprite {
   constructor (x, y, asset) {
     super(game, x, y, asset)
     this.anchor.setTo(0.5)
+    this.scale.setTo(0.4, 0.4)
 
     game.physics.arcade.enable(this, Phaser.Physics.ARCADE)
 

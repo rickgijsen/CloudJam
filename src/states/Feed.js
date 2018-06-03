@@ -11,14 +11,25 @@ import Character from "../sprites/Character";
 import FartMeter from "../sprites/FartMeter";
 import MovingItemList from "../sprites/MovingItemList";
 import BackgroundFeed from "../sprites/BackgroundFeed";
+import UIFeed from "../sprites/UIFeed";
+import InviteFriendsPopUp from "../sprites/InviteFriendsPopUp";
 
 export default class extends Phaser.State {
   init () { }
-  preload () { }
+  preload () {
+    this.game.toggleUI = new Phaser.Signal();
+    this.game.openInviteFriendsPopUp = new Phaser.Signal();
+    this.game.muteButton = new Phaser.Signal();
+  }
 
   create() {
     this.countDownTimeMs = 5 * 1000;
     this.timer = this.game.time.create(false);
+
+    this.ui = new UIFeed(0, 0)
+    this.add.existing(this.ui)
+    this.friendInvitePopUp = new InviteFriendsPopUp(0, 0)
+    this.add.existing(this.friendInvitePopUp)
 
 
     // Add the feed sprites here
@@ -33,11 +44,13 @@ export default class extends Phaser.State {
       this.game.add.existing(this.player);
       this.hand = new Hand(0, 0, this.player)
       this.game.add.existing(this.hand);
-
     // Create the feedme countdown timer
     this.timer.add(this.countDownTimeMs, this.onTimerComplete, this)
     console.log('Starting FeedMe stage: countdown = ' + this.countDownTimeMs)
     this.timer.start()
+
+    this.game.muteButton.dispatch()
+    this.game.openInviteFriendsPopUp.dispatch()
   }
 
   // FeedMe timer has completed
@@ -61,7 +74,7 @@ export default class extends Phaser.State {
    // this.game.state.start("Game");
   }
 
-  update() {
+  update () {
   }
 
   render () { }

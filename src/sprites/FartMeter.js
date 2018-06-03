@@ -1,4 +1,3 @@
-
 import Phaser from 'phaser';
 import Sprite from '../services/sprite'
 import Player from '../sprites/Player'

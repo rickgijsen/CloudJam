@@ -5,16 +5,30 @@ import MovingItemList from '../sprites/MovingItemList'
 import FartMeter from '../sprites/FartMeter'
 import EndScreen from '../sprites/EndScreen'
 import UI from '../sprites/UI'
+import MuteButton from '../sprites/MuteButton'
 import Burger from '../Food/GoodFood/Burger'
 import Burrito from '../Food/GoodFood/Burrito'
 import Lettuce from '../Food/BadFood/Lettuce'
 import Celery from '../Food/BadFood/Celery'
+
+//
+// GameState - does nothing
+//
+
+// Every State has its own logic
+// This class controls the logic
+
+// Once this state starts, start state feed on Input
+// when feed timer is done, start state play
+// Once player dies, start state end
+// Ad === profit?
 
 export default class extends Phaser.State {
   init () { }
   preload () {
     this.game.openEndScreen = new Phaser.Signal()
     this.game.toggleUI = new Phaser.Signal()
+    this.game.muteButton = new Phaser.Signal()
   }
 
   create () {
@@ -43,6 +57,10 @@ export default class extends Phaser.State {
 
     this.endScreen = new EndScreen(0, 0)
     this.add.existing(this.endScreen)
+
+    this.muteButton = new MuteButton(0, 0)
+
+    this.game.muteButton.dispatch()
   }
 
   update () {

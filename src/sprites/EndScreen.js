@@ -11,8 +11,16 @@ export default class EndScreen extends Phaser.Group {
     this.x = x;
     this.y = y;
 
+    this.overlay = new Overlay({
+      x: -1000,
+      y: -1000,
+      alpha: 0.7,
+    })
+    this.overlay.scale.setTo(4, 4)
+    this.add(this.overlay)
+
     this.game.openEndScreen.add((score) => {
-      this.scoreText.text = `${Math.floor(score / 10) / 100}m`
+      this.scoreText.text = `Score: \n${Math.floor(score / 10) / 100}m`
       this.switchVisibility();
       this.game.toggleUI.dispatch();
     });
@@ -29,7 +37,7 @@ export default class EndScreen extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 0.5
     });
-    this.background.scale.setTo(.6, .6)
+    this.background.scale.setTo(.5, .5)
     this.add(this.background);
   }
 
@@ -37,7 +45,7 @@ export default class EndScreen extends Phaser.Group {
     this.restartButton = new Sprite({
       asset: 'button',
       x: this.game.world.centerX,
-      y: 450,
+      y: this.game.world.centerY + 200,
       anchorX: 0.5,
       anchorY: 0.5,
       inputEnabled: true
@@ -55,8 +63,10 @@ export default class EndScreen extends Phaser.Group {
       anchorX: 0.5,
       anchorY: 0.5,
       center: true,
-      fontSize: 36,
-      color: '#2a2a2a',
+      fontSize: 30,
+      color: '#000000',
+      stroke: '#FFFFFF',
+      strokeThickness: 3
     });
 
     this.restartButton.addChild(this.buttonText);
@@ -64,12 +74,14 @@ export default class EndScreen extends Phaser.Group {
     this.title = new Text({
       text: 'GAME OVER',
       x: this.game.world.centerX,
-      y: 220,
+      y: this.game.world.centerY - 165,
       anchorX: 0.5,
       anchorY: 0.5,
       center: true,
-      fontSize: 36,
-      color: '#2a2a2a',
+      fontSize: 20,
+      color: '#000000',
+      stroke: '#FFFFFF',
+      strokeThickness: 3
     });
 
     this.add(this.title);
@@ -77,11 +89,13 @@ export default class EndScreen extends Phaser.Group {
     this.scoreText = new Text({
       text: ``,
       x: this.game.world.centerX,
-      y: 280,
+      y: this.game.world.centerY + 90,
       anchorX: 0.5,
       center: true,
-      fontSize: 36,
-      color: '#2a2a2a',
+      fontSize: 18,
+      color: '#000000',
+      stroke: '#FFFFFF',
+      strokeThickness: 3
     });
 
     this.add(this.scoreText);
@@ -92,6 +106,12 @@ export default class EndScreen extends Phaser.Group {
       this.visible = false;
     } else {
       this.visible = true;
+      this.fadeInTween = this.game.add.tween(this.overlay)
+        .from({ alpha: 0 }, 200, Phaser.Easing.Default, false);
+      this.fadeInTween.start();
+      this.moveInTween = this.game.add.tween(this)
+        .from({ y: -800 }, 800, Phaser.Easing.Elastic.Out, false);
+      this.moveInTween.start();
     }
   }
 }
