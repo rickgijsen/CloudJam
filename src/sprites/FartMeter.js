@@ -32,7 +32,7 @@ export default class FartMeter extends Phaser.Group {
 
     this.fill = new Sprite({
       asset: 'fartBarFill',
-      x: 75,
+      x: 50,
       y: 20,
       anchorX: 0,
       anchorY: 0
