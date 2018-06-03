@@ -12,7 +12,7 @@ export default class FartMeter extends Phaser.Group {
     this.y = y;
 
     this.fullValue = 1000;
-    this.filledValue =  800;
+    this.filledValue =  this.game.fartBoostValue;
 
     this.fartCost = 1;
 
